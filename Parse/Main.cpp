@@ -1,0 +1,266 @@
+#pragma once
+
+#include"String.cpp" // String
+#include"Begin.cpp" // Begin
+#include"UselessObj.cpp"
+#include"Tuple.cpp"
+// #include<string> was here but taken away because i dont think is needed.
+#include"Vector.cpp" // FIXME: Make a better implementation of Vector
+#include"Traits.cpp"
+#include<iostream> // std::cout
+#include"Get.cpp" // pse::get
+#include"Array.cpp"
+#include"ImplicitEquals.cpp"
+#include"Variant.cpp"
+#include"TypeID.cpp"
+#include"Visit.cpp" // pse::Visit
+#include"overload.cpp" // pse::overload
+
+// only using the standard library for std::cout
+// Currently getting an error because of Bitfender doing checks whilst
+// trying to compile the code.
+// Link: https://learn.microsoft.com/en-us/cpp/error-messages/tool-errors/linker-tools-error-lnk1104?f1url=%3FappId%3DDev16IDEF1%26l%3DEN-US%26k%3Dk(LNK1104)%26rd%3Dtrue&view=msvc-170
+
+template<typename T_>
+auto make_T(auto T, auto... Ts)
+{
+	return T_{ T, Ts... };
+}
+
+// c++20 concepts
+template<typename T>
+concept HasPlusOperator = requires(T t)
+{
+	t += t;
+};
+
+template<typename T, int i>
+pse::Array<T, i> v{};
+
+// uses concepts to show that HasPlus operator can be added because that is how this function 
+// Works.
+// Notice the _|_
+//            \ /
+//             .
+template<HasPlusOperator Obj, auto c, auto... cs>
+constexpr auto CharToStringNTTP()
+
+{
+	auto object_val = make_T<Obj, c, cs...>;
+	return object_val + CharToStringNTTP(cs...);
+}
+
+template<typename T>
+struct s
+{
+	auto push_back(T t)
+	{
+		// do nothing just a pointless type
+	}
+};
+
+struct EnumerationType
+{
+	EnumerationType(int string)
+	{
+		Enums.push_back(string);
+	}
+
+	s<int> Enums;
+};
+
+// ^
+// |  FIXME. Need better implementation of this.
+
+constexpr auto HasSameConstexpr(auto T, auto Str)
+{
+	return true; // return true for now, even though done no parsing
+}
+
+template<typename T, auto Str>
+struct SomePartStrHas
+{
+	constexpr auto value()
+	{
+		return HasSameConstexpr(T{}.name(), Str);
+	}
+};
+
+template<typename T, typename Str>
+struct NameOf
+{
+	static constexpr auto value = Str::name;
+};
+
+template<auto Str, auto Obj>
+struct ParseNonMember
+{
+	auto parse() { /*...*/ }
+};
+
+//template<auto Str, auto Obj> // NTTP syntax obj.Member func
+//struct ParseNonMember < pse::String<8>("begin()"), tse::UselessObj{} >
+//{
+//	auto parse()
+//	{
+//		if constexpr (SomePartStrHas<NameOf<decltype(Obj)>, Str>::value)
+//		{
+//			return tse::Begin(Obj);
+//		}
+//	}
+//};
+
+inline namespace G_lobal
+{
+	int TupleSize = 0;
+}
+
+/*
+auto FindTupleSize(auto& Tuple_)
+{
+	TupleSize++;
+	return FindTupleSize(Tuple_.values);
+}
+
+template<auto T>
+auto FindTupleSize(pse::Tuple<T>& t)
+{
+	TupleSize++;
+	Tuple_s = TupleSize;
+	TupleSize = 0;
+	return Tuple_s;
+}
+
+template<typename T>
+auto FindTupleSize(T t)
+{
+	return TupleSize;
+}
+*/
+
+template<auto T, decltype(T)... B>
+struct Homogeneous
+{
+};
+
+template<auto T>
+struct constant
+{
+	decltype(T) value = T;
+};
+
+#include <array>
+
+struct Widget {
+	int d;
+	constexpr int array_size() const { return d * (d + 1) / 2; }
+};
+
+// From Daisy Hollmans cute tricks
+// 
+// constexpr auto bad(Widget w) {
+//   return std::array<int, w.array_size()>{};  // doesn't compile
+// }
+
+template <auto> struct ConstexprParam {};
+template <auto v> inline auto ConstexprArg = ConstexprParam<v>{};
+
+template <Widget w>
+constexpr auto good(ConstexprParam< w >) {
+	return pse::Array<int, w.array_size()>{};  // works fine!!!
+}
+
+constexpr Widget foo{ 42 };
+// Doesn't compile:
+// auto my_array = bad(foo);
+auto my_array = good(ConstexprArg<foo>);
+
+template<typename T>
+class Base
+{
+	T value{};
+
+public:
+	Base()
+	{
+		// ...
+	}
+
+	Base(T v) : value{ v } 
+	{
+		// ...
+	}
+};
+
+template<typename... Types>
+struct Multi : private Base<Types>
+{
+	using Base<Types>::Base...;
+};
+
+using m = Multi<int, char, bool, double>;
+
+template<typename T>
+struct type
+{
+	using value = T;
+};
+
+template<typename T>
+struct Class : T
+{
+	using T::T;
+};
+
+template<typename T>
+constexpr auto c() -> Class<T>
+{
+	return Class<T>();
+}
+
+template<typename T>
+auto class_v = Class<T>();
+
+auto assert(bool b, auto& s)
+{
+	if (!b)
+	{
+		std::cout << s << " failed.\n";
+	}
+	else
+	{
+		std::cout << s << " passed.\n";
+	}
+}
+
+int main()
+{
+	auto c_int = constant<42>{};
+	std::cout << c_int.value;
+	std::cout << "\n";
+	// m p = 'c';
+	pse::Tuple<42, 'c', true, 3.14> v{};
+	// Dont need to initialize becuase everything is already initialized
+
+	//pse::Visit
+	                          (pse::overload{ [](pse::String<10>& s) {std::cout << "String.\n"; },
+		                      [](int i) {std::cout << "Int.\n"; } },
+		                      pse::Choices::ReturnUnWanted{}, 42);
+
+	// auto x = pse::get<0>(v);
+	std::cout << v.values.values.value;
+	// std::cout << "\n" << x << "\n";
+	// could do a chain like this.
+
+	// auto x = v<int, 20>;
+	// Or need to implement a better get function
+
+	// ImplicitEquals(52, 52.3);
+
+	//pse::Variant<c<int>(), c<char>(), c<bool>(), c<double>()> x{};
+	// pse::Variant<class_v<int>> x{};
+
+	auto x = pse::parse<int>();
+	//constexpr bool b = (x == pse::String<12>("int"));
+	// assert(x == pse::String<12>("int"), pse::String<28>("x == pse::String<12>(\"int\")"));
+}
