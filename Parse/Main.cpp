@@ -261,6 +261,10 @@ int main()
 	// pse::Variant<class_v<int>> x{};
 
 	auto x = pse::parse<int>();
+
+	decltype(auto) string_ = "Hello What is Your Name?\n";
+	//pse::StringList string{"Hello What is Your Name?\n"};
+	//string.print();
 	//constexpr bool b = (x == pse::String<12>("int"));
 	// assert(x == pse::String<12>("int"), pse::String<28>("x == pse::String<12>(\"int\")"));
 }

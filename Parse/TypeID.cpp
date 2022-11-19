@@ -4,23 +4,23 @@ namespace pse
 {
 	// FIXME: Use string implemenatation without having to pass in size of const char*
 	template<typename T>
-	auto parseType()
+	auto parseType() //-> StringList
 	{
 		if constexpr(T() == 0) // 0 == int
 		{
-			return String<12>("int");
+			return ("int");
 		}
 		if constexpr(T() == 0.0) // 0.0 == double
 		{
-			return String<12>("double");
+			return ("double");
 		}
 		if constexpr(T() == ' ') // '' == char
 		{
-			return String<12>("char");
+			return ("char");
 		}
 		if constexpr(T() == false)
 		{
-			return String<12>("bool");
+			return ("bool");
 		}
 		//if constexpr(T() == String(" "))
 		//{
