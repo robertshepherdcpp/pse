@@ -206,6 +206,41 @@ struct type
 	using value = T;
 };
 
+/*--------------------------------------------------------------------------
+-----------------------------Testing----------------------------------------
+----------------------------------------------------------------------------
+*/
+
+
+template<typename T, typename... Ts>
+struct Parameter
+{
+
+};
+
+template<typename T>
+struct Parameter<T>
+{
+
+};
+
+// we get an error as we cannot have a parameter pack that is not at the end of a template
+// parameter list as one would always be empty.
+
+//template<typename T, typename... Ts, typename... Ts2>
+template<typename T, typename B>
+struct Parameter<T, B>//<T, Ts..., Ts2...>
+{
+
+};
+
+/*--------------------------------------------------------------------------
+-----------------------------Testing----------------------------------------
+----------------------------------------------------------------------------
+*/
+
+
+
 template<typename T>
 struct Class : T
 {
@@ -267,4 +302,6 @@ int main()
 	//string.print();
 	//constexpr bool b = (x == pse::String<12>("int"));
 	// assert(x == pse::String<12>("int"), pse::String<28>("x == pse::String<12>(\"int\")"));
+
+	std::cout << "\nA float's default value is: " << float{} << " -- !.\n";
 }
