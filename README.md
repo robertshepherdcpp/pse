@@ -17,3 +17,12 @@ struct Tuple{};
 template<typename T, typename... Ts>
 struct TupleLike{}; // Just Tuple combined with a vector
 ```
+
+```C++
+template<typename T>
+auto swap(T& a, T& b)
+{
+  // Implementation
+}
+```
+
