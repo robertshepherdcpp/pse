@@ -73,8 +73,49 @@ namespace pse
 		}
 	}
 
+    /*
+	This function is going to be used to call get_tuple_elements n number of times on an element.
+	*/
+
+	// Do_Times that takes a callable that accepts no args.
+	constexpr auto Do_Times(auto& Callable, int NumTimes)
+	{
+		for(int i = 0; i < NumTimes; i++)
+		{
+			Callable()
+		}
+	}
+
+	/*
+	* A problem with Do_Times is that, we need it to be able to be done inside a parameter pack but this just returns something once,
+	as soon as the loops starts the loop will and and the rest of the code will not excecute. We need to have something lik:
+
+	get_tuple_elements(TupleThatCanBeExpanded)...;
+	*/
+    
+	// overload that takes a callable with some args. Constexpr so can appear in a parameter pack sequence
+	template<typename T, typename... Ts>
+	constexpr auto Do_Times(auto& Callable, int NumTimes, T t, Ts&... ts)
+	{
+		for(int i = 0; i < NumTimes, i++)
+		{
+		return Callable(t, ts...);
+		}
+	}
+    
+	// notice taking them all by reference. Needs reference because of things like get_tuple_elements relies on it not being a copy
 	template<typename T>
-	auto GetParameterPackIndex(TupleLike<T> tuple, auto index
+	constexpr auto Do_Times(auto& Callable, int NumTimes, T& t)
+	{
+		for(int i = 0; i < NumTimes; i++)
+		{
+			return Callable(t);
+		}
+	}
+
+    // cosntexpred becuase operation can happen at compile time and should happen at compile time.
+	template<typename T>
+	constexpr auto GetParameterPackIndex(TupleLike<T> tuple, auto index)
 	{
 		return tuple.first; // no exception hanling currently, if wrong input from the user it is the user's fault.
 	}
@@ -104,17 +145,19 @@ namespace pse
 			return GetParameterPackIndex(tuple, tuple.index);
 		}
 	}
-
+    
+	// pointless so i have depracated it. Shouldnt really use atall.
 	template<typename T, typename... Ts>
-	auto GetType(T t, Ts... ts)
+	[[deprecated]] auto GetType(T t, Ts... ts)
 	{
 		return t + ts...;
 	}
 
+    //  This one works. So this one does not need fixing
 	template<typename T, typename B, typename A>
 	auto make_TupleLike(T t, TupleLike<A> tuple, B b)
 	{
-		return Tuple<T, A, B>(t, tuple, b);
+		return Tuple<T, A, B>(t, tuple.first, b);
 	}
 
 
@@ -149,7 +192,7 @@ namespace pse
 		template<typename B>
 		auto push_back(B b) // need a different type because it is a tuple structure
 		{
-			auto curr_tuple = make_TupleLike(first, b, seconds);
+			auto curr_tuple = make_TupleLike(first, seconds, b);
 			return curr_tuple; // curr_tuple is of type Tuple<decltype(first), decltype(b), decltype(seconds.get_data())
 			                   // still to be implemented seconds of type TupleLike .get_data()
 		}
