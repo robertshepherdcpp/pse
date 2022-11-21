@@ -187,6 +187,32 @@ namespace pse
 	I could have one parameter pack. Yes that is what i will do. No i cannot do that because i have got to have that tuple variadic args.
 	*/
 
+    // cant acually implement this because i would need two parameter packs which is not possible.
+	auto AssignElements()
+	{
+		// Do not implement
+	}
+
+    template<typename T, typename B, typename... Ts>
+	auto make_tuple_one_more(TupleLike<T, Ts...>& tuple, B b)
+	{
+		// so now we have a tuple with one more element and we just need to assign the elements over.
+		auto NewTuple = TupleLike<T, Ts..., b>{};
+		// AssignElements(tuple, NewTuple);
+
+		// we can assign the first elements.
+		NewTuple.first = tuple.first;
+
+		int i = 0; // was going to be for the depth of the tuple
+		           // ie. if a tuple had a depth of 3 the following would be possible:
+				   // tuple.second.first // second: 1 + first: 1 + original tuple.first: 1 = 3.
+
+		/*
+		Tuple<Ts...> tuple{};
+		tuple.depth(); // need to implement depth function of TupleLike
+		*/
+	}
+
 	template<typename T, typename... Ts>
 	struct TupleLike
 	{
@@ -202,7 +228,39 @@ namespace pse
 		TupleLike<Ts...> seconds;
 		int index = 0;
 
+		auto SizeDepth(); // returns amount of parameter packs inside Ts... + 1.
+		auto Depth(int i); // takes an integer and returns the depth element.
+
 	};
+
+	namespace parameter_pack_size
+	{
+		int sizeParameter{};
+	}
+
+    // doesnt need to take any arguaments.
+    template<typename T, typename... Ts>
+	auto FindSizeOfParameterPack() -> int
+	{
+		parameter_pack_size::sizeParameter += 1;
+		return FindSizeOfParameterPack<Ts...>();
+	}
+    
+	// doesnt need to take any arguements.
+	template<typename T>  
+	auto FindSizeOfParameterPack() -> int
+	{
+		parameter_pack_size::sizeParameter += 1;
+		auto x = parameter_pack_size::sizeParameter;
+		parameter_pack_size::sizeParameter = 0; // reset it for next operation.
+		return x;
+	}
+
+	template<typename T, typename... Ts> 
+	auto TupleLike::SizeDepth() -> int // returns the depth of the tuple
+	{
+		return 1 + FindSizeOfParameterPack<Ts...>(); // just returns the total depth.
+	}
 
 	template<typename T>
 	struct TupleLike<T>
