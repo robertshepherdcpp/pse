@@ -15,7 +15,11 @@ struct Tuple{};
 
 ```C++
 template<typename T, typename... Ts>
-struct TupleLike{}; // Just Tuple combined with a vector
+struct TupleLike
+{
+  template<typename T>
+  auto push_back(B b);
+}; // Just Tuple combined with a vector
 ```
 
 ```C++
