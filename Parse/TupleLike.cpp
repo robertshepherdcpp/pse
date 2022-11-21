@@ -228,7 +228,7 @@ namespace pse
 		TupleLike<Ts...> seconds;
 		int index = 0;
 
-		auto SizeDepth(); // returns amount of parameter packs inside Ts... + 1.
+		auto SizeDepth() -> int; // returns amount of parameter packs inside Ts... + 1.
 		auto Depth(int i); // takes an integer and returns the depth element.
 
 	};
@@ -257,9 +257,15 @@ namespace pse
 	}
 
 	template<typename T, typename... Ts> 
-	auto TupleLike::SizeDepth() -> int // returns the depth of the tuple
+	auto TupleLike<T, Ts...>::SizeDepth() -> int // returns the depth of the tuple
 	{
 		return 1 + FindSizeOfParameterPack<Ts...>(); // just returns the total depth.
+	}
+
+	template<typename T, typename... Ts>  
+	auto TupleLike<T, Ts...>::Depth(int i) // don't know the return type yet. 
+	{
+		// TODO: implement
 	}
 
 	template<typename T>
@@ -267,5 +273,7 @@ namespace pse
 	{
 		T first;
 		int index = 0;
+		auto SizeDepth() {return 1;}
+		auto Depth() {return first;}
 	};
 } // namespace pse
