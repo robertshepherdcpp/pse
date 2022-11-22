@@ -1,3 +1,5 @@
+#pragma once
+
 namespace pse
 {
 
@@ -69,7 +71,7 @@ namespace pse
 		{
 			// we have to increment global_elements_tupleLike like this:
 			global_elements_tupleLike::count += 1;
-			return GetParameterPackIndex(TupleLike.seconds, index);
+			return GetParameterPackIndex(tuple.seconds, index);
 		}
 	}
 
@@ -82,7 +84,7 @@ namespace pse
 	{
 		for(int i = 0; i < NumTimes; i++)
 		{
-			Callable()
+			return Callable();
 		}
 	}
 
@@ -95,11 +97,11 @@ namespace pse
     
 	// overload that takes a callable with some args. Constexpr so can appear in a parameter pack sequence
 	template<typename T, typename... Ts>
-	constexpr auto Do_Times(auto& Callable, int NumTimes, T t, Ts&... ts)
+	auto Do_Times(auto& Callable, int NumTimes, T t, Ts&... ts)
 	{
-		for(int i = 0; i < NumTimes, i++)
+		for(int i = 0; i < NumTimes; i++)
 		{
-		return Callable(t, ts...);
+		  return Callable(t, ts...);
 		}
 	}
     
@@ -150,7 +152,7 @@ namespace pse
 	template<typename T, typename... Ts>
 	[[deprecated]] auto GetType(T t, Ts... ts)
 	{
-		return t + ts...;
+		return 0;//(t + ts)...;
 	}
 
     //  This one works. So this one does not need fixing
