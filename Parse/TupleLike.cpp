@@ -190,7 +190,7 @@ namespace pse
 	*/
 
     // cant acually implement this because i would need two parameter packs which is not possible.
-	auto AssignElements()
+	inline auto AssignElements()
 	{
 		// Do not implement
 	}

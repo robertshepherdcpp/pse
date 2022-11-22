@@ -4,7 +4,7 @@ namespace pse
 {
 	namespace Globals
 	{
-		int ParameterPackSize_ = 0;
+		static int ParameterPackSize_ = 0;
 
 	} // namespace Globals
 } // namespace pse
