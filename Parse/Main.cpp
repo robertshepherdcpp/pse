@@ -7,7 +7,6 @@
 // #include<string> was here but taken away because i dont think is needed.
 #include"Vector.cpp" // FIXME: Make a better implementation of Vector
 #include"Traits.cpp"
-#include<iostream> // std::cout
 #include"Get.cpp" // pse::get
 #include"Array.cpp"
 #include"ImplicitEquals.cpp"
@@ -15,6 +14,9 @@
 #include"TypeID.cpp"
 #include"Visit.cpp" // pse::Visit
 #include"overload.cpp" // pse::overload
+#include"TupleLike.cpp" // pse::TupleLike
+
+#include<iostream> // std::cout
 
 // only using the standard library for std::cout
 // Currently getting an error because of Bitfender doing checks whilst
@@ -112,7 +114,7 @@ struct ParseNonMember
 
 inline namespace G_lobal
 {
-	int TupleSize = 0;
+	static int TupleSize = 0;
 }
 
 /*
@@ -148,8 +150,6 @@ struct constant
 {
 	decltype(T) value = T;
 };
-
-#include <array>
 
 struct Widget {
 	int d;
@@ -268,6 +268,35 @@ auto assert(bool b, auto& s)
 	}
 }
 
+template <typename... Ts>
+struct any_type : Ts... {};
+
+/*
+ * Find someway of using this like a pse::TupleLike:
+ */
+
+namespace when {
+	struct first {};
+	struct second {};
+	struct third {};
+}  // namespace when
+
+int maintwo() {
+	auto Lambda1 = [](when::first& f) { std::cout << "First.\n"; };
+	auto Lambda2 = [](when::second& s) { std::cout << "Second.\n"; };
+	auto Lambda3 = [](when::third& t) { std::cout << "Third.\n"; };
+
+	any_type any_t{ Lambda1, Lambda2, Lambda3 };
+
+	// we inherit the call operator of the lamda so should work just by calling
+	// any_t
+
+	// any_t(when::first{}); error ambiguos function call operator() even though i am passing when::first 
+	//                       which there is only one of but, compiler still thinks that it is ambiguous.
+
+	return 42;
+}
+
 int main()
 {
 	auto c_int = constant<42>{};
@@ -304,4 +333,6 @@ int main()
 	// assert(x == pse::String<12>("int"), pse::String<28>("x == pse::String<12>(\"int\")"));
 
 	std::cout << "\nA float's default value is: " << float{} << " -- !.\n";
+
+	pse::TupleLike<int, double, float, char, bool> tupletwo{};
 }

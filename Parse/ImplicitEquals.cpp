@@ -1,3 +1,5 @@
+#pragma once
+
 namespace pse
 {
 	template<typename A, typename B>

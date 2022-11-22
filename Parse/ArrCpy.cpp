@@ -1,3 +1,5 @@
+#pragma once
+
 #include"Most.cpp" // FIXME Needs implementing
 #include"ZeroArr.cpp" // FIXME Needs implementing
 

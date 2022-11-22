@@ -55,9 +55,9 @@ namespace pse
 	* auto make_TupleLike(T t, TupleLike)
 	*/
 
-	namespace global_elements_tupleLike
+	inline namespace global_elements_tupleLike
 	{
-		auto count = 0;
+		static int count = 0;
 	}
 
 	template<typename T, typename... Ts>
@@ -235,9 +235,9 @@ namespace pse
 
 	};
 
-	namespace parameter_pack_size
+	inline namespace parameter_pack_size
 	{
-		int sizeParameter{};
+		static int sizeParameter{};
 	}
 
     // doesnt need to take any arguaments.

@@ -1,3 +1,5 @@
+#pragma once
+
 namespace pse
 {
 	// FIXME: Make own header file for the choices namespace

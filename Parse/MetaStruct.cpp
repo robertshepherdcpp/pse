@@ -1,4 +1,6 @@
 // #include<compare> // for the spaceship
+#pragma once
+
 
 namespace pse
 {

@@ -1,3 +1,5 @@
+#pragma once
+
 namespace pse
 {
 	auto Begin(auto Obj)

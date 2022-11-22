@@ -1,3 +1,5 @@
+#pragma once
+
 namespace pse
 {
 	// just inherit from all of the types then you can have all of the
