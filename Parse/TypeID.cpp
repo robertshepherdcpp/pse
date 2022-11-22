@@ -22,14 +22,14 @@ namespace pse
 		{
 			return ("bool");
 		}
-		//if constexpr(T() == String(" "))
-		//{
-		//	return String<12>("const char*");
-		//}
+		if constexpr(T() == String<2>(" "))
+	        {
+			return String<12>("const char*");
+		}
 	}
 
 	template<typename T>
-	auto parse()
+	auto parse() -> decltype(parseType<T>())
 	{
 		return parseType<T>();
 	}
