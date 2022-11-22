@@ -29,7 +29,7 @@ namespace pse
 	}
 
 	template<typename T>
-	auto parse()
+	auto parse() -> decltype(parseType<T>())
 	{
 		return parseType<T>();
 	}
