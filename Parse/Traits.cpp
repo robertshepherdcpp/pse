@@ -124,5 +124,16 @@ namespace pse
 			Is_Same<T, Add_Rvalue_Ref<T>::value>::value == true;
 		};
 
+		template<typename T>
+		concept is_integral = requires(T t)
+		{
+			t += t;
+			t /= t;
+			t *= t;
+			t* t;
+			t / t;
+			t + t;
+		}
+
 	} // namespace Traits
 } // namespace pse
