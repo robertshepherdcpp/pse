@@ -268,7 +268,6 @@ namespace pse
 	template<typename T, typename... Ts>  
 	auto TupleLike<T, Ts...>::Depth(int i) // don't know the return type yet. 
 	{
-		// TODO: implement
 		if (i == 1)
 		{
 			return first;

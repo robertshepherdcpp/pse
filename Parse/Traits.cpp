@@ -119,6 +119,12 @@ namespace pse
 		};
 
 		template<typename T>
+		struct Type
+		{
+			using value = T;
+		};
+
+		template<typename T>
 		concept is_rvalue_ref = requires(T t)
 		{
 			Is_Same<T, Add_Rvalue_Ref<T>::value>::value == true;
@@ -133,7 +139,15 @@ namespace pse
 			t* t;
 			t / t;
 			t + t;
-		}
+		};
+
+		template<typename T>
+		concept is_string = requires(T t)
+		{
+			t += t;
+			t + t;
+			t.substr(1, 2);
+		};
 
 	} // namespace Traits
 } // namespace pse
