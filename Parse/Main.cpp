@@ -320,7 +320,7 @@ int main()
 	// auto x = v<int, 20>;
 	// Or need to implement a better get function
 
-	// ImplicitEquals(52, 52.3);
+    pse::ImplicitEquals(52, 52.3);
 
 	//pse::Variant<c<int>(), c<char>(), c<bool>(), c<double>()> x{};
 	// pse::Variant<class_v<int>> x{};
