@@ -336,5 +336,6 @@ int main()
 	std::cout << "\nA float's default value is: " << float{} << " -- !.\n";
 
 	pse::TupleLike<int, double, float, char, bool> tupletwo{ 5, {3.0, {3.0004,{'c', {true}}}} };
-	tupletwo.print();
+	tupletwo.print(true);
+	// tupletwo.push_back(42);
 }

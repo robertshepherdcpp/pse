@@ -242,38 +242,53 @@ namespace pse
 		auto print(); // print the elements in the tuple
 		auto print(bool b);
 
+		auto GetArr(int val); // dont implement can't do because elements would be of different type.
+
+		template<typename B>
+		auto GetTupleUninitializedAdd();
 	};
+
+	template<typename T, typename... Ts>
+	template<typename B>
+	auto TupleLike<T, Ts...>::GetTupleUninitializedAdd()
+	{
+		return TupleLike<T, Ts..., B>{};
+	}
+
+	/*
+	* TupleLike<T, Ts... B> tuple{};
+	*/
 
 	template<typename T, typename... Ts>
 	auto TupleLike<T, Ts...>::print()
 	{
-		std::cout << "\n";
+		//std::cout << "\n";
 		auto x = SizeDepth();
 		std::cout << first << ", ";
 		seconds.print();
 
-		std::cout << "\n";
+		//std::cout << "\n";
 	}
 
 	template<typename T, typename... Ts>
 	auto TupleLike<T, Ts...>::print(bool b)
 	{
-		std::cout << "\n";
+		//std::cout << "\n";
 		if (b != false)
 		{
 			std::cout << "[";
 		}
-		std::cout << "\n";
+		//std::cout << "\n";
 		auto x = SizeDepth();
 		std::cout << first << ", ";
 		seconds.print(false);
 
 		if (b != false)
 		{
-			std::cout << "]";
+			std::cout << "]\n";
 		}
 
-		std::cout << "\n";
+		//std::cout << "\n";
 	}
 
 	inline namespace parameter_pack_size
@@ -394,7 +409,7 @@ namespace pse
 		auto print() { std::cout << first; }
 		auto print(bool b)
 		{
-			std::cout << first;
+			std::cout << first << "\n";
 		}
 		static constexpr int value = 1;
 	};
