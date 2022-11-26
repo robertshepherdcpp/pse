@@ -93,5 +93,11 @@
     <ClCompile Include="TupleLike.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Range.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Algo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
