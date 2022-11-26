@@ -229,6 +229,8 @@ namespace pse
 			                   // still to be implemented seconds of type TupleLike .get_data()
 		}
 
+		// TupleLike(TupleLike<T, Ts...> tuple);
+
 		T first;
 		TupleLike<Ts...> seconds;
 		int index = 0;
@@ -238,6 +240,8 @@ namespace pse
 
 		template<int i> // needed for varying return types.
 		auto Depth(); // takes an integer and returns the depth element.
+
+		auto Depth(int i);
 
 		auto print(); // print the elements in the tuple
 		auto print(bool b);

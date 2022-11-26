@@ -30,8 +30,13 @@
 
 namespace pse
 {
+	template<typename T, typename... Ts> // these are lambda types
 	struct Generator
 	{
 		// TupleLike v{};
+		//TupleLike<T, Ts...> lambdas{};
+
+		//Generator(T t, Ts... ts) { lambdas = TupleLike<T, Ts...>{ t, ts... }; }
+		//Genrerator(T t) {/*Dont do anything at the moment*/ }
 	};
 };
