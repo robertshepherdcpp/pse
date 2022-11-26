@@ -36,6 +36,11 @@ namespace pse
 				}
 			}
 
+			decltype(auto) print()
+			{
+				return arr;
+			}
+
 			inline static int size = 1;
 			T arr[1];
 		};
