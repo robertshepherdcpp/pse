@@ -338,4 +338,6 @@ int main()
 	pse::TupleLike<int, double, float, char, bool> tupletwo{ 5, {3.0, {3.0004,{'c', {true}}}} };
 	tupletwo.print(true);
 	// tupletwo.push_back(42);
+
+	// pse::Ranges::Range<int> r{};
 }
