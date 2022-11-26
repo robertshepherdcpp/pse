@@ -1,5 +1,7 @@
 #pragma once
 
+#include<iostream> // std::cout for print
+
 namespace pse
 {
 
@@ -230,28 +232,90 @@ namespace pse
 		T first;
 		TupleLike<Ts...> seconds;
 		int index = 0;
+		static constexpr int value = 1;
 
 		auto SizeDepth() -> int; // returns amount of parameter packs inside Ts... + 1.
-		auto Depth(int i); // takes an integer and returns the depth element.
+
+		template<int i> // needed for varying return types.
+		auto Depth(); // takes an integer and returns the depth element.
+
+		auto print(); // print the elements in the tuple
+		auto print(bool b);
 
 	};
+
+	template<typename T, typename... Ts>
+	auto TupleLike<T, Ts...>::print()
+	{
+		std::cout << "\n";
+		auto x = SizeDepth();
+		std::cout << first << ", ";
+		seconds.print();
+
+		std::cout << "\n";
+	}
+
+	template<typename T, typename... Ts>
+	auto TupleLike<T, Ts...>::print(bool b)
+	{
+		std::cout << "\n";
+		if (b != false)
+		{
+			std::cout << "[";
+		}
+		std::cout << "\n";
+		auto x = SizeDepth();
+		std::cout << first << ", ";
+		seconds.print(false);
+
+		if (b != false)
+		{
+			std::cout << "]";
+		}
+
+		std::cout << "\n";
+	}
 
 	inline namespace parameter_pack_size
 	{
 		static int sizeParameter{};
 	}
 
+	namespace parameter_pack
+	{
+		struct Yes {};
+		struct No {};
+	};
+
+	namespace parameter
+	{
+		struct Variadic {};
+		struct Single {};
+	};
+
     // doesnt need to take any arguaments.
-    template<typename T, typename... Ts>
-	auto FindSizeOfParameterPack() -> int
+    template<typename T, typename... Ts> // overloaded on parameter pack.
+	auto FindSizeOfParameterPack(parameter_pack::Yes& y, parameter::Variadic& v) -> int // parameter not used
 	{
 		parameter_pack_size::sizeParameter += 1;
-		return FindSizeOfParameterPack<Ts...>();
+		return FindSizeOfParameterPack<Ts...>(y, v); // temporarys so that you can overload fuction calls
 	}
+
+	// this overload is when we are passed a parameter_pack::Yes but we need to change it when calling at end of function.
+	template<typename T, typename Ttwo>
+	auto FindSizeOfParameterPack(parameter_pack::Yes& y, parameter::Variadic& v)
+	{ // would still think when passing it looks like a parameter pack
+		parameter_pack_size::sizeParameter += 1;
+		return FindSizeOfParameterPack<Ttwo>(parameter_pack::No{}, parameter::Single{});
+	}
+
+	/*
+	* Now we need to also pass in parameter::variadic or parameter::typename because again can't overload just on template
+	*/
     
 	// doesnt need to take any arguements.
-	template<typename T>  
-	auto FindSizeOfParameterPack() -> int
+	template<typename T>  // overloaded in paramter pack
+	auto FindSizeOfParameterPack(parameter_pack::No& n, parameter::Single& s) -> int
 	{
 		parameter_pack_size::sizeParameter += 1;
 		auto x = parameter_pack_size::sizeParameter;
@@ -259,16 +323,58 @@ namespace pse
 		return x;
 	}
 
+	//template<>  // overloaded in paramter pack
+	//auto FindSizeOfParameterPack(parameter_pack::No& n, parameter::Single& s) -> int
+	//{
+	//	auto x = parameter_pack_size::sizeParameter;
+	//	parameter_pack_size::sizeParameter = 0; // reset it for next operation.
+	//	return x;
+	//}
+
+	/*
+	* Because we don't know the size of variadic parameter pack, it could be empty or a single so overloads just in case.
+	* 
+	* Commented the following selection out becuase was giving me the C2912 Visual Studio Microsoft Compiler Error.
+	*/
+
+	//template<>  // overloaded in paramter pack
+	//auto FindSizeOfParameterPack(parameter_pack::No& n, parameter::Variadic& s) -> int
+	//{
+	//	auto x = parameter_pack_size::sizeParameter;
+	//	parameter_pack_size::sizeParameter = 0; // reset it for next operation.
+	//	return x;
+	//}
+
+	//template<>  // overloaded in paramter pack
+	//auto FindSizeOfParameterPack(parameter_pack::Yes& y, parameter::Single& s) -> int
+	//{
+	//	auto x = parameter_pack_size::sizeParameter;
+	//	parameter_pack_size::sizeParameter = 0; // reset it for next operation.
+	//	return x;
+	//}
+
+	//template<>  // overloaded in paramter pack
+	//auto FindSizeOfParameterPack(parameter_pack::Yes& y, parameter::Variadic& s) -> int
+	//{
+	//	auto x = parameter_pack_size::sizeParameter;
+	//	parameter_pack_size::sizeParameter = 0; // reset it for next operation.
+	//	return x;
+	//}
+
 	template<typename T, typename... Ts> 
 	auto TupleLike<T, Ts...>::SizeDepth() -> int // returns the depth of the tuple
 	{
-		return 1 + FindSizeOfParameterPack<Ts...>(); // just returns the total depth.
+		//return 1 + FindSizeOfParameterPack<Ts...>(parameter_pack::Yes{}, parameter::Variadic{}); // just returns the total depth.
+		return value + seconds.value;
 	}
 
+	
+
 	template<typename T, typename... Ts>  
-	auto TupleLike<T, Ts...>::Depth(int i) // don't know the return type yet. 
+	template<int i>
+	auto TupleLike<T, Ts...>::Depth(/*int i*/) // don't know the return type yet. 
 	{
-		if (i == 1)
+		if constexpr (i == 1)
 		{
 			return first;
 		}
@@ -285,5 +391,11 @@ namespace pse
 		int index = 0;
 		auto SizeDepth() {return 1;}
 		auto Depth() {return first;}
+		auto print() { std::cout << first; }
+		auto print(bool b)
+		{
+			std::cout << first;
+		}
+		static constexpr int value = 1;
 	};
 } // namespace pse

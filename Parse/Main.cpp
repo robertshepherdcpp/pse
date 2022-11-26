@@ -328,12 +328,13 @@ int main()
 	auto x = pse::parse<int>();
 
 	decltype(auto) string_ = "Hello What is Your Name?\n";
-	//pse::StringList string{"Hello What is Your Name?\n"};
+	// pse::StringList string{"Hello What is Your Name?\n"};
 	//string.print();
 	//constexpr bool b = (x == pse::String<12>("int"));
 	// assert(x == pse::String<12>("int"), pse::String<28>("x == pse::String<12>(\"int\")"));
 
 	std::cout << "\nA float's default value is: " << float{} << " -- !.\n";
 
-	pse::TupleLike<int, double, float, char, bool> tupletwo{};
+	pse::TupleLike<int, double, float, char, bool> tupletwo{ 5, {3.0, {3.0004,{'c', {true}}}} };
+	tupletwo.print();
 }
