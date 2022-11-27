@@ -187,7 +187,7 @@ public:
 		// ...
 	}
 
-	Base(T v) : value{ v } 
+	Base(T v) : value{ v }
 	{
 		// ...
 	}
@@ -308,12 +308,12 @@ int main()
 	// Dont need to initialize becuase everything is already initialized
 
 	//pse::Visit
-	                          (pse::overload{ [](pse::String<10>& s) {std::cout << "String.\n"; },
-		                      [](int i) {std::cout << "Int.\n"; } },
-		                      pse::Choices::ReturnUnWanted{}, 42);
-							  // do not know why this compiles. But it does.
+	(pse::overload{ [](pse::String<10>& s) {std::cout << "String.\n"; },
+	[](int i) {std::cout << "Int.\n"; } },
+		pse::Choices::ReturnUnWanted{}, 42);
+	// do not know why this compiles. But it does.
 
-	// auto x = pse::get<0>(v);
+// auto x = pse::get<0>(v);
 	std::cout << v.values.values.value;
 	// std::cout << "\n" << x << "\n";
 	// could do a chain like this.
@@ -321,7 +321,7 @@ int main()
 	// auto x = v<int, 20>;
 	// Or need to implement a better get function
 
-    pse::ImplicitEquals(52, 52.3);
+	pse::ImplicitEquals(52, 52.3);
 
 	//pse::Variant<c<int>(), c<char>(), c<bool>(), c<double>()> x{};
 	// pse::Variant<class_v<int>> x{};
@@ -342,7 +342,7 @@ int main()
 
 	// pse::Range<int> r{1,2,3,4,1,2,3,};
 
-	int arr[10]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+	int arr[10]{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
 	pse::Iterator iterator{ arr }; // assigns the first value of the array: arr.
 	iterator++;
