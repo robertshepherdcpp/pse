@@ -403,6 +403,7 @@ tuple.depth(); // need to implement depth function of TupleLike
 		}
 	}
 
+	// like the base class of TupleLike<T, Ts...>
 	template<typename T>
 	struct TupleLike<T>
 	{
