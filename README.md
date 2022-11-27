@@ -32,6 +32,7 @@ auto swap(T& a, T& b)
 }
 ```
 Others also include:
+This is just a structure like a `Initializer_List` in that it stores data as a list with member functions. But it can also hold different types of types like `int` and `float` but it is not used for this purpose it is used for being like an `Initialiser_List`. This `Range` structure also has member functions, more are still to be implemented but the major one for now is `pse::Range::Take(int a, int b)` it takes two integers and returns the bit of the array in between those two indexes. THere is not any error checking yet but will be soon.
 ```C++
 template<typename T, typename... Ts>
 struct Range
