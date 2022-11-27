@@ -20,6 +20,11 @@ namespace pse
 				}
 			}
 
+			Range()
+			{
+				// doesn't need an implementation
+			}
+
 			inline auto Take(int prefix, int postfix)
 			{
 				auto diff = algorithms::difference(postfix - prefix);
@@ -42,7 +47,7 @@ namespace pse
 			}
 
 			inline static int size = 1;
-			T arr[1];
+			T arr[1]{};
 		};
 	} // namespace Ranges
 } // namespace pse

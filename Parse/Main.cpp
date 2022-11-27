@@ -15,6 +15,7 @@
 #include"Visit.cpp" // pse::Visit
 #include"overload.cpp" // pse::overload
 #include"TupleLike.cpp" // pse::TupleLike
+#include"Iterator.cpp" // pse::Iterator
 
 #include<iostream> // std::cout
 
@@ -339,5 +340,13 @@ int main()
 	tupletwo.print(true);
 	// tupletwo.push_back(42);
 
-	// pse::Ranges::Range<int> r{};
+	// pse::Range<int> r{1,2,3,4,1,2,3,};
+
+	int arr[10]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+	pse::Iterator iterator{ arr }; // assigns the first value of the array: arr.
+	iterator++;
+
+	iterator += 8;
+	return *iterator;
 }

@@ -143,6 +143,7 @@
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="ImplicitEquals.cpp" />
     <ClCompile Include="Initializer_List.cpp" />
+    <ClCompile Include="Iterator.cpp" />
     <ClCompile Include="MetaStruct.cpp" />
     <ClCompile Include="Most.cpp" />
     <ClCompile Include="Main.cpp" />
