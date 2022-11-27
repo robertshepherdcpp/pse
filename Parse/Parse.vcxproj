@@ -138,6 +138,7 @@
     <ClCompile Include="Begin.cpp" />
     <ClCompile Include="constant.cpp" />
     <ClCompile Include="Copy.cpp" />
+    <ClCompile Include="DecreasingTuple.cpp" />
     <ClCompile Include="Function.cpp" />
     <ClCompile Include="Generator.cpp" />
     <ClCompile Include="Get.cpp" />
