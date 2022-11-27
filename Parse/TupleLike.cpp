@@ -19,7 +19,7 @@ namespace pse
 		/*
 		* FIXME: This does not do what it is supposed to do:
 		* It is supposed to use all elements of the TupleLike type
-		* 
+		*
 		* Needs to pass in both tuple.first and tuple.seconds.
 		*/
 	}
@@ -35,7 +35,7 @@ namespace pse
 	{
 		/*
 		* Was thinking of just passing in A and B...
-		* 
+		*
 		* But could pass them in as NTTP
 		*/
 
@@ -65,11 +65,11 @@ namespace pse
 	template<typename T, typename... Ts>
 	auto GetParameterPackIndex(TupleLike<T, Ts...> tuple, auto index)
 	{
-		if(global_elements_tupleLike::count == index)
+		if (global_elements_tupleLike::count == index)
 		{
 			return tuple.first;
 		}
-		else 
+		else
 		{
 			// we have to increment global_elements_tupleLike like this:
 			global_elements_tupleLike::count += 1;
@@ -77,14 +77,14 @@ namespace pse
 		}
 	}
 
-        /*
-	This function is going to be used to call get_tuple_elements n number of times on an element.
-	*/
+	/*
+This function is going to be used to call get_tuple_elements n number of times on an element.
+*/
 
-	// Do_Times that takes a callable that accepts no args.
+// Do_Times that takes a callable that accepts no args.
 	constexpr auto Do_Times(auto& Callable, int NumTimes)
 	{
-		for(int i = 0; i < NumTimes; i++)
+		for (int i = 0; i < NumTimes; i++)
 		{
 			return Callable();
 		}
@@ -96,40 +96,40 @@ namespace pse
 
 	get_tuple_elements(TupleThatCanBeExpanded)...;
 	*/
-    
+
 	// overload that takes a callable with some args. Constexpr so can appear in a parameter pack sequence
 	template<typename T, typename... Ts>
 	auto Do_Times(auto& Callable, int NumTimes, T t, Ts&... ts)
 	{
-		for(int i = 0; i < NumTimes; i++)
+		for (int i = 0; i < NumTimes; i++)
 		{
-		  return Callable(t, ts...);
+			return Callable(t, ts...);
 		}
 	}
-    
+
 	// notice taking them all by reference. Needs reference because of things like get_tuple_elements relies on it not being a copy
 	template<typename T>
 	constexpr auto Do_Times(auto& Callable, int NumTimes, T& t)
 	{
-		for(int i = 0; i < NumTimes; i++)
+		for (int i = 0; i < NumTimes; i++)
 		{
 			return Callable(t);
 		}
 	}
 
-    // cosntexpred becuase operation can happen at compile time and should happen at compile time.
+	// cosntexpred becuase operation can happen at compile time and should happen at compile time.
 	template<typename T>
 	constexpr auto GetParameterPackIndex(TupleLike<T> tuple, auto index)
 	{
 		return tuple.first; // no exception hanling currently, if wrong input from the user it is the user's fault.
 	}
-    
+
 	template<typename T, typename... Ts>
 	auto get_tuple_elements(TupleLike<T, Ts...>& tuple)
 	{
-		if(tuple.index == 0)
+		if (tuple.index == 0)
 		{
-		return T;
+			return T;
 		}
 		else
 		{
@@ -149,7 +149,7 @@ namespace pse
 			return GetParameterPackIndex(tuple, tuple.index);
 		}
 	}
-    
+
 	// pointless so i have depracated it. Shouldnt really use atall.
 	template<typename T, typename... Ts>
 	[[deprecated]] auto GetType(T t, Ts... ts)
@@ -157,16 +157,16 @@ namespace pse
 		return 0;//(t + ts)...;
 	}
 
-    //  This one works. So this one does not need fixing
+	//  This one works. So this one does not need fixing
 	template<typename T, typename B, typename A>
 	auto make_TupleLike(T t, TupleLike<A> tuple, B b)
 	{
 		return Tuple<T, A, B>(t, tuple.first, b);
 	}
 
-    // TODO: Come back to this becuase i have no more ideas for using the parameter pack.
+	// TODO: Come back to this becuase i have no more ideas for using the parameter pack.
 
-    /*
+	/*
 	Have hit a conumdrum with make_TupleLike becuase i can't define it like this:
 
 	template<typename T, typename B, typename... Ts, typename... Tstwo>
@@ -191,14 +191,14 @@ namespace pse
 	I could have one parameter pack. Yes that is what i will do. No i cannot do that because i have got to have that tuple variadic args.
 	*/
 
-    // cant acually implement this because i would need two parameter packs which is not possible.
+	// cant acually implement this because i would need two parameter packs which is not possible.
 	inline auto AssignElements()
 	{
 		// Do not implement
 	}
 	// was the cause of a error before because of a link error.
 
-    template<typename T, typename B, typename... Ts>
+	template<typename T, typename B, typename... Ts>
 	auto make_tuple_one_more(TupleLike<T, Ts...>& tuple, B b)
 	{
 		// so now we have a tuple with one more element and we just need to assign the elements over.
@@ -209,13 +209,13 @@ namespace pse
 		NewTuple.first = tuple.first;
 
 		int i = 0; // was going to be for the depth of the tuple
-		           // ie. if a tuple had a depth of 3 the following would be possible:
-				   // tuple.second.first // second: 1 + first: 1 + original tuple.first: 1 = 3.
+		// ie. if a tuple had a depth of 3 the following would be possible:
+		// tuple.second.first // second: 1 + first: 1 + original tuple.first: 1 = 3.
 
-		/*
-		Tuple<Ts...> tuple{};
-		tuple.depth(); // need to implement depth function of TupleLike
-		*/
+/*
+Tuple<Ts...> tuple{};
+tuple.depth(); // need to implement depth function of TupleLike
+*/
 	}
 
 	template<typename T, typename... Ts>
@@ -226,7 +226,7 @@ namespace pse
 		{
 			auto curr_tuple = make_TupleLike(first, seconds, b);
 			return curr_tuple; // curr_tuple is of type Tuple<decltype(first), decltype(b), decltype(seconds.get_data())
-			                   // still to be implemented seconds of type TupleLike .get_data()
+			// still to be implemented seconds of type TupleLike .get_data()
 		}
 
 		// TupleLike(TupleLike<T, Ts...> tuple);
@@ -312,8 +312,8 @@ namespace pse
 		struct Single {};
 	};
 
-    // doesnt need to take any arguaments.
-    template<typename T, typename... Ts> // overloaded on parameter pack.
+	// doesnt need to take any arguaments.
+	template<typename T, typename... Ts> // overloaded on parameter pack.
 	auto FindSizeOfParameterPack(parameter_pack::Yes& y, parameter::Variadic& v) -> int // parameter not used
 	{
 		parameter_pack_size::sizeParameter += 1;
@@ -331,7 +331,7 @@ namespace pse
 	/*
 	* Now we need to also pass in parameter::variadic or parameter::typename because again can't overload just on template
 	*/
-    
+
 	// doesnt need to take any arguements.
 	template<typename T>  // overloaded in paramter pack
 	auto FindSizeOfParameterPack(parameter_pack::No& n, parameter::Single& s) -> int
@@ -352,7 +352,7 @@ namespace pse
 
 	/*
 	* Because we don't know the size of variadic parameter pack, it could be empty or a single so overloads just in case.
-	* 
+	*
 	* Commented the following selection out becuase was giving me the C2912 Visual Studio Microsoft Compiler Error.
 	*/
 
@@ -380,16 +380,16 @@ namespace pse
 	//	return x;
 	//}
 
-	template<typename T, typename... Ts> 
+	template<typename T, typename... Ts>
 	auto TupleLike<T, Ts...>::SizeDepth() -> int // returns the depth of the tuple
 	{
 		//return 1 + FindSizeOfParameterPack<Ts...>(parameter_pack::Yes{}, parameter::Variadic{}); // just returns the total depth.
 		return value + seconds.value;
 	}
 
-	
 
-	template<typename T, typename... Ts>  
+
+	template<typename T, typename... Ts>
 	template<int i>
 	auto TupleLike<T, Ts...>::Depth(/*int i*/) // don't know the return type yet. 
 	{
@@ -408,8 +408,8 @@ namespace pse
 	{
 		T first;
 		int index = 0;
-		auto SizeDepth() {return 1;}
-		auto Depth() {return first;}
+		auto SizeDepth() { return 1; }
+		auto Depth() { return first; }
 		auto print() { std::cout << first; }
 		auto print(bool b)
 		{

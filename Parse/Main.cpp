@@ -16,6 +16,7 @@
 #include"overload.cpp" // pse::overload
 #include"TupleLike.cpp" // pse::TupleLike
 #include"Iterator.cpp" // pse::Iterator
+#include"Range.cpp" // pse::Range
 
 #include<iostream> // std::cout
 
@@ -336,11 +337,13 @@ int main()
 
 	std::cout << "\nA float's default value is: " << float{} << " -- !.\n";
 
+	// don't need to do it this style but can do: tupletwo{5, 3.0, 3.004, 'c', true};
 	pse::TupleLike<int, double, float, char, bool> tupletwo{ 5, {3.0, {3.0004,{'c', {true}}}} };
 	tupletwo.print(true);
 	// tupletwo.push_back(42);
 
-	// pse::Range<int> r{1,2,3,4,1,2,3,};
+	pse::Range<int> r{ 1,2,3,4,1,2,3 }; // 1, 2, 3, 4, 1, 2, 3 ends up to be an something like an initializer list.
+	// r.Take(2, 5);
 
 	int arr[10]{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
