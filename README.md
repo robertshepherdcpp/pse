@@ -3,7 +3,7 @@
 Parse is a helpful open-source library for C++. Consisting of many features that are part of the C++ Standard Library
 Here are some examples:
 
-A `pse` vector is just like a `std::vector`, consisting of all of the same functionality.
+A `pse::vector` is just like a `std::vector`, consisting of all of the same functionality.
 
 ```C++
 template<typename T>
