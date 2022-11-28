@@ -29,6 +29,18 @@ namespace pse
 		};
 
 		template<typename T>
+		struct Remove_Const
+		{
+			using value = T;
+		};
+
+		template<typename T>
+		struct Remove_Const<T const>
+		{
+			using value = T;
+		};
+
+		template<typename T>
 		struct Add_Ref
 		{
 			using value = T&;
@@ -36,6 +48,18 @@ namespace pse
 
 		template<typename T>
 		struct Add_Ref<T&>
+		{
+			using value = T;
+		};
+
+		template<typename T>
+		struct Remove_Ref
+		{
+			using value = T;
+		};
+
+		template<typename T>
+		struct Remove_Ref<T&>
 		{
 			using value = T;
 		};
@@ -53,9 +77,27 @@ namespace pse
 		};
 
 		template<typename T>
+		struct Remove_Pointer
+		{
+			using value = T;
+		};
+
+		template<typename T>
+		struct Remove_Pointer<T*>
+		{
+			using value = T;
+		};
+
+		template<typename T>
 		struct Add_Pointer_Pointer
 		{
 			using value = T**;
+		};
+
+		template<typename T>
+		struct Remove_Pointer<T**>
+		{
+			using value = T;
 		};
 
 		template<typename T>
@@ -78,6 +120,12 @@ namespace pse
 
 		template<typename T>
 		struct Add_Rvalue_Ref<T&&>
+		{
+			using value = T;
+		};
+
+		template<typename T>
+		struct Remove_Ref<T&&>
 		{
 			using value = T;
 		};
