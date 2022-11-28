@@ -351,5 +351,13 @@ int main()
 	iterator++;
 
 	iterator += 8;
+
+	auto functionone = []() {return bool{}; };
+	auto functiontwo = []() {return int{}; };
+
+	//if (decltype(functionone){} == decltype(functiontwo){})
+	//{
+	//	std::cout << "functionone and function two both have the same types.\n";
+	//}
 	return *iterator;
 }

@@ -33,7 +33,9 @@ namespace pse
 		int size = value;
 
 		// static constexpr int value = 1 + Seconds::value;
-		int value = (sizeof(Ts)...) / sizeof(T);
+		int value = (sizeof(Ts)...) / sizeof(T); // should work, because all that we are using decreasing tuple for
+		                                         // is the generator, coroutine like class where we will have lambdas of
+		                                         // the same size.
 
 		T First{};
 		DecreasingTuple<Ts...> Seconds{};
