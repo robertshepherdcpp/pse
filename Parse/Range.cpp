@@ -12,6 +12,7 @@ namespace pse
 	template<typename T>
 	struct Range
 	{
+		// this sturcture is just like a pse::Initializer_List just for 
 		template<typename T, typename... Ts>
 		struct DataRange
 		{
@@ -148,6 +149,7 @@ namespace pse
 			}
 		}
 
+		// this function does not use `std::cout` trying to refrain from using the `std` namespace.
 		decltype(auto) print()
 		{
 			return arr;

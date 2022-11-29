@@ -17,6 +17,7 @@ namespace pse
 		decltype(auto) get_val() { return *it; }
 
 		auto operator*() { return get_val(); }
+		auto operator->() { return get_val(); }
 
 		auto operator-=(int i) { it = it - i; }
 		auto operator+=(int i) { it = it + i; return it; }
