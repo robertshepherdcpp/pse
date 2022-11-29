@@ -8,6 +8,7 @@ namespace pse
 		using Ts::operator()...;
 	};
 
+	// For more see nicola josuttis C++17 book.
 	template<typename... Ts>
 	overload(Ts...)->overload<Ts...>;
 } // namespace pse
