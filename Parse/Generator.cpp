@@ -42,11 +42,19 @@ namespace pse
 		
 		int count = 0;
 		// TupleLike v{};
-		TupleLike<T, Ts...> lambdas{};
+		// TupleLike<T, Ts...> lambdas{};
 
-		Generator(T t, Ts... ts) { lambdas = TupleLike<T, Ts...>{ t, ts... }; count = lambdas.Size();}
+		// Generator(T t, Ts... ts) { lambdas = TupleLike<T, Ts...>{ t, ts... }; count = lambdas.Size();}
 		
-		auto operator()() {while(count != 0;) {lambdas.Depth<count>()();}}
+		//auto operator()() 
+		//{ 
+		//	if (count != 0)
+		//	{
+		//		auto x = lambdas.Depth<count>();
+		//		--count;
+		//		return x();
+		//	}
+		//}
 		//Genrerator(T t) {/*Dont do anything at the moment*/ }
 		
 	};
