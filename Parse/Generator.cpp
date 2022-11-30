@@ -21,6 +21,12 @@
 */
 
 /*
+TupleLike is going to be exactly like a corouting. But becuase with c++20 coroutines we have to use the standard library
+like `std::coroutine_handle<>` and we are refraining from using the `std` library except from standard library. But still shouldn't really
+use `std::cout`. Just a way of having a way of returning an object that is like another program in itself!
+*/
+
+/*
 * Make TupleLike type.
 * 
 * What it does:
