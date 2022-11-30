@@ -33,10 +33,15 @@ namespace pse
 	template<typename T, typename... Ts> // these are lambda types
 	struct Generator
 	{
+		
+		int count = 0;
 		// TupleLike v{};
-		//TupleLike<T, Ts...> lambdas{};
+		TupleLike<T, Ts...> lambdas{};
 
-		//Generator(T t, Ts... ts) { lambdas = TupleLike<T, Ts...>{ t, ts... }; }
+		Generator(T t, Ts... ts) { lambdas = TupleLike<T, Ts...>{ t, ts... }; count = lambdas.Size();}
+		
+		auto operator()() {while(count != 0;) {lambdas.Depth<count>()();}}
 		//Genrerator(T t) {/*Dont do anything at the moment*/ }
+		
 	};
 };
