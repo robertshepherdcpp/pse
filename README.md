@@ -1,7 +1,7 @@
 # Parse
 
-Total Number Of Lines: 2278
-Last Checked: 11/30/2022 11/30/2022 PM London.
+Total Number Of Lines: 2296
+Last Checked: 12/1/2022 20:25 PM London.
 
 Parse is a helpful open-source library for C++. Consisting of many features that are part of the C++ Standard Library
 Here are some examples:
@@ -43,4 +43,20 @@ struct Range
   // Implemenetation.
 };
 ```
-
+There is also `pse::Iterator` which looks like the following:
+```C++
+template<typename T>
+struct Iterator
+{
+  auto operator++();
+  auto operator--();
+  auto operator+=();
+  auto operator-=();
+  
+  auto get();
+  auto get_val();
+  
+  int size;
+};
+```
+It is just a safer way to use `T*` in that you can increment: `++`, decrement: `--` but it is just better, there are set member functions `get` and `get_val` and not accidently using a pointer rather than the value conatained beneath the pointer. It also has the `size` member variable.
