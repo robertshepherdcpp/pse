@@ -1,5 +1,7 @@
 #pragma once
 
+#include"Iterator.cpp" // pse::Iterator<T>
+
 namespace pse
 {
 	namespace algorithms
@@ -71,6 +73,20 @@ namespace pse
 					return i + fibonnacci(i - 1);
 				}
 			}
+
+			template<typename T> // template needed for the Iterator variable i.
+			auto OnAll(Iterator<T> j, auto& Lambda)
+			{
+				for (int i = 0; i < j.size; j++)
+				{
+					i++;
+					Lambda(j.get_val());
+				}
+			}
+
+			// Lambdas that can pass to functions like pse::OnAll();
+
+			auto Square = [](auto i) {return i * i; };
 		} // namespace math
 	} // namespace algorithms
 } // namespace pse

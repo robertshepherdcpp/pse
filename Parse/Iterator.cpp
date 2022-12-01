@@ -25,6 +25,8 @@ namespace pse
 		Iterator(T* t) { it = t; }
 		Iterator(T t) { /*it = Traits::Add_Pointer<T>::value{};*/ }
 
+		int size = 0;
+
 		using type = T*;
 		T* it;
 	};
