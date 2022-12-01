@@ -43,4 +43,20 @@ struct Range
   // Implemenetation.
 };
 ```
-
+There is also `pse::Iterator` which looks like the following:
+```C++
+template<typename T>
+struct Iterator
+{
+  auto operator++();
+  auto operator--();
+  auto operator+=();
+  auto operator-=();
+  
+  auto get();
+  auto get_val();
+  
+  int size;
+};
+```
+It is just a safer way to use `T*` in that you can increment: `++`, decrement: `--` but it is just better, there are set member functions `get` and `get_val` and not accidently using a pointer rather than the value conatained beneath the pointer. It also has the `size` member variable.
