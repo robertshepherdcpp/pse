@@ -24,6 +24,20 @@ namespace pse
 
 		Iterator(T* t) { it = t; }
 		Iterator(T t) { /*it = Traits::Add_Pointer<T>::value{};*/ }
+		Iterator(T* t, int size_) { it = t; size = size_; }
+
+		// could/should delete this.
+		Iterator() {/*Do nothing but if try to do member functions, it is underined behavior*/ }
+
+		auto operator==(Iterator<T>& iter)
+		{
+			return iter.it == it && *iter.it == *it;
+		}
+
+		auto operator!=(Iterator<T>& iter)
+		{
+			return iter.it != it && *iter.it == *it;
+		}
 
 		int size = 0;
 
