@@ -136,7 +136,7 @@ namespace pse
 			namespace LambdaHelpers
 			{
 				auto Square = [](auto i) {return i * i; };
-				auto Plus   = [](auto i, int j) {return i + j; };
+				auto Plus   = [](auto i, auto j) {return i + j; };
 				auto Times  = [](auto i, auto j) {return i * j; };
 				auto Minus  = [](auto i, auto j) {return i - j; };
 			}
