@@ -115,10 +115,10 @@ namespace pse
 			auto Sort(Iterator<T>& t, Callable c)
 			{
 				// implementation still is needed.
-				//if (c(t.get_val(), t.get_increment()))
-				//{
-				//  swap(t, t++);
-				//}
+				if (c(t.get_val(), t.get_increment()))
+				{
+				  swap(t, t++);
+				}
 			}
 
 			// uses a reference for the value.
