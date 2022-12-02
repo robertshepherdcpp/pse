@@ -133,13 +133,11 @@ namespace pse
 
 			// Lambdas that can pass to functions like pse::OnAll();
 
-			namespace LambdaHelpers
-			{
 				auto Square = [](auto i) {return i * i; };
 				auto Plus   = [](auto i, auto j) {return i + j; };
 				auto Times  = [](auto i, auto j) {return i * j; };
 				auto Minus  = [](auto i, auto j) {return i - j; };
-			}
+			
 		} // namespace math
 	} // namespace algorithms
 } // namespace pse

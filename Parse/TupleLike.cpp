@@ -414,7 +414,7 @@ tuple.depth(); // need to implement depth function of TupleLike
 		auto print() { std::cout << first; }
 		auto print(bool b)
 		{
-			std::cout << first << "\n";
+			std::cout << first;
 		}
 		static constexpr int value = 1;
 	};
