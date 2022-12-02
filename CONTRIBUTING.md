@@ -1,6 +1,6 @@
 #Contributing
 
-Please test and **run you code in the latest MSVC compiler** and please **use formatting tools for you code**
+Please test and **run you code in the latest MSVC compiler** and please **use formatting tools for you </code>**
 
 ```C++
 #include<iostream>
