@@ -6,8 +6,6 @@ namespace pse
 {
 	namespace algorithms
 	{
-		inline namespace math
-		{
 			inline auto difference(int a, int b) -> int
 			{
 				return b - a;
@@ -138,6 +136,5 @@ namespace pse
 				auto Times  = [](auto i, auto j) {return i * j; };
 				auto Minus  = [](auto i, auto j) {return i - j; };
 			
-		} // namespace math
 	} // namespace algorithms
 } // namespace pse

@@ -108,5 +108,8 @@
     <ClCompile Include="DecreasingTuple.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TupleCTAD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

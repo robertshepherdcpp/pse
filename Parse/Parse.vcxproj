@@ -155,6 +155,7 @@
     <ClCompile Include="String.cpp" />
     <ClCompile Include="Traits.cpp" />
     <ClCompile Include="Tuple.cpp" />
+    <ClCompile Include="TupleCTAD.cpp" />
     <ClCompile Include="TupleLike.cpp" />
     <ClCompile Include="TypeID.cpp" />
     <ClCompile Include="UselessObj.cpp" />
