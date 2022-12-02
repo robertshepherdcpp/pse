@@ -93,12 +93,19 @@ namespace pse
 			template<typename T>
 			auto Reverse(Iterator<T>& j)
 			{
+				// just reverse the elements. Could just use the functionality of the iterator like operator+ etc.
 				for (int i = 0; i < j.size(); i++)
 				{
-					// auto x = j.get_ref();
-					// x = j.get_ref() - i;
-					// j.get_ref() - i = j.get_ref();
+					auto x = j.get_ref();
+					x = j.get_ref() - i;
+					j.get_ref() - i = j.get_ref();
 				}
+			}
+
+			template<typename T>
+			auto Sort(Iterator<T>& t)
+			{
+				// implementation still is needed.
 			}
 
 			// Lambdas that can pass to functions like pse::OnAll();

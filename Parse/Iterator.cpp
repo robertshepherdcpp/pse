@@ -15,9 +15,14 @@ namespace pse
 
 		decltype(auto) get() { return it; }
 		decltype(auto) get_val() { return *it; }
+		decltype(auto) get_ref() { return it; } // does the same thing as get() does just a better name.
 
 		auto operator*() { return get_val(); }
 		auto operator->() { return get_val(); }
+
+		auto begin() { return it; }
+		// End is just a sentinel value.
+		auto end() { return Iterator{}; }
 
 		auto operator-=(int i) { it = it - i; }
 		auto operator+=(int i) { it = it + i; return it; }
