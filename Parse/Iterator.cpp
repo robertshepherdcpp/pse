@@ -27,6 +27,12 @@ namespace pse
 		auto operator-=(int i) { it = it - i; }
 		auto operator+=(int i) { it = it + i; return it; }
 
+		auto get_increment() { return it + 1; } // basically just *this.operator++().get();
+		auto get_decrement() { return it - 1; } // basically just *this.operator--().get();
+
+		auto get_plusEquals(auto i) { return it += i; } // just so we can do it in one function
+		auto get_plusMinus(auto i) { return it -= i; }  // just so we can do it in one function.
+
 		Iterator(T* t) { it = t; }
 		Iterator(T t) { /*it = Traits::Add_Pointer<T>::value{};*/ }
 		Iterator(T* t, int size_) { it = t; size = size_; }

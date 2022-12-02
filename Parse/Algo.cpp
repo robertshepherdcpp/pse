@@ -102,10 +102,23 @@ namespace pse
 				}
 			}
 
-			template<typename T>
-			auto Sort(Iterator<T>& t)
+			template<typename A, typename B>
+			auto swap(Iterator<A>& ai, Iterator<B>& bi)
+			{
+				auto x = ai.get_ref(); // have a reference so we can use the lower level part of Iterator.
+				x = bi.get_ref();
+				auto j = bi.get_ref();
+				ai.get_ref() = j; // swap using reference variables
+			}
+
+			template<typename T, typename Callable>
+			auto Sort(Iterator<T>& t, Callable c)
 			{
 				// implementation still is needed.
+				if (c(t.get_val(), t.get_incremented()))
+				{
+					swap(t, t++);
+				}
 			}
 
 			// Lambdas that can pass to functions like pse::OnAll();
