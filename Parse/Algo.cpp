@@ -115,10 +115,20 @@ namespace pse
 			auto Sort(Iterator<T>& t, Callable c)
 			{
 				// implementation still is needed.
-				if (c(t.get_val(), t.get_incremented()))
-				{
-					swap(t, t++);
-				}
+				//if (c(t.get_val(), t.get_increment()))
+				//{
+				//  swap(t, t++);
+				//}
+			}
+
+			// uses a reference for the value.
+			template<typename T>
+			auto Sort(Iterator<T>& t) -> void
+			{
+				//if (t.get_val() > t.get_increment())
+				//{
+				//	t.get_ref() = t.get_increment().get_ref()); // implementatation still needed.
+				//}
 			}
 
 			// Lambdas that can pass to functions like pse::OnAll();
@@ -129,7 +139,7 @@ namespace pse
 				auto Plus   = [](auto i, int j) {return i + j; };
 				auto Times  = [](auto i, auto j) {return i * j; };
 				auto Minus  = [](auto i, auto j) {return i - j; };
-			};
+			}
 		} // namespace math
 	} // namespace algorithms
 } // namespace pse

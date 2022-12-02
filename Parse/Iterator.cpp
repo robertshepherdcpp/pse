@@ -27,8 +27,8 @@ namespace pse
 		auto operator-=(int i) { it = it - i; }
 		auto operator+=(int i) { it = it + i; return it; }
 
-		auto get_increment() { return it + 1; } // basically just *this.operator++().get();
-		auto get_decrement() { return it - 1; } // basically just *this.operator--().get();
+		auto get_increment() { it += 1; return *this; } // basically just *this.operator++().get();
+		auto get_decrement() { it = -1; return *this; } // basically just *this.operator--().get();
 
 		auto get_plusEquals(auto i) { return it += i; } // just so we can do it in one function
 		auto get_plusMinus(auto i) { return it -= i; }  // just so we can do it in one function.
