@@ -1,4 +1,4 @@
-#Contributing
+Contributing
 
 Please test and **run you code in the latest MSVC compiler** and please **use formatting tools for you code.**
 
@@ -11,3 +11,4 @@ int main()
   std::cout << "Even though there isn't much in the codebase at the moment.
 }
 ```
+![c++4](https://user-images.githubusercontent.com/113625774/205391635-ddf33143-aaf3-4a4b-8398-1a177c65cc75.png)
