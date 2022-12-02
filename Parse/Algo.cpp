@@ -84,6 +84,23 @@ namespace pse
 				}
 			}
 
+			template<typename T>
+			auto Invoke(T t) -> decltype(t())
+			{
+				return t();
+			}
+
+			template<typename T>
+			auto Reverse(Iterator<T>& j)
+			{
+				for (int i = 0; i < j.size(); i++)
+				{
+					// auto x = j.get_ref();
+					// x = j.get_ref() - i;
+					// j.get_ref() - i = j.get_ref();
+				}
+			}
+
 			// Lambdas that can pass to functions like pse::OnAll();
 
 			namespace LambdaHelpers
