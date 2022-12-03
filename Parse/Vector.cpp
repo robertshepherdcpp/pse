@@ -30,6 +30,20 @@ namespace pse
 			size = 1;
 		}
 
+		template<auto Size>
+		Vector(T(&arr)[Size])
+		{
+			if (Size != size)
+			{
+				delete[] arr;
+				m_arr = new T[Size]{};
+			}
+			for (int i = 0; i < Size; i++)
+			{
+				m_arr[i] = arr[i];
+			}
+		}
+
 		Vector(Initializer_List<T>& list)
 		{
 			CopyInitializerToArr(list, m_arr);
@@ -66,7 +80,8 @@ namespace pse
 				temp[i] = m_arr[i];
 			}
 			delete[] m_arr;
-			m_arr = new T[size * 2];
+			const decltype(size) new_size = size * 2;
+			m_arr = new T[new_size];
 
 			int j = 0;
 

@@ -16,6 +16,9 @@ namespace pse
 		template<int accross>
 		Bitmap(Horizontal& h, pse::Vector<int>& vec);
 
+		// auto get() -> decltype(auto) { return m_Bitmap; }
+		// Error cannot return an array int[1][1]
+
 		int m_size = 1;
 		int m_length = 0;
 		int m_width = 0;

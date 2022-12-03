@@ -360,6 +360,10 @@ int main()
 	//	std::cout << "functionone and function two both have the same types.\n";
 	//}
 
+	// if i use this code i get a link error.
+	//int vector_a_arr[8]{ 5,3,4,5,9,3,6,2 };
+	//pse::Vector<int> vector_a{ /*vector_a_arr*/ };
+
 	return *iterator;
 
 	// return "\nEnd\nOf\nProgram\n";

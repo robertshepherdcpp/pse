@@ -135,7 +135,8 @@ namespace pse
 
 		inline auto Take(int prefix, int postfix)
 		{
-			constexpr auto diff = algorithms::difference(postfix - prefix);
+			//constexpr auto diff = algorithms::difference(postfix, prefix);
+			constexpr auto diff = postfix - prefix;
 			T temp[size]{};
 			for (int i = 0; i < size; i++)
 			{
