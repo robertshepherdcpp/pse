@@ -55,6 +55,13 @@ struct Iterator
   
   auto get();
   auto get_val();
+  decltype(auto) get_ref();
+  
+  auto get_Increment();
+  auto get_Dectrement();
+  
+  auto get_PlusEquals();
+  auto get_MinusEquals();
   
   int size;
 };
