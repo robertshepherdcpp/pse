@@ -40,6 +40,11 @@ namespace pse
 			CopyArr(v.m_arr, m_arr);
 		}
 
+		auto operator[](int z)
+		{
+			return m_arr[z];
+		}
+
 		auto operator=(T t)
 		{
 			delete[] m_arr;

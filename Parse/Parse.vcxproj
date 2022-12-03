@@ -136,6 +136,7 @@
     <ClCompile Include="Array.cpp" />
     <ClCompile Include="ArrCpy.cpp" />
     <ClCompile Include="Begin.cpp" />
+    <ClCompile Include="Bitmap.cpp" />
     <ClCompile Include="constant.cpp" />
     <ClCompile Include="Copy.cpp" />
     <ClCompile Include="DecreasingTuple.cpp" />
