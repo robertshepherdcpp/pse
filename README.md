@@ -1,7 +1,7 @@
 # Parse
 
-Total Number Of Lines: 2296
-Last Checked: 12/1/2022 20:25 PM London.
+Total Number Of Lines: 2566
+Last Checked: 12/3/2022 19:32 PM London.
 
 Parse is a helpful open-source library for C++. Consisting of many features that are part of the C++ Standard Library
 Here are some examples:
@@ -124,3 +124,16 @@ auto Sort(Iterator<T>& it)
   // when using this function the lambda/callable has to return a bool value.
 }
 ```
+`pse::pack_size` is a way to find the size of a parameter pack at compile time. It works a bit like a `pse::Tuple` in that it stores it's elements like `pse::Tuple<Ts...> other;` but it is for finding the size of a parameter pack instead. Say you have a parameter pack of `int, double, bool, char` and we didn't know the size of this parameter pack, we could use `pse::pack_size` by doing `pse::pack_size<int, double, bool, char>::value` and that will give us the value of `4`. An example implementation looks like this:
+```C++
+template<typename T, typename... Ts>
+struct pack_size
+{
+};
+
+template<typename T>
+struct pack_size<T>
+{
+};
+```
+It is very simple, and all you have to do to access to size is to get the `static` datamember: `value`.
