@@ -284,9 +284,9 @@ namespace when {
 }  // namespace when
 
 int maintwo() {
-	auto Lambda1 = [](when::first& f) { std::cout << "First.\n"; };
-	auto Lambda2 = [](when::second& s) { std::cout << "Second.\n"; };
-	auto Lambda3 = [](when::third& t) { std::cout << "Third.\n"; };
+	auto Lambda1 = [](when::first& f) { /*std::cout << "First.\n";*/ };
+	auto Lambda2 = [](when::second& s) { /*std::cout << "Second.\n";*/ };
+	auto Lambda3 = [](when::third& t) { /*std::cout << "Third.\n"; */ };
 
 	any_type any_t{ Lambda1, Lambda2, Lambda3 };
 
@@ -302,8 +302,8 @@ int maintwo() {
 int main()
 {
 	auto c_int = constant<42>{};
-	std::cout << c_int.value;
-	std::cout << "\n";
+	//std::cout << c_int.value;
+	//std::cout << "\n";
 	// m p = 'c';
 	pse::Tuple<42, 'c', true, 3.14> v{};
 	// Dont need to initialize becuase everything is already initialized
@@ -315,7 +315,9 @@ int main()
 	// do not know why this compiles. But it does.
 
 // auto x = pse::get<0>(v);
-	std::cout << v.values.values.value;
+
+	// std::cout << v.values.values.value;
+
 	// std::cout << "\n" << x << "\n";
 	// could do a chain like this.
 
