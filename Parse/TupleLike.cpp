@@ -1,6 +1,6 @@
 #pragma once
 
-#include<iostream> // std::cout for print
+// #include<iostream> // std::cout for print
 
 namespace pse
 {
@@ -268,7 +268,7 @@ tuple.depth(); // need to implement depth function of TupleLike
 	{
 		//std::cout << "\n";
 		auto x = SizeDepth();
-		std::cout << first << ", ";
+		//std::cout << first << ", ";
 		seconds.print();
 
 		//std::cout << "\n";
@@ -280,16 +280,16 @@ tuple.depth(); // need to implement depth function of TupleLike
 		//std::cout << "\n";
 		if (b != false)
 		{
-			std::cout << "[";
+			//std::cout << "[";
 		}
 		//std::cout << "\n";
 		auto x = SizeDepth();
-		std::cout << first << ", ";
+		//std::cout << first << ", ";
 		seconds.print(false);
 
 		if (b != false)
 		{
-			std::cout << "]\n";
+			//std::cout << "]\n";
 		}
 
 		//std::cout << "\n";
@@ -411,10 +411,10 @@ tuple.depth(); // need to implement depth function of TupleLike
 		int index = 0;
 		auto SizeDepth() { return 1; }
 		auto Depth() { return first; }
-		auto print() { std::cout << first; }
+		auto print() { /*std::cout << first;*/ }
 		auto print(bool b)
 		{
-			std::cout << first;
+			//std::cout << first;
 		}
 		static constexpr int value = 1;
 	};

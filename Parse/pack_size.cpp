@@ -1,3 +1,5 @@
+#pragma once
+
 namespace pse
 {
 	// A way to find the size of a parameter pack at compile time.

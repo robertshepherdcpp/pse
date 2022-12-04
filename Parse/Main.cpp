@@ -18,7 +18,7 @@
 #include"Iterator.cpp" // pse::Iterator
 #include"Range.cpp" // pse::Range
 
-#include<iostream> // std::cout
+// #include<iostream> // std::cout
 
 // only using the standard library for std::cout
 // Currently getting an error because of Bitfender doing checks whilst
@@ -262,11 +262,11 @@ auto assert(bool b, auto& s)
 {
 	if (!b)
 	{
-		std::cout << s << " failed.\n";
+		//std::cout << s << " failed.\n";
 	}
 	else
 	{
-		std::cout << s << " passed.\n";
+		//std::cout << s << " passed.\n";
 	}
 }
 
@@ -309,8 +309,8 @@ int main()
 	// Dont need to initialize becuase everything is already initialized
 
 	//pse::Visit
-	(pse::overload{ [](pse::String<10>& s) {std::cout << "String.\n"; },
-	[](int i) {std::cout << "Int.\n"; } },
+	(pse::overload{ [](pse::String<10>& s) {/*std::cout << "String.\n";*/ },
+	[](int i) {/*std::cout << "Int.\n";*/ }},
 		pse::Choices::ReturnUnWanted{}, 42);
 	// do not know why this compiles. But it does.
 
@@ -337,7 +337,7 @@ int main()
 	//constexpr bool b = (x == pse::String<12>("int"));
 	// assert(x == pse::String<12>("int"), pse::String<28>("x == pse::String<12>(\"int\")"));
 
-	std::cout << "\nA float's default value is: " << float{} << " -- !.\n";
+	//std::cout << "\nA float's default value is: " << float{} << " -- !.\n";
 
 	// don't need to do it this style but can do: tupletwo{5, 3.0, 3.004, 'c', true};
 	pse::TupleLike<int, double, float, char, bool> tupletwo{ 5, {3.0, {3.0004,{'c', {true}}}} };

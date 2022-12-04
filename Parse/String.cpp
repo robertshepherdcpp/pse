@@ -1,7 +1,6 @@
 #pragma once
 
 #include"ArrCpy.cpp"
-#include<iostream> // std::cout
 
 namespace pse
 {
@@ -66,7 +65,7 @@ namespace pse
 			for(int i = 0; i < size; i++)
 			{
 				
-				std::cout << c_arr[i];
+				// std::cout << c_arr[i];
 				if (i != size - 1)
 				{
 					//std::cout << "";
