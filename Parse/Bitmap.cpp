@@ -1,6 +1,7 @@
 #pragma once
 
 #include"Vector.cpp" // pse::Vector
+#include"pack_size.cpp" // pse::pack_size
 
 namespace pse
 {
@@ -18,7 +19,24 @@ namespace pse
 
 		template<auto to_get>
 		auto get();
+
+		template<typename H>
+		auto get_type(int size)->H;
 	};
+
+	template<auto T, auto... Ts>
+	template<typename H>
+	auto BitTuple<T, Ts...>::get_type(int size) -> H
+	{
+		if (index == size)
+		{
+			return first;
+		}
+		else
+		{
+			return seconds.get_type<H>(size);
+		}
+	}
 
 	template<auto T, auto... Ts>
 	template<auto to_get>
@@ -43,6 +61,9 @@ namespace pse
 
 		template<auto T>
 		auto get() { return first; }
+
+		template<typename H>
+		auto get_type(int size) { return first; }
 	};
 
 	struct Bitmap
@@ -52,6 +73,9 @@ namespace pse
 
 		template<int accross>
 		Bitmap(Horizontal& h, pse::Vector<int>& vec);
+
+		template<typename T, typename... Ts>
+		Bitmap(int down, T t, Ts... ts);
 
 		// auto get() -> decltype(auto) { return m_Bitmap; }
 		// Error cannot return an array int[1][1]
@@ -71,6 +95,28 @@ namespace pse
 
 		int m_Bitmap[1][1]{};
 	};
+
+	template<typename T, typename... Ts>
+	Bitmap::Bitmap(int down, T t, Ts... ts)
+	{
+		BitTuple<t, ts...> bit_tuple;
+		constexpr auto pack_size_value = pack_size<T, Ts...>::value;
+		m_size = pack_size_value;
+
+		const int x = m_size % down;
+		const int z = (m_size + x) / down;
+		int m = 0;
+		m_Bitmap = new int[z][down]{};
+
+		for (int i = 0; i < down && i < m_size; i++)
+		{
+			for (int j = 0; i < x && i < m_size; j++)
+			{
+				m++;
+				m_Bitmap[i][j] = bit_tuple.get_type<int>(m);
+			}
+		}
+	}
 
 	auto Bitmap::add(int index, int indextwo, int to_add)
 	{
