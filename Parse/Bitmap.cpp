@@ -8,6 +8,43 @@ namespace pse
 	struct Vertical {};
 	struct Horizontal {};
 
+	template<auto T, auto... Ts>
+	struct BitTuple
+	{
+		decltype(T) first = T;
+		BitTuple<Ts...> seconds;
+
+		int index = 0;
+
+		template<auto to_get>
+		auto get();
+	};
+
+	template<auto T, auto... Ts>
+	template<auto to_get>
+	auto BitTuple<T, Ts...>::get()
+	{
+		if constexpr (index == to_get)
+		{
+			index = 0;
+			return first;
+		}
+		else
+		{
+			seconds.index = index;
+			return seconds.get<to_get - 1>();
+		}
+	}
+
+	template<auto T>
+	struct BitTuple<T>
+	{
+		decltype(T) first = T;
+
+		template<auto T>
+		auto get() { return first; }
+	};
+
 	struct Bitmap
 	{
 		template<int down>
@@ -19,12 +56,37 @@ namespace pse
 		// auto get() -> decltype(auto) { return m_Bitmap; }
 		// Error cannot return an array int[1][1]
 
+		auto get() { return m_Bitmap; }
+		auto add(int index, int indextwo, int to_add);
+
+		auto assign(auto& a);
+
+		auto length() { return m_length; }
+		auto width() { return m_width; }
+		auto size() { return m_size; }
+
 		int m_size = 1;
 		int m_length = 0;
 		int m_width = 0;
 
 		int m_Bitmap[1][1]{};
 	};
+
+	auto Bitmap::add(int index, int indextwo, int to_add)
+	{
+		m_Bitmap[index][indextwo] = to_add;
+	}
+
+	auto Bitmap::assign(auto& a)
+	{
+		for (int i = 0; i < m_length; i++)
+		{
+			for (int j = 0; j < m_width; j++)
+			{
+				m_Bitmap[i][j] = a[i][j];
+			}
+		}
+	}
 
 	template<int down>
 	Bitmap::Bitmap(Vertical& v, pse::Vector<int>& vec)
