@@ -137,3 +137,37 @@ struct pack_size<T>
 };
 ```
 It is very simple, and all you have to do to access to size is to get the `static` datamember: `value`.
+There is also a container called `pse::Bitmap`, it consists of a collection of datamembers that are aranged like this:
+```C++
+	[0, 0], [1, 0], [2, 0], [3, 0], [4, 0], [5, 0]
+	
+	[0, 1], [1, 1], [2, 1], [3, 1], [4, 1], [5, 1]
+	
+	[0, 2], [1, 2], [2, 2], [3, 2], [4, 2], [5, 2]
+	
+	[0, 3], [1, 3], [2, 3], [3, 3], [4, 3], [5, 3]
+	
+	[0, 4], [1, 4], [2, 4], [3, 4], [4, 4], [5, 4]
+	
+	[0, 5], [1, 5], [2, 5], [3, 5], [4, 5], [5, 5]
+```
+`pse::Bitmap`'s implementation looks a bit like this:
+```C++
+struct Bitmap
+{
+  // all of the usual constructors +
+  template<typename T, typename... Ts>
+  Bitmap(T t, Ts... ts);
+  
+  int m_bitmap[1][1];
+};
+```
+It's constructor is very simple to use, you can simply pass in `pse::Down{3}, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14` and the `pse::Bitmap` will end up looking like this:
+```C++
+     1, 6, 11
+		 2, 7, 12
+		 3, 8, 13
+		 4, 9, 14
+		 5, 10
+```
+We pass in `pse::Down{}` this tells us how many numbers we want across, in this case we passed in three, so it has three numbers down for example: `1, 2, 3, 4, 5` and the rest depends on how many numbers you passed in and the value of the `value` data member of `pse::Down`. The `pse::Down` shows us that we want `pse::Down::value` going down and the rest depends on what parameters we have passed in.
