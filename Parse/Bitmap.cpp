@@ -83,11 +83,14 @@ namespace pse
 		template<typename T, typename... Ts>
 		Bitmap(across& a, T t, Ts... ts);
 
+		template<typename T, typename... Ts>
+		Bitmap(int, T t, Ts... ts);
+
 		// auto get() -> decltype(auto) { return m_Bitmap; }
 		// Error cannot return an array int[1][1]
 
 		auto get() { return m_Bitmap; }
-		auto add(int index, int indextwo, int to_add);
+		inline auto add(int index, int indextwo, int to_add);
 
 		auto assign(auto& a);
 
@@ -135,6 +138,29 @@ namespace pse
 
 		const int x = m_size % a.value;
 		const int z = (m_size + x) / a.value;
+		int m = 0;
+		m_Bitmap = new int[z][down]{};
+
+		for (int i = 0; i < x && i < m_size; i++)
+		{
+			for (int j = 0; i < z && j < m_size; j++)
+			{
+				m++;
+				m_Bitmap[j][i] = bit_tuple.get_type<int>(m);
+			}
+		}
+	}
+
+	// if not specified it is accross
+	template<typename T, typename... Ts>
+	Bitmap::Bitmap(int a, T t, Ts... ts)
+	{
+		BitTuple<t, ts...> bit_tuple;
+		constexpr auto pack_size_value = pack_size<T, Ts...>::value;
+		m_size = pack_size_value;
+
+		const int x = m_size % a;
+		const int z = (m_size + x) / a;
 		int m = 0;
 		m_Bitmap = new int[z][down]{};
 

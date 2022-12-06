@@ -17,6 +17,7 @@
 #include"TupleLike.cpp" // pse::TupleLike
 #include"Iterator.cpp" // pse::Iterator
 #include"Range.cpp" // pse::Range
+#include"Bitmap.cpp" // pse::Bitmap
 
 // #include<iostream> // std::cout
 
@@ -365,6 +366,8 @@ int main()
 	// if i use this code i get a link error.
 	//int vector_a_arr[8]{ 5,3,4,5,9,3,6,2 };
 	//pse::Vector<int> vector_a{ /*vector_a_arr*/ };
+
+	// pse::Bitmap b(pse::down{}, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
 	return *iterator;
 
