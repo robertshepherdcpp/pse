@@ -11,4 +11,5 @@ int main()
   std::cout << "Even though there isn't much in the codebase at the moment.
 }
 ```
+Also when you contribute, contribute to the documentation aswell!
 ![c++4](https://user-images.githubusercontent.com/113625774/205391635-ddf33143-aaf3-4a4b-8398-1a177c65cc75.png)
