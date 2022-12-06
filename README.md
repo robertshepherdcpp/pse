@@ -3,6 +3,8 @@
 Total Number Of Lines: 2736
 Last Checked: 12/6/2022 20:55 PM London.
 
+SonarLink: https://sonarcloud.io/project/configuration?id=robertshepherdcpp_pse&analysisMode=GitHubActions
+
 Parse is a helpful open-source library for C++. Consisting of many features that are part of the C++ Standard Library
 Here are some examples:
 
