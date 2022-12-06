@@ -164,7 +164,7 @@ struct Bitmap
 ```
 It's constructor is very simple to use, you can simply pass in `pse::Down{3}, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14` and the `pse::Bitmap` will end up looking like this:
 ```C++
-     1, 6, 11
+                 1, 6, 11
 		 2, 7, 12
 		 3, 8, 13
 		 4, 9, 14
