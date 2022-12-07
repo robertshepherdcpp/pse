@@ -173,3 +173,69 @@ It's constructor is very simple to use, you can simply pass in `pse::Down{3}, 1,
 		 5, 10
 ```
 We pass in `pse::Down{}` this tells us how many numbers we want across, in this case we passed in three, so it has three numbers down for example: `1, 2, 3, 4, 5` and the rest depends on how many numbers you passed in and the value of the `value` data member of `pse::Down`. The `pse::Down` shows us that we want `pse::Down::value` going down and the rest depends on what parameters we have passed in.
+
+In the `Traits.cpp` header file, there are many useful `class`es/`struct`s that are all just instances of meta-programming. For example `pse::Is_Type`, it's implementation looks like this:
+```C++
+template<typename T>
+struct Is_Type
+{
+};
+```
+`pse::Is_Same` compares two types to see if they are the same using partial template specialization. An example implementation looks like this:
+```C++
+template<typename A,  typename B>
+struct Is_Same
+{
+};
+```
+There is also `pse::Add_Const` which just adds const to a type passed in, an example implementation looks like this:
+```C++
+template<typename T>
+struct Add_Const
+{
+};
+```
+There is also a `class`/`struct` called `pse::Remove_Const` which just removes the `const` from a value (only if the type passed in is `const`). An example implementation looks like this:
+```C++
+template<typename T>
+struct Remove_Const
+{
+};
+```
+There is also the same as for `pse::Add_Const` and `pse::Remove_Const`, there is `pse::Add_Ref` and `pse::Remove_Ref`. An example implementation of `pse::Add_Ref` looks like this:
+```C++
+template<typename T>
+struct Add_Ref
+{
+};
+```
+And an example implemenatation of `pse::Remove_Ref` looks like this:
+```C++
+template<typename T>
+struct Remove_Ref
+{
+};
+```
+
+There is also `pse::Add_Pointer` which adds a pointer to a given type. An example implementation of `pse::Add_Pointer` looks like this:
+```C++
+template<typename T>
+struct Add_Pointer
+{
+};
+```
+Also you can check if a type is a pointer by doing this:
+```C++
+auto x = pse::Is_Same<pse::Add_Pointer<T>::value, T>::value;
+```
+To check wheather adding a pointer to an already pointer is the same type. Or you can just do:
+```C++
+pse::Is_Pointer<T>::value;
+```
+An example implementation of `pse::Is_Pointer` is:
+```C++
+template<typename T>
+struct Is_Pointer
+{
+};
+```
