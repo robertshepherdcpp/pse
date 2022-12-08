@@ -256,6 +256,19 @@ tuple.depth(); // need to implement depth function of TupleLike
 
 		template<typename B>
 		auto GetTupleUninitializedAdd();
+
+		// only works if all types in the pse::TupleLike are of the same type
+		auto operator[](int i) -> T
+		{
+			if (i == 0)
+			{
+				return first;
+			}
+			else
+			{
+				return seconds[i - 1];
+			}
+		}
 	};
 
 	template<typename T, typename... Ts>
@@ -428,5 +441,18 @@ tuple.depth(); // need to implement depth function of TupleLike
 		    first = tup.first;
         }
 		static constexpr int value = 1;
+
+		// a better way than using get<0>() and so on.
+		auto operator[](int i) -> T
+		{
+			if (i == 0)
+			{
+				return first;
+			}
+			else
+			{
+				return {};
+			}
+		}
 	};
 } // namespace pse
