@@ -369,6 +369,10 @@ int main()
 
 	// pse::Bitmap b(pse::down{}, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
+	// notice have to spell out the types that are being used.
+	pse::TupleLike<int, int, int, int> tuple_like_{ 1, 2, 3, 4 };
+
+
 	return *iterator;
 
 	// return "\nEnd\nOf\nProgram\n";
