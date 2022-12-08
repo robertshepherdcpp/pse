@@ -1,6 +1,8 @@
 #pragma once
 
-// #include"TupleLike.cpp"
+#include"TupleLike.cpp"
+#include"TupleCTAD.cpp"
+#include"pack_size.cpp"
 // don' t need it yet.
 
 /*
@@ -42,7 +44,8 @@ namespace pse
 		
 		int count = 0;
 		// TupleLike v{};
-		// TupleLike<T, Ts...> lambdas{};
+		
+		TupleLike<T, Ts...> lambdas{};
 
 		// Generator(T t, Ts... ts) { lambdas = TupleLike<T, Ts...>{ t, ts... }; count = lambdas.Size();}
 		
@@ -57,5 +60,23 @@ namespace pse
 		//}
 		//Genrerator(T t) {/*Dont do anything at the moment*/ }
 		
+	};
+	
+	template<auto T, auto... Ts>
+	struct GeneratorCTAD
+	{
+		int size = 0;
+		static constexpr int size = pack_size<T, Ts...>::value;
+		TupleCTAD<T, Ts...> lambdas{};
+		
+		auto operator()()
+		{
+			if(i < size)
+			{
+				auto x = tup.get<0>();
+				return x();
+			}
+			i++;
+		}
 	};
 };
