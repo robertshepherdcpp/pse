@@ -27,8 +27,12 @@ struct TupleLike
 {
   template<typename T>
   auto push_back(B b);
+  
+  auto operator[](int i);
 }; // Just Tuple combined with a vector
 ```
+Notice the `operator[]`, it is novel, but bear in mind it only works for tuple of the same types. This is because in order to have varying return types it has to be done at comile time, and passing an arguement to a function like this: `foo(int x)` is not done at compile time, therefore it will always return the type of the first type in the parameter pack!
+
 `swap` is also just like `std::swap`. But a bit more basic.
 ```C++
 template<typename T>
