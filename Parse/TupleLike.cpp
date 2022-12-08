@@ -228,6 +228,12 @@ tuple.depth(); // need to implement depth function of TupleLike
 			return curr_tuple; // curr_tuple is of type Tuple<decltype(first), decltype(b), decltype(seconds.get_data())
 			// still to be implemented seconds of type TupleLike .get_data()
 		}
+		
+		auto operator=(TupleLike<T, Ts...>& tup)
+		{
+			first = tup.first;
+			seconds = tup.seconds;
+		}
 
 		// TupleLike(TupleLike<T, Ts...> tuple);
 
@@ -416,6 +422,12 @@ tuple.depth(); // need to implement depth function of TupleLike
 		{
 			//std::cout << first;
 		}
+		
+		auto operator=(TupleLike<T>& tup)
+		{
+		    first = tup.first;
+		    seconds = tup.seconds;
+                }
 		static constexpr int value = 1;
 	};
 } // namespace pse
