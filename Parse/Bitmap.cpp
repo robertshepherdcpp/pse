@@ -278,9 +278,9 @@ namespace pse
 		// Vertical, 5, and the vector shown above.
 
 		// Bitmap will look like this:
-		// 1, 2, 3, 4, 5
-		// 6, 7, 8, 9, 10,
-		// 11, 12
+		// 1,  2,  3,  4, 5
+		// 6,  7,  8,  9, 10,
+		// 11, 12, 13, 14
 		//
 		// When given the following numbers:
 		// {pse::Vector<int>{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14}};
