@@ -2,16 +2,38 @@
 
 namespace pse
 {
-	template<typename T, typename... Ts>
+	template<auto T, auto... Ts>
 	struct TupleCTAD
 	{
-		T value;
+		decltype(T) value;
 		TupleCTAD<Ts...> rest;
+
+		template<auto X>
+		auto get()
+		{
+			if constexpr(X == 0)
+			{
+				return value;
+			}
+			else
+			{
+				return rest.get<X - 1>();
+			}
+		}
 	};
 
-	template<typename T>
+	template<auto T>
 	struct TupleCTAD<T>
 	{
-		T value;
+		decltype(T) value;
+
+		template<auto X>
+		auto get()
+		{
+			if constexpr (X == 0)
+			{
+				return value;
+			}
+		}
 	};
 } // namespace pse

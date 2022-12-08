@@ -426,8 +426,7 @@ tuple.depth(); // need to implement depth function of TupleLike
 		auto operator=(TupleLike<T>& tup)
 		{
 		    first = tup.first;
-		    seconds = tup.seconds;
-                }
+        }
 		static constexpr int value = 1;
 	};
 } // namespace pse

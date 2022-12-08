@@ -65,18 +65,18 @@ namespace pse
 	template<auto T, auto... Ts>
 	struct GeneratorCTAD
 	{
-		int size = 0;
+		int sizetwo = 0;
 		static constexpr int size = pack_size<T, Ts...>::value;
-		TupleCTAD<T, Ts...> lambdas{};
+		static inline TupleCTAD<T, Ts...> lambdas{};
 		
 		auto operator()()
 		{
-			if(i < size)
+			if(sizetwo < size)
 			{
-				auto x = tup.get<0>();
+				auto x = lambdas.get<0>();
 				return x();
 			}
-			i++;
+			sizetwo++;
 		}
 	};
 };
