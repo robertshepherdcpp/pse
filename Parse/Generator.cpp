@@ -3,6 +3,10 @@
 #include"TupleLike.cpp"
 #include"TupleCTAD.cpp"
 #include"pack_size.cpp"
+
+// A more specialized Generator is located in GeneratorSame.cpp, this is for a generator
+// That returns the same types
+
 // don' t need it yet.
 
 /*

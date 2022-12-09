@@ -142,6 +142,7 @@
     <ClCompile Include="DecreasingTuple.cpp" />
     <ClCompile Include="Function.cpp" />
     <ClCompile Include="Generator.cpp" />
+    <ClCompile Include="GeneratorSame.cpp" />
     <ClCompile Include="Get.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="ImplicitEquals.cpp" />
