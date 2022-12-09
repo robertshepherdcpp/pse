@@ -244,3 +244,5 @@ struct Is_Pointer
 {
 };
 ```
+The pse Library blog!
+https://rshepherdcpp.wixsite.com/none/post/the-pse-library-new-idiom
