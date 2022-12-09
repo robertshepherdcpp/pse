@@ -162,6 +162,7 @@
     <ClCompile Include="TupleLike.cpp" />
     <ClCompile Include="TypeID.cpp" />
     <ClCompile Include="UselessObj.cpp" />
+    <ClCompile Include="ValueTraits.cpp" />
     <ClCompile Include="Variant.cpp" />
     <ClCompile Include="Vector.cpp" />
     <ClCompile Include="Visit.cpp" />
