@@ -4,8 +4,6 @@
 Total Number Of Lines: 2736
 Last Checked: 12/6/2022 20:55 PM London.
 
-SonarLink: https://sonarcloud.io/project/configuration?id=robertshepherdcpp_pse&analysisMode=GitHubActions
-
 Parse is a helpful open-source library for C++. Consisting of many features that are part of the C++ Standard Library
 Here are some examples:
 
@@ -244,5 +242,19 @@ struct Is_Pointer
 {
 };
 ```
+
+Also there is `pse::GeneratorSame` which is just a specialised `pse::Generator` for a gererator of the same type. It still has the same interface as `pse::Generator` but just small changes in the internal mechanisms. An example implementation looks like this:
+```C++
+template<auto T, auto... Ts>
+struct GeneratorSame
+{
+  TupleCTAD<T, Ts...> types{};
+  auto operator()();
+};
+```
+So, as stated before the interface is just like the one seen in `pse::Generator`, so for more information look at the details of the `pse::Generator` implemenatation. The only difference between the two is that `pse::GeneratorSame` has a different internal mechanism of `operator()()`.
+
 The pse Library blog!
 https://rshepherdcpp.wixsite.com/none/post/the-pse-library-new-idiom
+
+SonarLink: https://sonarcloud.io/project/configuration?id=robertshepherdcpp_pse&analysisMode=GitHubActions
