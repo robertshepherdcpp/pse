@@ -18,6 +18,7 @@
 #include"Iterator.cpp" // pse::Iterator
 #include"Range.cpp" // pse::Range
 #include"Bitmap.cpp" // pse::Bitmap
+#include"Generator.cpp" // pse::Generator
 
 // #include<iostream> // std::cout
 
@@ -371,6 +372,13 @@ int main()
 
 	// notice have to spell out the types that are being used.
 	pse::TupleLike<int, int, int, int> tuple_like_{ 1, 2, 3, 4 };
+
+	pse::Generator < []() {return 42; }, []() {return 'c'; }, []() {return true; } > generator{};
+	//auto bjarne = generator();
+	//auto stroustrup = generator();
+
+
+
 
 
 	return *iterator;

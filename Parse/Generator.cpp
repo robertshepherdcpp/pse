@@ -38,26 +38,29 @@ use `std::cout`. Just a way of having a way of returning an object that is like 
 
 namespace pse
 {
-	template<typename T, typename... Ts> // these are lambda types
+	template<auto T, auto... Ts> // these are lambda types
 	struct Generator
 	{
 		
 		int count = 0;
 		// TupleLike v{};
 		
-		TupleLike<T, Ts...> lambdas{};
+		TupleCTAD<T, Ts...> lambdas{};
 
 		// Generator(T t, Ts... ts) { lambdas = TupleLike<T, Ts...>{ t, ts... }; count = lambdas.Size();}
 		
-		//auto operator()() 
-		//{ 
+		auto operator()() 
+		{ 
 		//	if (count != 0)
 		//	{
 		//		auto x = lambdas.Depth<count>();
 		//		--count;
 		//		return x();
 		//	}
-		//}
+			auto x = lambdas.get<0>();
+			lambdas.remove_first();
+			return x;
+		}
 		//Genrerator(T t) {/*Dont do anything at the moment*/ }
 		
 	};

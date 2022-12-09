@@ -6,7 +6,7 @@ namespace pse
 {
 	// FIXME: Use string implemenatation without having to pass in size of const char*
 	template<typename T>
-	auto parseType() //-> StringList
+	auto parseType() // -> StringList
 	{
 		if constexpr(T() == 0) // 0 == int
 		{
