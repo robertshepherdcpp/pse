@@ -253,6 +253,7 @@ struct GeneratorSame
 };
 ```
 So, as stated before the interface is just like the one seen in `pse::Generator`, so for more information look at the details of the `pse::Generator` implemenatation. The only difference between the two is that `pse::GeneratorSame` has a different internal mechanism of `operator()()`.
+
 The pse Library blog!
 https://rshepherdcpp.wixsite.com/none/post/the-pse-library-new-idiom
 
