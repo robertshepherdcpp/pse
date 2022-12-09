@@ -377,10 +377,6 @@ int main()
 	//auto bjarne = generator();
 	//auto stroustrup = generator();
 
-
-
-
-
 	return *iterator;
 
 	// return "\nEnd\nOf\nProgram\n";
