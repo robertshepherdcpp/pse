@@ -4,11 +4,6 @@ namespace pse
 {
 	namespace Traits
 	{
-		template<typename T>
-		struct Is_Type
-		{
-			static constexpr auto value = true;
-		};
 
 		template<typename A, typename B>
 		struct Is_Same
@@ -173,9 +168,33 @@ namespace pse
 		};
 
 		template<typename T>
+		concept is_swappable = requires(T t)
+		{
+			t.swap(t);
+		};
+
+		template<typename T>
+		concept is_not_swappable = requires(T t)
+		{
+			!is_swappable<T>;
+		};
+
+		template<is_swappable T>
+		struct Is_Swappable
+		{
+			static constexpr bool value = true;
+		};
+
+		template<typename T>
 		concept is_rvalue_ref = requires(T t)
 		{
 			Is_Same<T, Add_Rvalue_Ref<T>::value>::value == true;
+		};
+
+		template<typename T>
+		struct Is_Type
+		{
+			static constexpr bool value = true;
 		};
 
 		template<typename T>
@@ -195,6 +214,13 @@ namespace pse
 			t += t;
 			t + t;
 			t.substr(1, 2);
+		};
+
+		template<typename T, template<typename A> typename... Traits>
+		struct Conjunction
+		{
+			// trying to use the c++17 fold expression but giving the error: syntax error: '('
+			// using value = (Traits<T>...)::value;
 		};
 
 	} // namespace Traits
