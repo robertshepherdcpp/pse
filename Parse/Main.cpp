@@ -19,6 +19,7 @@
 #include"Range.cpp" // pse::Range
 #include"Bitmap.cpp" // pse::Bitmap
 #include"Generator.cpp" // pse::Generator
+#include"Type.cpp" // pse::Type
 
 // #include<iostream> // std::cout
 
@@ -376,6 +377,13 @@ int main()
 	pse::Generator < []() {return 42; }, []() {return 'c'; }, []() {return true; } > generator{};
 	//auto bjarne = generator();
 	//auto stroustrup = generator();
+
+	pse::Type t_a{ 42 };
+	pse::Type t_b{ 56 };
+
+	t_a.operator<=(t_b);
+
+	// static_assert(t_a.i == 56);
 
 	return *iterator;
 

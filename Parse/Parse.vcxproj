@@ -160,6 +160,7 @@
     <ClCompile Include="Tuple.cpp" />
     <ClCompile Include="TupleCTAD.cpp" />
     <ClCompile Include="TupleLike.cpp" />
+    <ClCompile Include="Type.cpp" />
     <ClCompile Include="TypeID.cpp" />
     <ClCompile Include="UselessObj.cpp" />
     <ClCompile Include="ValueTraits.cpp" />
