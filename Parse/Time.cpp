@@ -46,6 +46,22 @@ namespace pse
 						return detail::comparison::greater;
 					}
 				} // if(m_month == t.m_month)
+				else if (m_month < t.m_month)
+				{
+					return detail::comparison::greater;
+				}
+				else if(m_month > t.m_month)
+				{
+					return detail::comparison::less;
+				}
+			}
+			else if (m_year < t.m_year)
+			{
+				return detail::comparison::greater;
+			}
+			else if (m_year > t.m_year)
+			{
+				return detail::comparison::less;
 			}
 		}
 
