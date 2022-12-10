@@ -223,5 +223,11 @@ namespace pse
 			// using value = (Traits<T>...)::value;
 		};
 
+		template<typename T, typename... Ts>
+		struct common_type
+		{
+			// needs implementating
+		};
+
 	} // namespace Traits
 } // namespace pse
