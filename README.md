@@ -1,5 +1,5 @@
 # Parse
-(!¬)
+!¬)
 
 Total Number Of Lines: 3100
 Last Checked: 12/11/2022 15:42 PM London.
