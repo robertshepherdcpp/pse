@@ -129,6 +129,30 @@ namespace pse
 				//}
 			}
 
+			auto find(auto& a, auto& ToFind) -> int
+			{
+				for (int i = 0; i < a.size(); i++)
+				{
+					if (a[i] == ToFind)
+					{
+						return i;
+					}
+				}
+				return 0;
+			}
+
+			auto find_if(auto& a, auto& Callable) -> int
+			{
+				for (int i = 0; i < a; i++)
+				{
+					if (Callable(a[i])) // requires Callable to return a bool
+					{
+						return i;
+					}
+				}
+				return 0;
+			}
+
 			// Lambdas that can pass to functions like pse::OnAll();
 
 				inline auto Square = [](auto i)         {return i * i; };
