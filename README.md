@@ -1,8 +1,8 @@
 # Parse
-(!¬)
+!¬)
 
-Total Number Of Lines: 3042
-Last Checked: 12/10/2022 15:54 PM London.
+Total Number Of Lines: 3100
+Last Checked: 12/11/2022 15:42 PM London.
 
 Parse is a helpful open-source library for C++. Consisting of many features that are part of the C++ Standard Library
 Here are some examples:
@@ -253,6 +253,22 @@ struct GeneratorSame
 };
 ```
 So, as stated before the interface is just like the one seen in `pse::Generator`, so for more information look at the details of the `pse::Generator` implemenatation. The only difference between the two is that `pse::GeneratorSame` has a different internal mechanism of `operator()()`.
+
+There are also lots of other algorithms in the `Algo.cpp` header file. One example is `pse::find` it just takes a data structure that has the `operator[]` and takes something to find. If it finds that thing in the data structure it returns the index that it was found at, if nothing was found then `0` will be retuned. An example implementation of `pse::find` looks like this:
+```C++
+auto find(auto& a, auto& ToFind)
+{
+ // Implemenatation.
+}
+```
+There is also `pse::find_if` which finds an element in a data structure if it meets the requirement of the callable passed in. An example implementation looks like this:
+```C++
+auto find_if(auto& a, auto& Callable)
+{
+  // Implemenatation.
+}
+```
+If the callable returns true with a given index of the data structure, that index is `return`ed otherwise `0` is `return`ed, to symbol that no value that met the condition of the Callable(something with `operator()`) evaluated to true in the data structure.
 
 The pse Library blog!
 https://rshepherdcpp.wixsite.com/none/post/the-pse-library-new-idiom
