@@ -1,8 +1,8 @@
 # Parse
 (!¬)
 
-Total Number Of Lines: 3042
-Last Checked: 12/10/2022 15:54 PM London.
+Total Number Of Lines: 3100
+Last Checked: 12/11/2022 15:42 PM London.
 
 Parse is a helpful open-source library for C++. Consisting of many features that are part of the C++ Standard Library
 Here are some examples:
