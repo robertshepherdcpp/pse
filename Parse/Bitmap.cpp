@@ -22,6 +22,17 @@ namespace pse
 
 		template<typename H>
 		auto get_type(int size)->H;
+
+		BitTuple()
+		{
+			seconds = BitTuple<Ts...>{};
+		}
+
+		auto operator=(BitTuple<T, Ts...>& t)
+		{
+			first = t.first;
+			seconds = t.seconds;
+		}
 	};
 
 	template<auto T, auto... Ts>
@@ -64,6 +75,13 @@ namespace pse
 
 		template<typename H>
 		auto get_type(int size) { return first; }
+
+		BitTuple() { /*first = t;*/ }
+
+		auto operator=(BitTuple<T>& t)
+		{
+			first = t.first;
+		}
 	};
 
 	struct down { int value = 0; };
