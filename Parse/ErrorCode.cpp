@@ -6,7 +6,9 @@ namespace pse
 {
 	struct ErrorCode
 	{
-		StringList str{};
-		auto what() { return str; }
+		StringList m_str{};
+		auto what() { return m_str; }
+
+		ErrorCode(StringList str) { m_str = str; }
 	};
 } // namespace pse
