@@ -153,6 +153,17 @@ namespace pse
 				return 0;
 			}
 
+			auto reverse(auto& a)
+			{
+				int x = 0;
+				for (int i = a.size(); i > 0; i++, x++)
+				{
+					auto temp = a[i];
+					a[i] = a[x];
+					a[x] = a[i];
+				}
+			}
+
 			// Lambdas that can pass to functions like pse::OnAll();
 
 				inline auto Square = [](auto i)         {return i * i; };
