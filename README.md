@@ -270,6 +270,15 @@ auto find_if(auto& a, auto& Callable)
 ```
 If the callable returns true with a given index of the data structure, that index is `return`ed otherwise `0` is `return`ed, to symbol that no value that met the condition of the Callable(something with `operator()`) evaluated to true in the data structure.
 
+There is also `pse::reverse` which takes a given container `a` and reverses the elements in that array. The implementation looks a bit like this:
+```C++
+auto reverse(auto& a)
+{
+  // reverse the elements in the array.
+}
+```
+So having a given input: `1, 2, 3, 4`, when passed to the reverse function, `pse::reverse` it will now look like: `4, 3, 2, 1`. Which is succesfully reversed! But the container that stores the elements it has to have `operator[]` and the types stored have to support `operator=` and those are mostly all of the constraints!
+
 The pse Library blog!
 https://rshepherdcpp.wixsite.com/none/post/the-pse-library-new-idiom
 
