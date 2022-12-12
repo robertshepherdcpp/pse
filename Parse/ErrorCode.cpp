@@ -10,5 +10,6 @@ namespace pse
 		auto what() { return m_str; }
 
 		ErrorCode(StringList str) { m_str = str; }
+		ErrorCode() {}
 	};
 } // namespace pse

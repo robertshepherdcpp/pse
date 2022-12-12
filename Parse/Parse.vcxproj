@@ -154,6 +154,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Optional.cpp" />
     <ClCompile Include="overload.cpp" />
+    <ClCompile Include="pack_at.cpp" />
     <ClCompile Include="pack_size.cpp" />
     <ClCompile Include="Range.cpp" />
     <ClCompile Include="String.cpp" />
@@ -167,6 +168,7 @@
     <ClCompile Include="UselessObj.cpp" />
     <ClCompile Include="ValueTraits.cpp" />
     <ClCompile Include="Variant.cpp" />
+    <ClCompile Include="Vec.cpp" />
     <ClCompile Include="Vector.cpp" />
     <ClCompile Include="Visit.cpp" />
     <ClCompile Include="ZeroArr.cpp" />

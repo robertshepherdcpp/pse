@@ -20,6 +20,7 @@
 #include"Bitmap.cpp" // pse::Bitmap
 #include"Generator.cpp" // pse::Generator
 #include"Type.cpp" // pse::Type
+#include"Vec.cpp" // pse::Vec
 
 // #include<iostream> // std::cout
 
@@ -384,6 +385,9 @@ int main()
 	t_a.operator<=(t_b);
 
 	// static_assert(t_a.i == 56);
+
+	//pse::Vec<int> ikm{1, 2, 3, 4};
+	// std::cout << ikm[2];
 
 	return *iterator;
 
