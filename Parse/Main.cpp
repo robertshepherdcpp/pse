@@ -340,7 +340,11 @@ int main()
 	//string.print();
 	//constexpr bool b = (x == pse::String<12>("int"));
 	// assert(x == pse::String<12>("int"), pse::String<28>("x == pse::String<12>(\"int\")"));
-letwo{ 5, {3.0, {3.0004,{'c', {true}}}} };
+
+	//std::cout << "\nA float's default value is: " << float{} << " -- !.\n";
+
+	// don't need to do it this style but can do: tupletwo{5, 3.0, 3.004, 'c', true};
+	pse::TupleLike<int, double, float, char, bool> tupletwo{ 5, {3.0, {3.0004,{'c', {true}}}} };
 	tupletwo.print(true);
 	// tupletwo.push_back(42);
 
@@ -348,10 +352,6 @@ letwo{ 5, {3.0, {3.0004,{'c', {true}}}} };
 	// r.Take(2, 5);
 
 	int arr[10]{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-	//std::cout << "\nA float's default value is: " << float{} << " -- !.\n";
-
-	// don't need to do it this style but can do: tupletwo{5, 3.0, 3.004, 'c', true};
-	pse::TupleLike<int, double, float, char, bool> tup
 
 	pse::Iterator iterator{ arr }; // assigns the first value of the array: arr.
 	iterator++;
