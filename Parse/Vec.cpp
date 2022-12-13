@@ -16,7 +16,10 @@ namespace pse
         {
             size = pack_size<A, B...>::value;
             const int new_size = size;
-            delete[] m_data;
+            if (m_data)
+            {
+                delete[] m_data;
+            }
             m_data = new T[new_size];
             for (int i = 0; i < size; i++)
             {
