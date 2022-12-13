@@ -279,6 +279,13 @@ auto reverse(auto& a)
 ```
 So having a given input: `1, 2, 3, 4`, when passed to the reverse function, `pse::reverse` it will now look like: `4, 3, 2, 1`. Which is succesfully reversed! But the container that stores the elements it has to have `operator[]` and the types stored have to support `operator=` and those are mostly all of the constraints!
 
+`pse::CodeMeaning` contained in the `CodeMeaning.cpp` header file has lots of different `if`'s and `else if`'s in order to find the write error code, here is a collection of the error codes and their values.
+
+```C++
+026: Out Of Bounds Access.
+054: Unvalid Type
+```
+
 The pse Library blog!
 https://rshepherdcpp.wixsite.com/none/post/the-pse-library-new-idiom
 
