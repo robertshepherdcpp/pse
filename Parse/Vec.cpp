@@ -2,6 +2,7 @@
 
 #include"pack_size.cpp"
 #include"pack_at.cpp"
+#include"ErrorCode.cpp" // so that we can throw an exception when out of bounds.
 
 // a better pse::Vector
 
@@ -16,7 +17,8 @@ namespace pse
         {
             size = pack_size<A, B...>::value;
             const int new_size = size;
-            if (m_data)
+            if (m_data) // check if data is already allocated, becuase we don't want
+                        // to deallocate memory that we don't already own!
             {
                 delete[] m_data;
             }
@@ -35,16 +37,32 @@ namespace pse
             size[0] = a;
         }
 
-        Vec() {}
+        Vec() {/*Do nothing because everything is already initialized. Well sort of*/ }
 
         auto operator[](int i) -> T
         {
             if (i > size)
             {
-                return T{};
+                // return T{}; No instead of returning T{} we should throw an error code.
             }
             return m_data[i];
         }
+
+        // Jason Turner preferse .at() instead of operator[], he considers it to be 
+        // a best practice so i will implement a .at() member function with bounds checking.
+
+        auto at(int i)
+        {
+            if (i > size)
+            {
+                throw ErrorCode{026}; // ErrorCode 026 is for out of bounds.
+            }
+            else
+            {
+                return m_data[i];
+            }
+        }
+
 
         int size = 0;
         //T m_data[1];
