@@ -32,6 +32,8 @@ namespace pse
             size[0] = a;
         }
 
+        Vec() {}
+
         auto operator[](int i) -> T
         {
             if (i > size)
