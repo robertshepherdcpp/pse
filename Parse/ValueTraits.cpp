@@ -36,7 +36,7 @@ namespace pse
 	struct Add_Pointer
 	{
 		using T_type = decltype(T);
-		using value = Traits::Add_Pointerf<T_type>::value;
+		using value = Traits::Add_Pointer<T_type>::value;
 		T_type value_t = value{};
 	};
 
