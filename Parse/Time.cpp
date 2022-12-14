@@ -43,7 +43,12 @@ namespace pse
 			m_day = d;
 		}
 
-		auto operator/(StringList& s)
+		Time(StringList& a)
+		{
+			// with this we will split the string into it's appropriate data members.
+		}
+
+		auto operator/()
 		{
 			// Needs implementing, but first we need a better pse::StringList.
 		}
