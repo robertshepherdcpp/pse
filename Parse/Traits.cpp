@@ -168,6 +168,21 @@ namespace pse
 		};
 
 		template<typename T>
+		concept is_const = requires(T t)
+		{
+			Is_Same<T, Add_Rvalue_Ref<T>::value>::value == true;
+		};
+
+		// template<typename T>
+		//concept is_ref = requires(T t)
+		//{
+		//	Is_Same<T, Add_Rvalue_Ref<T>::value>::value == true;
+		//};
+
+		template<typename T>
+		concept is_type = true;
+
+		template<typename T>
 		concept is_swappable = requires(T t)
 		{
 			t.swap(t);
@@ -197,6 +212,14 @@ namespace pse
 			static constexpr bool value = true;
 		};
 
+		/* Doesn't work, needs the same template parameter as Is_Type, see above.
+		template<auto T>
+		struct Is_Type<T>
+		{
+			static constexpr bool value = false;
+		};
+		*/
+
 		template<typename T>
 		concept is_integral = requires(T t)
 		{
@@ -208,12 +231,25 @@ namespace pse
 			t + t;
 		};
 
+		// Make type A of type B;
+		template<typename A,typename B>
+		struct Make
+		{
+			A a{};
+			B b{};
+		};
+		// ^ i don't think is implementable.
+		// |
+
 		template<typename T>
 		concept is_string = requires(T t)
 		{
 			t += t;
 			t + t;
 			t.substr(1, 2);
+			t -= t;
+			t - t;
+			t[0];
 		};
 
 		template<typename T, template<typename A> typename... Traits>
