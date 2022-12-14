@@ -1,5 +1,7 @@
 #pragma once
 
+#include"String.cpp" // pse::StringList is included in `String.cpp`
+
 namespace pse
 {
 	namespace detail
@@ -7,6 +9,19 @@ namespace pse
 		enum month {Jan = 1, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec};
 		enum day {Mon = 1, Tue, Wed, Thu, Fri, Sat, Sun};
 		enum class comparison { greater = 1, same, less };
+
+		static constexpr auto MinutesPerHour = 60;
+		static constexpr auto SecondsPerMinute = 60;
+		static constexpr auto SecondsPerHour = SecondsPerMinute * MinutesPerHour;
+		static constexpr auto HoursPerDay = 24;
+
+		// for years.
+		static constexpr auto WeeksPerYear = 52;
+		static constexpr auto DaysPerYear = 365;
+		static constexpr auto MonthsPerYear = 12;
+		static constexpr auto HoursPerYear = DaysPerYear * HoursPerDay;
+		static constexpr auto MinutesPerYear = HoursPerYear * MinutesPerHour;
+		static constexpr auto SecondsPerYear = HoursPerYear * SecondsPerHour;
 	}
 	struct Time
 	{
@@ -15,6 +30,11 @@ namespace pse
 			m_year = year;
 			m_month = m;
 			m_day = d;
+		}
+
+		auto operator/(StringList& s)
+		{
+			// Needs implementing, but first we need a better pse::StringList.
 		}
 
 		auto date()
