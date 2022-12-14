@@ -48,10 +48,10 @@ namespace pse
 			// with this we will split the string into it's appropriate data members.
 		}
 
-		auto operator/()
-		{
+		//auto operator/()
+		//{
 			// Needs implementing, but first we need a better pse::StringList.
-		}
+		//}
 
 		auto date()
 		{
@@ -101,8 +101,8 @@ namespace pse
 			}
 		}
 
-		int m_year{};
-		int m_month{};
-		int m_day{};
+		int m_year{0};
+		int m_month{0};
+		int m_day{0};
 	};
 } // namespace pse
