@@ -13,4 +13,38 @@ namespace pse
 	//{
 	//	using value = Add_Ref<decltype(T)>::value; // defers work to Add_Ref defined in "Traits.cpp"
 	//};
+
+	// using namespace Traits; Not considered best practice, so i will not do it.
+
+	template<auto T>
+	struct Add_Const
+	{
+		using T_type = decltype(T);
+		using value = Traits::Add_Const<T_type>::value;
+		T_type value_t = value{};
+	};
+
+	template<auto T>
+	struct Add_Ref
+	{
+		using T_type = decltype(T);
+		using value = Traits::Add_Ref<T_type>::value;
+		T_type value_t = value{};
+	};
+
+	template<auto T>
+	struct Add_Pointer
+	{
+		using T_type = decltype(T);
+		using value = Traits::Add_Pointerf<T_type>::value;
+		T_type value_t = value{};
+	};
+
+	template<auto T>
+	struct Rvalue_Ref
+	{
+		using T_type = decltype(T);
+		using value = Traits::Add_Rvalue_Ref<T_type>::value;
+		T_type value_t = value{};
+	};
 } // namespace pse
