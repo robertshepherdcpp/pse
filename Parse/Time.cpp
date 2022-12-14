@@ -14,14 +14,25 @@ namespace pse
 		static constexpr auto SecondsPerMinute = 60;
 		static constexpr auto SecondsPerHour = SecondsPerMinute * MinutesPerHour;
 		static constexpr auto HoursPerDay = 24;
-
-		// for years.
 		static constexpr auto WeeksPerYear = 52;
 		static constexpr auto DaysPerYear = 365;
 		static constexpr auto MonthsPerYear = 12;
 		static constexpr auto HoursPerYear = DaysPerYear * HoursPerDay;
 		static constexpr auto MinutesPerYear = HoursPerYear * MinutesPerHour;
 		static constexpr auto SecondsPerYear = HoursPerYear * SecondsPerHour;
+		static constexpr auto YearsPerDecade = 10;
+		static constexpr auto DecadesPerCentury = 10;
+		static constexpr auto YearsPerCentury = YearsPerDecade * DecadesPerCentury;
+		// could be all the data above into the Secod, Minute, Hour classes.
+		struct Second { int count; };
+		struct Minute { int count; };
+		struct Hour { int count; };
+		struct Day { int count; };
+		struct Week { int count; };
+		struct Month { int count; };
+		struct Year { int count; };
+
+		// Think that i will stop at year because i could just keep on going.
 	}
 	struct Time
 	{
