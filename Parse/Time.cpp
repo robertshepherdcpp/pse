@@ -4,7 +4,7 @@
 
 namespace pse
 {
-	namespace detail
+	inline namespace detail
 	{
 		enum month {Jan = 1, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec};
 		enum day {Mon = 1, Tue, Wed, Thu, Fri, Sat, Sun};
