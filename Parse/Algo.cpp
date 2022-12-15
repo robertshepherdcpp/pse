@@ -205,6 +205,7 @@ namespace pse
 			struct multiply {};
 			struct divide {};
 
+			// this function is a bit like std::exclusive_scan or std::inclusive scan.
 			template<typename T>
 			auto apply(T& t, auto& operator_apply, auto& operator_two)
 			{
