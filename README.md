@@ -1,8 +1,8 @@
 # Parse
 !¬)
 
-Total Number Of Lines: 3100
-Last Checked: 12/11/2022 15:42 PM London.
+Total Number of Lines: 3500
+Last Checked: 12/15/2022 13:41 PM London.
 
 Parse is a helpful open-source library for C++. Consisting of many features that are part of the C++ Standard Library
 Here are some examples:
@@ -278,6 +278,19 @@ auto reverse(auto& a)
 }
 ```
 So having a given input: `1, 2, 3, 4`, when passed to the reverse function, `pse::reverse` it will now look like: `4, 3, 2, 1`. Which is succesfully reversed! But the container that stores the elements it has to have `operator[]` and the types stored have to support `operator=` and those are mostly all of the constraints!
+
+There is also `pse::apply` what this does it takes a range `r` and then takes two operations, `minus` and `times` for example. Say the range, `r` was `1, 2, 3, 4` and the operands were `pse::minus` and `pse::multiply`. It would look like this:
+```C++
+ (((0 -= (1 * 2)) -= (2 * 3)) -= (3 * 4))
+```
+An example implementation of `pse::apply` looks like this:
+```C++
+template<typename TypeOfRange>
+auto apply(TypeOfRange& r, auto& first_operand, auto& second_operand)
+{
+  // implementation.
+}
+```
 
 `pse::CodeMeaning` contained in the `CodeMeaning.cpp` header file has lots of different `if`'s and `else if`'s in order to find the write error code, here is a collection of the error codes and their values.
 
