@@ -1,7 +1,7 @@
 #pragma once
 
-#include"Most.cpp" // FIXME Needs implementing
-#include"ZeroArr.cpp" // FIXME Needs implementing
+#include"Most.cpp"
+#include"ZeroArr.cpp"
 
 namespace pse
 {
@@ -16,10 +16,19 @@ namespace pse
 		}
 		// char str_m[size];
 		// copying into arr not a new var
-		ZeroArr(arr);
+		//ZeroArr(arr);
+		decltype(arr[0]) arr_copy[T1];
+		for (int i = 0; i < T1; i++)
+		{
+			arr_copy[i] = arr[i];
+		}
 		for (int i = 0; i < Most(T1, T2); i++)
 		{
 			arr[i] = arr2[i];
+		}
+		for (int i = 0; i < T1; i++)
+		{
+			arr2 = arr_copy[i];
 		}
 	}
 }

@@ -1,5 +1,7 @@
 #pragma once
 
+#include"ErrorCode.cpp"
+
 namespace pse
 {
 	template<auto T, auto... Ts>
@@ -47,6 +49,10 @@ namespace pse
 		{
 			index = 0;
 			return value;
+		}
+		else
+		{
+			throw ErrorCode{ 026 };
 		}
 
 		// else do nothing.

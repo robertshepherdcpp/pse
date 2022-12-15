@@ -200,6 +200,12 @@ namespace pse
 				return sum;
 			}
 
+			template<typename A, typename B>
+			auto compare(A a, B b)
+			{
+				return a < b;
+			}
+
 			struct add {};
 			struct minus {};
 			struct multiply {};

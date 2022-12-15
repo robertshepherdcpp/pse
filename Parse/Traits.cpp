@@ -226,9 +226,11 @@ namespace pse
 			t += t;
 			t /= t;
 			t *= t;
-			t* t;
+			t * t;
 			t / t;
 			t + t;
+			t -= t;
+			t - t;
 		};
 
 		// Make type A of type B;

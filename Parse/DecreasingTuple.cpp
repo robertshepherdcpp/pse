@@ -1,5 +1,7 @@
 #pragma once
 
+
+// decreasing tuple has been implemented in TupleCTAD.cpp
 namespace pse
 {
 	template<typename T, typename... Ts>
@@ -33,7 +35,7 @@ namespace pse
 		int size = value;
 
 		// static constexpr int value = 1 + Seconds::value;
-		int value = (sizeof(Ts)...) / sizeof(T); // should work, because all that we are using decreasing tuple for
+		int value = (sizeof(Ts)...) / (* sizeof(T)); // should work, because all that we are using decreasing tuple for
 		                                         // is the generator, coroutine like class where we will have lambdas of
 		                                         // the same size.
 

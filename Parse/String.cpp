@@ -5,7 +5,7 @@
 namespace pse
 {
 	// FIXME: Give better implemenatation of String
-template<auto T>
+    template<auto T>
 	struct String
 	{
 		// template<auto T>
@@ -37,6 +37,4 @@ template<auto T>
 
 		char m_str[T]; // array of chars of size T
 	};
-
-	
 } // namespace pse

@@ -29,7 +29,8 @@ namespace pse
 
 		else
 		{
-			return type{}; // Basically a null value.
+			// return type{}; // Basically a null value.
+			throw ErrorCode{ 026 };
 		}
 	}
 } // namespace pse

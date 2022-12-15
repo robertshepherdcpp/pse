@@ -242,6 +242,9 @@ tuple.depth(); // need to implement depth function of TupleLike
 		int index = 0;
 		static constexpr int value = 1;
 
+		template<int T>
+		auto get();
+
 		auto SizeDepth() -> int; // returns amount of parameter packs inside Ts... + 1.
 
 		template<int i> // needed for varying return types.
@@ -419,6 +422,20 @@ tuple.depth(); // need to implement depth function of TupleLike
 		else
 		{
 			return seconds.Depth(i - 1);
+		}
+	}
+
+	template<typename T, typename... Ts>
+	template<int i>
+	auto TupleLike<T, Ts...>::get(/*int i*/) // don't know the return type yet. 
+	{
+		if constexpr (i == 1)
+		{
+			return first;
+		}
+		else
+		{
+			return seconds.get(i - 1);
 		}
 	}
 

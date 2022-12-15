@@ -2,6 +2,7 @@
 
 //#include"ParameterPackSize.cpp" // Implement
 #include"Traits.cpp"
+#include"ErrorCode.cpp"
 
 namespace pse
 {
@@ -16,7 +17,7 @@ namespace pse
 
 	template<typename T>
 	auto ParameterPackSize(T t)
-		requires(Traits::Is_Type<T>::value)
+		requires(Traits::Is_Type<T>::value) // no point in this requires clause.
 	{
 		Parameter_Pack_Size_ += 1;
 		int _s = Parameter_Pack_Size_;
@@ -43,7 +44,7 @@ namespace pse
 
 		auto size()
 		{
-			return (sizeof(m_arr) / sizeof(T)) == size ? size : sizeof(m_arr) / sizeof(T);
+			return (sizeof(m_arr) / (* sizeof(T))) == size ? size : sizeof(m_arr) / (*sizeof(T));
 		}
 
 		Initializer_List(T t)
@@ -52,6 +53,30 @@ namespace pse
 			m_arr = new T[1];
 			Size = 1;
 			m_arr[0] = t;
+		}
+
+		// needed in the initializer list constructor.
+		auto operator+=(Initializer_List<T>& list)
+		{
+			const int start_size = Size;
+			T arr_copy[Size];
+			for (int i = 0; i < Size; i++)
+			{
+				arr_copy[i] = m_arr[i];
+			}
+			delete[] m_arr;
+			const int new_size = Size + list.Size;
+			m_arr = new T[new_size];
+			Size = new_size;
+			for (int i = 0; i < start_size; i++)
+			{
+				m_arr[i] = arr_copy[i];
+			}
+			for (int i = start_size; i < Size; i++)
+			{
+				m_arr[i] = list.m_arr[i];
+			}
+
 		}
 
 		template<typename... Ts>
@@ -65,12 +90,27 @@ namespace pse
 			*this += Initializer_List_;
 			// InitHelper(ts..., m_arr, 1);
 
-			/*Not sure if can do this because the parameter pack is greedy and would
+			/*
+			Not sure if can do this because the parameter pack is greedy and would
 			Get all of the other args like: m_arr and 1.
 			- Will need to make an initialzer list out of parameter pack and then use and 
 			  implemented += operator to add the initialzer list to the current array:
-			  m_arr.*/
+			  m_arr.
+			  */
 		}
+
+		auto at(int i)
+		{
+			if (i > Size)
+			{
+				throw ErrorCode{026};
+			}
+			else
+			{
+				return m_arr[i];
+			}
+		}
+
 		int Size = 1;
 		T m_arr[1];
 	};

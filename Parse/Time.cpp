@@ -1,6 +1,6 @@
 #pragma once
 
-#include"String.cpp" // pse::StringList is included in `String.cpp`
+#include"StringList.cpp"
 
 namespace pse
 {
