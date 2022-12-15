@@ -5,7 +5,7 @@
 namespace pse
 {
 	// FIXME: Give better implemenatation of String
-	template<auto T>
+template<auto T>
 	struct String
 	{
 		// template<auto T>

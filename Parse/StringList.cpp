@@ -5,7 +5,7 @@
 namespace pse
 {
 	// FIXME: Give better implemenatation of String
-	template<auto T>
+
      struct StringList
 	   {
 		template<int Size>
