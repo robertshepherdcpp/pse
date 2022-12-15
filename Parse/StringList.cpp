@@ -46,4 +46,4 @@ namespace pse
 		int size = 1;
 		char c_arr[1];
 	};
-}
+} // namespace pse
