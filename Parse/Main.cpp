@@ -303,6 +303,43 @@ int maintwo() {
 	return 42;
 }
 
+//template<typename A, typename B, typename C, typename D>
+struct set_arg
+{
+	int a;
+	int b;
+	int c;
+    int d;
+
+	set_arg(int _a, int _b, int _c, int _d)
+	{
+		a = _a;
+		b = _b;
+		c = _c;
+		d = _d;
+	}
+
+	auto operator[](int i)
+	{
+		if (i == 0)
+		{
+			return a;
+		}
+		else if (i == 1)
+		{
+			return b;
+		}
+		else if (i == 2)
+		{
+			return c;
+		}
+		else if (i == 3)
+		{
+			return d;
+		}
+	}
+};
+
 int main()
 {
 	auto c_int = constant<42>{};
@@ -390,6 +427,10 @@ int main()
 
 	//pse::Vec<int> ikm{1, 2, 3, 4};
 	// std::cout << ikm[2];
+	// pse::Vec<int> ikm{ 1, 2, 3, 4 };
+
+	//set_arg set{ 42, 3.1415, 'a', true };
+	//pse::algorithms::apply(set, pse::algorithms::add{}, pse::algorithms::multiply{});
 
 	return *iterator;
 

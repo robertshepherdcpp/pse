@@ -212,8 +212,7 @@ namespace pse
 			struct divide {};
 
 			// this function is a bit like std::exclusive_scan or std::inclusive scan.
-			template<typename T>
-			auto apply(T& t, auto& operator_apply, auto& operator_two)
+			auto apply(auto& t, auto& operator_apply, auto& operator_two)
 			{
 				T sum{};
 				for (int i = 0; i < t.size(); i++)
