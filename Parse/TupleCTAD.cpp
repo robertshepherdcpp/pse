@@ -49,6 +49,23 @@ namespace pse
 				return rest.get<X - 1>();
 			}
 		}
+
+		template<auto X>
+		auto get_type() -> decltype(T)
+		{
+			if constexpr (X == 0 && first_removed == false)
+			{
+				return value;
+			}
+			else if constexpr (X == 0 && first_removed == true)
+			{
+				return rest.get<X>();
+			}
+			else
+			{
+				return rest.get<X - 1>();
+			}
+		}
 	};
 
 	template<auto T>
@@ -64,6 +81,19 @@ namespace pse
 
 		template<auto X>
 		auto get()
+		{
+			if constexpr (X == 0 && first_removed == false)
+			{
+				return value;
+			}
+			else
+			{
+				// do nothing as no elements left in the tuple
+			}
+		}
+
+		template<auto X>
+		auto get_type() -> decltype(T)
 		{
 			if constexpr (X == 0 && first_removed == false)
 			{

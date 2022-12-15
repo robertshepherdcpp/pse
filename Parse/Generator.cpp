@@ -61,7 +61,7 @@ namespace pse
 		//		--count;
 		//		return x();
 		//	}
-			auto x = lambdas.get<0>();
+			auto x = lambdas.get_type<0>();
 			lambdas.remove_first();
 			return x;
 		}
@@ -80,7 +80,7 @@ namespace pse
 		{
 			if(sizetwo < size)
 			{
-				auto x = lambdas.get<0>();
+				auto x = lambdas.get_type<0>();
 				return x();
 			}
 			sizetwo++;
