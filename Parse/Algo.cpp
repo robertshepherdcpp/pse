@@ -214,6 +214,7 @@ namespace pse
 			// this function is a bit like std::exclusive_scan or std::inclusive scan.
 			auto apply(auto& t, auto& operator_apply, auto& operator_two)
 			{
+				using T = decltype(t);
 				T sum{};
 				for (int i = 0; i < t.size(); i++)
 				{
