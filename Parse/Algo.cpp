@@ -1,6 +1,7 @@
 #pragma once
 
 #include"Iterator.cpp" // pse::Iterator<T>
+#include"Traits.cpp" // pse::IsSame<>
 
 namespace pse
 {
@@ -161,6 +162,131 @@ namespace pse
 					auto temp = a[i];
 					a[i] = a[x];
 					a[x] = a[i];
+				}
+			}
+
+			template<typename T>
+			concept has_type_member = requires(T t)
+			{
+				t.type != nullptr;
+			};
+
+			// just like std::accumulate
+			template<typename T>
+			auto gather(T& to_gather)
+			{
+				T sum{};
+				for (int i = 0; i < to_gather.size(); i++)
+				{
+					sum += to_gather;
+				}
+
+				return sum; // passed by reference so doesn't really need to do it.
+			}
+
+			// just like std::accumulate
+			// this specialisation needs fixing because it does the same thing as the non 
+			// specialised function.
+			template<typename T>
+			requires(has_type_member<T>)
+			auto gather(T& to_gather)
+			{
+				//to_gather.type sum{};
+				T sum{};
+				for (int i = 0; i < to_gather.size(); i++)
+				{
+					sum += to_gather[i];
+				}
+				return sum;
+			}
+
+			struct add {};
+			struct minus {};
+			struct multiply {};
+			struct divide {};
+
+			template<typename T>
+			auto apply(T& t, auto& operator_apply, auto& operator_two)
+			{
+				T sum{};
+				for (int i = 0; i < t.size(); i++)
+				{
+					if (Traits::Is_Same<add, decltype(operator_apply)>::value == true)
+					{
+						if (Traits::Is_Same < add, decltype(operator_two)>::value == true)
+						{
+							sum += T[i] + T[i + 1];
+						}
+						else if (Traits::Is_Same < minus, decltype(operator_two)>::value == true)
+						{
+							sum += T[i] - T[i + 1];
+						}
+						else if (Traits::Is_Same < multiply, decltype(operator_two)>::value == true)
+						{
+							sum += T[i] * T[i + 1];
+						}
+						else if (Traits::Is_Same < divide, decltype(operator_two)>::value == true)
+						{
+							sum += T[i] / T[i + 1];
+						}
+					} // if(add == decltype(operator_apply))
+					else if (Traits::Is_Same<minus, decltype(operator_apply)>::value == true)
+					{
+						if (Traits::Is_Same < add, decltype(operator_two)>::value == true)
+						{
+							sum -= T[i] + T[i + 1];
+						}
+						else if (Traits::Is_Same < minus, decltype(operator_two)>::value == true)
+						{
+							sum -= T[i] - T[i + 1];
+						}
+						else if (Traits::Is_Same < multiply, decltype(operator_two)>::value == true)
+						{
+							sum -= T[i] * T[i + 1];
+						}
+						else if (Traits::Is_Same < divide, decltype(operator_two)>::value == true)
+						{
+							sum -= T[i] / T[i + 1];
+						}
+					} // else if(minus == decltype(operator_apply))
+					else if (Traits::Is_Same<multiply, decltype(operator_apply)>::value == true)
+					{
+						if (Traits::Is_Same < add, decltype(operator_two)>::value == true)
+						{
+							sum *= T[i] + T[i + 1];
+						}
+						else if (Traits::Is_Same < minus, decltype(operator_two)>::value == true)
+						{
+							sum *= T[i] - T[i + 1];
+						}
+						else if (Traits::Is_Same < multiply, decltype(operator_two)>::value == true)
+						{
+							sum *= T[i] * T[i + 1];
+						}
+						else if (Traits::Is_Same < divide, decltype(operator_two)>::value == true)
+						{
+							sum *= T[i] / T[i + 1];
+						}
+					} // else if(multiply == decltype(operator_apply))
+					else if (Traits::Is_Same<minus, decltype(operator_apply)>::value == true)
+					{
+						if (Traits::Is_Same < add, decltype(operator_two)>::value == true)
+						{
+							sum /= T[i] + T[i + 1];
+						}
+						else if (Traits::Is_Same < minus, decltype(operator_two)>::value == true)
+						{
+							sum /= T[i] - T[i + 1];
+						}
+						else if (Traits::Is_Same < multiply, decltype(operator_two)>::value == true)
+						{
+							sum /= T[i] * T[i + 1];
+						}
+						else if (Traits::Is_Same < divide, decltype(operator_two)>::value == true)
+						{
+							sum /= T[i] / T[i + 1];
+						}
+					} // else if(minus == decltype(operator_apply))
 				}
 			}
 
