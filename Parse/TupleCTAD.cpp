@@ -33,14 +33,15 @@ namespace pse
 			}
 		}
 
+		// this needs to return only one type, as first removed is not known at compile time.
 		template<auto X>
-		auto get()
+		auto get() -> decltype(T)
 		{
-			if constexpr(X == 0 && first_removed == false)
+			if(X == 0 && first_removed == false)
 			{
 				return value;
 			}
-			else if constexpr(X == 0 && first_removed == true)
+			else if(X == 0 && first_removed == true)
 			{
 				return rest.get<X>();
 			}
@@ -53,11 +54,11 @@ namespace pse
 		template<auto X>
 		auto get_type() -> decltype(T)
 		{
-			if constexpr (X == 0 && first_removed == false)
+			if(X == 0 && first_removed == false)
 			{
 				return value;
 			}
-			else if constexpr (X == 0 && first_removed == true)
+			else if(X == 0 && first_removed == true)
 			{
 				return rest.get<X>();
 			}

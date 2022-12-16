@@ -22,6 +22,8 @@
 #include"Type.cpp" // pse::Type
 #include"Vec.cpp" // pse::Vec
 
+#include<cassert>
+
 // #include<iostream> // std::cout
 
 // only using the standard library for std::cout
@@ -262,7 +264,7 @@ constexpr auto c() -> Class<T>
 template<typename T>
 auto class_v = Class<T>();
 
-auto assert(bool b, auto& s)
+auto bassert(bool b, auto& s)
 {
 	if (!b)
 	{
@@ -431,6 +433,10 @@ int main()
 
 	//set_arg set{ 42, 3.1415, 'a', true };
 	//pse::algorithms::apply(set, pse::algorithms::add{}, pse::algorithms::multiply{});
+
+	pse::TupleCTAD<42, 36, 16, 5> decreasing{};
+	// auto first_decreasing = decreasing.get<0>();
+	// assert(first_decreasing == 42, "Has to passs.");
 
 	return *iterator;
 

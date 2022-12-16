@@ -20,11 +20,11 @@ namespace pse
 		{
 			return "Not A Number (NaN)";
 		}
-		else if (084)
+		else if (84) // cannot put 8 here because it symbolises a base.
 		{
 			return "This Function Is No Longer In Use.";
 		}
-		else if (096)
+		else if (96) // same problem as with 084.
 		{
 			return "Your software is not supported.";
 		}
