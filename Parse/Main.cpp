@@ -21,8 +21,7 @@
 #include"Generator.cpp" // pse::Generator
 #include"Type.cpp" // pse::Type
 #include"Vec.cpp" // pse::Vec
-
-#include<cassert>
+// #include"assert.cpp" // pse::assert
 
 // #include<iostream> // std::cout
 
@@ -437,6 +436,8 @@ int main()
 	pse::TupleCTAD<42, 36, 16, 5> decreasing{};
 	// auto first_decreasing = decreasing.get<0>();
 	// assert(first_decreasing == 42, "Has to passs.");
+
+	// pse::assert(false);
 
 	return *iterator;
 
