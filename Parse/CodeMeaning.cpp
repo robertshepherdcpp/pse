@@ -16,5 +16,9 @@ namespace pse
 			// No implementation yet.
 			return "Invalid Type";
 		}
+		else if (076)
+		{
+			return "Not A Number (NaN)";
+		}
 	}
 } // namespace pse
