@@ -296,8 +296,10 @@ auto apply(TypeOfRange& r, auto& first_operand, auto& second_operand)
 
 ```C++
 026: Out Of Bounds Access.
+034: Your hardware is not supported.
 054: Unvalid Type.
 076: Not A Number (NaN).
+096: Your Software is not supported.
 ```
 
 The pse Library blog!
