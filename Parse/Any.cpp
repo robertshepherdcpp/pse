@@ -14,7 +14,7 @@ namespace pse
 		any_type_helper ValueType;
 
 		auto reset() -> bool { ValueType = any_type_helper{}; }
-		auto is_set() -> bool { return _is_set; }
+		auto is_set() noexcept -> bool { return _is_set; }
 
 		friend struct any_type_helper;
 

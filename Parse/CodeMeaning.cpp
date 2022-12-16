@@ -5,7 +5,7 @@ namespace pse
 	// this functions takes an error code from pse::ErrorCode and outputs it's meaning.
 	// Everything new will also be added to the README.md part of the pse library
 
-	const char* CodeMeaning(int x)
+	const char* CodeMeaning(int x) noexcept
 	{
 		if (x == 026)
 		{

@@ -7,49 +7,49 @@ namespace pse
 {
 	namespace algorithms
 	{
-			inline auto difference(int a, int b) -> int
+			inline auto difference(int a, int b) noexcept -> int
 			{
 				return b - a;
 			}
 
-			inline auto add(int a, int b) -> int
+			inline auto add(int a, int b) noexcept -> int
 			{
 				return a + b;
 			}
 
 			// notice a - b and not b - a
-			inline auto minus(int a, int b) -> int
+			inline auto minus(int a, int b) noexcept -> int
 			{
 				return a - b;
 			}
 
-			inline auto multiply(int a, int b) -> int
+			inline auto multiply(int a, int b) noexcept -> int
 			{
 				return a * b;
 			}
 
 			// also note that it is a / b not b / a
-			inline auto divide(int a, int b) -> int
+			inline auto divide(int a, int b) noexcept -> int
 			{
 				return a / b;
 			}
 
-			inline auto square(int a) -> int
+			inline auto square(int a) noexcept -> int
 			{
 				return a * a;
 			}
 
-			inline auto square_root(int a) -> int
+			inline auto square_root(int a) noexcept -> int
 			{
 				return a / a;
 			}
 
-			inline auto pi() -> decltype(auto)
+			constexpr inline auto pi() noexcept -> decltype(auto)
 			{
 				return 3.14159265358979323846;
 			}
 
-			inline auto factorial(int i)
+			inline auto factorial(int i) noexcept
 			{
 				if (i == 1)
 				{
@@ -61,7 +61,7 @@ namespace pse
 				}
 			}
 
-			inline auto fibonnacci(int i)
+			inline auto fibonnacci(int i) noexcept
 			{
 				if (i == 0)
 				{
@@ -74,7 +74,7 @@ namespace pse
 			}
 
 			template<typename T> // template needed for the Iterator variable i.
-			auto OnAll(Iterator<T> j, auto& Lambda)
+			auto OnAll(Iterator<T> j, auto& Lambda) noexcept
 			{
 				for (int i = 0; i < j.size; j++)
 				{
@@ -84,13 +84,14 @@ namespace pse
 			}
 
 			template<typename T>
-			auto Invoke(T t) -> decltype(t())
+			auto Invoke(T t) noexcept -> decltype(t())
 			{
 				return t();
 			}
 
+			// another Reverse has already been imlemented.
 			template<typename T>
-			auto Reverse(Iterator<T>& j)
+			auto Reverse(Iterator<T>& j) noexcept
 			{
 				// just reverse the elements. Could just use the functionality of the iterator like operator+ etc.
 				for (int i = 0; i < j.size(); i++)
@@ -102,7 +103,7 @@ namespace pse
 			}
 
 			template<typename A, typename B>
-			auto swap(Iterator<A>& ai, Iterator<B>& bi)
+			auto swap(Iterator<A>& ai, Iterator<B>& bi) noexcept
 			{
 				auto x = ai.get_ref(); // have a reference so we can use the lower level part of Iterator.
 				x = bi.get_ref();
@@ -111,7 +112,7 @@ namespace pse
 			}
 
 			template<typename T, typename Callable>
-			auto Sort(Iterator<T>& t, Callable c)
+			auto Sort(Iterator<T>& t, Callable c) noexcept
 			{
 				// implementation still is needed.
 				if (c(t.get_val(), t.get_increment()))
@@ -122,7 +123,7 @@ namespace pse
 
 			// uses a reference for the value.
 			template<typename T>
-			auto Sort(Iterator<T>& t) -> void
+			auto Sort(Iterator<T>& t) noexcept -> void
 			{
 				//if (t.get_val() > t.get_increment())
 				//{
@@ -130,7 +131,7 @@ namespace pse
 				//}
 			}
 
-			auto find(auto& a, auto& ToFind) -> int
+			auto find(auto& a, auto& ToFind) noexcept -> int
 			{
 				for (int i = 0; i < a.size(); i++)
 				{
@@ -142,7 +143,7 @@ namespace pse
 				return 0;
 			}
 
-			auto find_if(auto& a, auto& Callable) -> int
+			auto find_if(auto& a, auto& Callable) noexcept -> int
 			{
 				for (int i = 0; i < a; i++)
 				{
@@ -154,7 +155,7 @@ namespace pse
 				return 0;
 			}
 
-			auto reverse(auto& a)
+			auto reverse(auto& a) noexcept
 			{
 				int x = 0;
 				for (int i = a.size(); i > 0; i++, x++)
@@ -173,7 +174,7 @@ namespace pse
 
 			// just like std::accumulate
 			template<typename T>
-			auto gather(T& to_gather)
+			auto gather(T& to_gather) noexcept
 			{
 				T sum{};
 				for (int i = 0; i < to_gather.size(); i++)
@@ -189,7 +190,7 @@ namespace pse
 			// specialised function.
 			template<typename T>
 			requires(has_type_member<T>)
-			auto gather(T& to_gather)
+			auto gather(T& to_gather) noexcept
 			{
 				//to_gather.type sum{};
 				T sum{};
@@ -201,7 +202,7 @@ namespace pse
 			}
 
 			template<typename A, typename B>
-			auto compare(A a, B b)
+			auto compare(A a, B b) noexcept
 			{
 				return a < b;
 			}
@@ -212,7 +213,7 @@ namespace pse
 			struct divide {};
 
 			// this function is a bit like std::exclusive_scan or std::inclusive scan.
-			auto apply(auto& t, auto& operator_apply, auto& operator_two)
+			auto apply(auto& t, auto& operator_apply, auto& operator_two) noexcept
 			{
 				using T = decltype(t);
 				T sum{};
