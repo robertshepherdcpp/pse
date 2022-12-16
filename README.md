@@ -296,7 +296,8 @@ auto apply(TypeOfRange& r, auto& first_operand, auto& second_operand)
 
 ```C++
 026: Out Of Bounds Access.
-054: Unvalid Type
+054: Unvalid Type.
+076: Not A Number (NaN).
 ```
 
 The pse Library blog!
