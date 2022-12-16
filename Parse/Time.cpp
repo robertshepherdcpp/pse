@@ -14,7 +14,7 @@ namespace pse
 		int hours_to_mins(int i) { return i * MinutesPerHour; }
 
 		static constexpr auto SecondsPerMinute = 60; 
-		int minutes_to_seconds(int i) { return i * SecondsPerHour; }
+		int minutes_to_seconds(int i) { return i * SecondsPerMinute; }
 		
 		static constexpr auto SecondsPerHour = SecondsPerMinute * MinutesPerHour; 
 		int hours_to_seconds(int i) { return i * SecondsPerHour; }
@@ -29,7 +29,7 @@ namespace pse
 		int years_to_days(int i) { return i * DaysPerYear; }
 		
 		static constexpr auto MonthsPerYear = 12; 
-		int years_to_months(int i) { i* MonthsPerYear; }
+		int years_to_months(int i) { return i * MonthsPerYear; }
 
 		static constexpr auto HoursPerYear = DaysPerYear * HoursPerDay; 
 		int years_to_hours(int i) { return i * HoursPerYear; }
@@ -41,7 +41,7 @@ namespace pse
 		int years_to_seconds(int i) { return i * SecondsPerYear; }
 		
 		static constexpr auto YearsPerDecade = 10; 
-		int decades_to_years(int i) { return *YearsPerDecade; }
+		int decades_to_years(int i) { return i * YearsPerDecade; }
 		
 		static constexpr auto DecadesPerCentury = 10; 
 		int century_to_decades(int i) { return i * DecadesPerCentury; }
@@ -56,6 +56,41 @@ namespace pse
 		struct Week { int count; };
 		struct Month { int count; };
 		struct Year { int count; };
+
+		auto operator""_second(long double s)
+		{
+			return Second{ static_cast<int>(s) };
+		}
+
+		auto operator""_minute(long double m)
+		{
+			return Minute{ static_cast<int>(m) };
+		}
+
+		auto operator""_hour(long double h)
+		{
+			return Hour{ static_cast<int>(h) };
+		}
+
+		auto operator""_day(long double d)
+		{
+			return Day{ static_cast<int>(d) };
+		}
+
+		auto operator""_week(long double w)
+		{
+			return Week{ static_cast<int>(w) };
+		}
+
+		auto operator""_month(long double m)
+		{
+			return Month{ static_cast<int>(m) };
+		}
+
+		auto operator""_year(long double y)
+		{
+			return Year{ static_cast<int>(y) };
+		}
 
 		// Think that i will stop at year because i could just keep on going.
 	}
