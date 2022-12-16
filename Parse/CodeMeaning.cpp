@@ -20,5 +20,17 @@ namespace pse
 		{
 			return "Not A Number (NaN)";
 		}
+		else if (084)
+		{
+			return "This Function Is No Longer In Use.";
+		}
+		else if (096)
+		{
+			return "Your software is not supported.";
+		}
+		else if (034)
+		{
+			return "Your hardware is not supported.";
+		}
 	}
 } // namespace pse
