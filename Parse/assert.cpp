@@ -5,9 +5,17 @@
 auto assert(bool b) noexcept
 {
 	if (!b) throw b;
+	else
+	{
+		// do nothing , assert passed
+	}
 }
 
 auto assert(bool b, auto* c)
 {
 	if (!b) throw c;
+	else
+	{
+		// do nothing assert passed.
+	}
 }
