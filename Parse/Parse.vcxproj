@@ -135,6 +135,7 @@
     <ClCompile Include="Any.cpp" />
     <ClCompile Include="Array.cpp" />
     <ClCompile Include="ArrCpy.cpp" />
+    <ClCompile Include="assert.cpp" />
     <ClCompile Include="Begin.cpp" />
     <ClCompile Include="Bitmap.cpp" />
     <ClCompile Include="CodeMeaning.cpp" />
