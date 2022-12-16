@@ -299,7 +299,8 @@ auto apply(TypeOfRange& r, auto& first_operand, auto& second_operand)
 034: Your hardware is not supported.
 054: Unvalid Type.
 076: Not A Number (NaN).
-096: Your Software is not supported.
+84: This Function Is No Longer In Use.
+96: Your Software is not supported.
 ```
 
 The pse Library blog!
