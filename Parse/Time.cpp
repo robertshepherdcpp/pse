@@ -10,19 +10,44 @@ namespace pse
 		enum day {Mon = 1, Tue, Wed, Thu, Fri, Sat, Sun};
 		enum class comparison { greater = 1, same, less };
 
-		static constexpr auto MinutesPerHour = 60;
-		static constexpr auto SecondsPerMinute = 60;
-		static constexpr auto SecondsPerHour = SecondsPerMinute * MinutesPerHour;
-		static constexpr auto HoursPerDay = 24;
-		static constexpr auto WeeksPerYear = 52;
-		static constexpr auto DaysPerYear = 365;
-		static constexpr auto MonthsPerYear = 12;
-		static constexpr auto HoursPerYear = DaysPerYear * HoursPerDay;
-		static constexpr auto MinutesPerYear = HoursPerYear * MinutesPerHour;
-		static constexpr auto SecondsPerYear = HoursPerYear * SecondsPerHour;
-		static constexpr auto YearsPerDecade = 10;
-		static constexpr auto DecadesPerCentury = 10;
-		static constexpr auto YearsPerCentury = YearsPerDecade * DecadesPerCentury;
+		static constexpr auto MinutesPerHour = 60; 
+		int hours_to_mins(int i) { return i * MinutesPerHour; }
+
+		static constexpr auto SecondsPerMinute = 60; 
+		int minutes_to_seconds(int i) { return i * SecondsPerHour; }
+		
+		static constexpr auto SecondsPerHour = SecondsPerMinute * MinutesPerHour; 
+		int hours_to_seconds(int i) { return i * SecondsPerHour; }
+		
+		static constexpr auto HoursPerDay = 24; 
+		int days_to_hours(int i) { return i * HoursPerDay; }
+		
+		static constexpr auto WeeksPerYear = 52; 
+		int years_to_weeks(int i) { return i * WeeksPerYear; }
+		
+		static constexpr auto DaysPerYear = 365; 
+		int years_to_days(int i) { return i * DaysPerYear; }
+		
+		static constexpr auto MonthsPerYear = 12; 
+		int years_to_months(int i) { i* MonthsPerYear; }
+
+		static constexpr auto HoursPerYear = DaysPerYear * HoursPerDay; 
+		int years_to_hours(int i) { return i * HoursPerYear; }
+		
+		static constexpr auto MinutesPerYear = HoursPerYear * MinutesPerHour; 
+		int years_to_minutes(int i) { return i * MinutesPerYear; }
+		
+		static constexpr auto SecondsPerYear = HoursPerYear * SecondsPerHour; 
+		int years_to_seconds(int i) { return i * SecondsPerYear; }
+		
+		static constexpr auto YearsPerDecade = 10; 
+		int decades_to_years(int i) { return *YearsPerDecade; }
+		
+		static constexpr auto DecadesPerCentury = 10; 
+		int century_to_decades(int i) { return i * DecadesPerCentury; }
+		
+		static constexpr auto YearsPerCentury = YearsPerDecade * DecadesPerCentury; 
+		int century_to_years(int i) { return i * YearsPerCentury; }
 		// could be all the data above into the Secod, Minute, Hour classes.
 		struct Second { int count; };
 		struct Minute { int count; };
