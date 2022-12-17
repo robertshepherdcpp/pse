@@ -160,6 +160,7 @@
     <ClCompile Include="pack_size.cpp" />
     <ClCompile Include="Range.cpp" />
     <ClCompile Include="String.cpp" />
+    <ClCompile Include="Tector.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="Traits.cpp" />
     <ClCompile Include="Tuple.cpp" />

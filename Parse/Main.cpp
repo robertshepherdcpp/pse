@@ -21,6 +21,7 @@
 #include"Generator.cpp" // pse::Generator
 #include"Type.cpp" // pse::Type
 #include"Vec.cpp" // pse::Vec
+#include"Tector.cpp" // pse::Init
 // #include"assert.cpp" // pse::assert
 
 // #include<iostream> // std::cout
@@ -437,6 +438,9 @@ int main()
 	// assert(first_decreasing == 42, "Has to passs.");
 
 	// pse::assert(false);
+
+	// pse::Init<int, int, int, int> i{ 1, 2, 3, 4 };
+	// auto i_x = i[2];
 
 	return *iterator;
 
