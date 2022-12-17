@@ -291,5 +291,17 @@ namespace pse
 			// needs implementating
 		};
 
+		template<bool T, bool... Ts>
+		struct conjunction
+		{
+			static constexpr bool value = T && conjunction<Ts...>::value;
+		};
+
+		template<bool T>
+		struct conjunction<T>
+		{
+			static constexpr bool value = T;
+		};
+
 	} // namespace Traits
 } // namespace pse
