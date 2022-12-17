@@ -295,17 +295,17 @@ auto apply(TypeOfRange& r, auto& first_operand, auto& second_operand)
 There is also `pse::abs`, this function gives the absolute value of a number. This is the distance between 0 and the number, with no regard to direction. So if i has a number -5 and i used `pse::abs` the output would be 5 because the distance between -5 and 0 is 5. So if i passed in 5 to `pse::abs` it would give me the same answer 5. It is basically just a way of getting rid of zero. Here is an example implementation:
 
 ```C++
-			inline double abs(double i)
-			{
-				if (i < 0)
-				{
-					return (i + (0 - i) + i); // this bit here is the magic.
-				}
-				else
-				{
-					return i;
-				}
-			}
+inline double abs(double i)
+{
+	if (i < 0)
+	{
+		return (i + (0 - i) + i); // this bit here is the magic.
+	}
+	else
+	{
+		return i;
+	}
+}
 ```
 
 There is also `pse::floor` this just rounds down to the nearest whole number, an example implemenation looks like this:
@@ -329,6 +329,45 @@ auto round(double b)
   // Implemenatation.
 }
 ```
+There is also `pse::Node` this is just like any other node that you would find, it has a parent: `parent` and two child nodes: `left_child` and `right_child`. An example implemenation of `pse::Node` looks like this:
+```C++
+template<typename T>
+struct Node
+{
+  T m_data;
+
+  Node<T>* parent;
+  Node<T>* first_child;
+  Node<T>* second_child;
+};
+```
+
+There is also a `pse::BinaryTree`, it looks something like this:
+```C++
+template <typename T>  // template for type of Node.
+struct BinaryTree {
+    Node<T>* curr;
+
+    auto left() {
+        if (curr->first_child != nullptr) curr = curr->first_child;
+    }
+    auto right() {
+        if (curr->right_child != nullptr) curr = curr->second_child;
+    }
+    auto up() {
+        if (curr->parent != nullptr) curr = curr->parent;
+    }
+
+    auto get() { return curr.m_data; }
+
+    template <typename NodeType, typename... NodeTypes>
+    BinaryTree(NodeType* n, NodeTypes*... ns);
+
+    template <typename NodeType>
+    BinaryTree(NodeType* n);
+};
+```
+But it is only partially implemented, so it is not production code ready yet. But it has quite a lot of the functionality, but the constructors are not the best.
 
 `pse::CodeMeaning` contained in the `CodeMeaning.cpp` header file has lots of different `if`'s and `else if`'s in order to find the write error code, here is a collection of the error codes and their values.
 
