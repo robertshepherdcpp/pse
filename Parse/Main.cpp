@@ -26,7 +26,6 @@
 // #include<iostream> // std::cout
 
 // only using the standard library for std::cout
-// Currently getting an error because of Bitfender doing checks whilst
 // trying to compile the code.
 // Link: https://learn.microsoft.com/en-us/cpp/error-messages/tool-errors/linker-tools-error-lnk1104?f1url=%3FappId%3DDev16IDEF1%26l%3DEN-US%26k%3Dk(LNK1104)%26rd%3Dtrue&view=msvc-170
 
