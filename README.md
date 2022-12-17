@@ -177,7 +177,7 @@ It's constructor is very simple to use, you can simply pass in `pse::Down{3}, 1,
 ```
 We pass in `pse::Down{}` this tells us how many numbers we want across, in this case we passed in three, so it has three numbers down for example: `1, 2, 3, 4, 5` and the rest depends on how many numbers you passed in and the value of the `value` data member of `pse::Down`. The `pse::Down` shows us that we want `pse::Down::value` going down and the rest depends on what parameters we have passed in.
 
-In the `Traits.cpp` header file, there are many useful `class`es/`struct`s that are all just instances of meta-programming. For example `pse::Is_Type`, it's implementation looks like this:
+In the `Traits.cpp` header file, there are many useful `class`es/`struct`s that are all just instances of meta-programming. In the traits library there is also an `_v` option for nearly every trait bar a few like add_ref_ref, and add_pointer_pointer. For example `pse::Is_Type`, it's implementation looks like this:
 ```C++
 template<typename T>
 struct Is_Type
