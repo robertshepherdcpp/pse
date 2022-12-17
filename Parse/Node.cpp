@@ -7,9 +7,9 @@ namespace pse
 	{
 		T m_data;
 
-		Node* parent;
-		Node* first_child;
-		Node* second_child;
+		Node<T>* parent;
+		Node<T>* first_child;
+		Node<T>* second_child;
 	};
 
 	/*

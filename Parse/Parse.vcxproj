@@ -138,6 +138,7 @@
     <ClCompile Include="ascii.cpp" />
     <ClCompile Include="assert.cpp" />
     <ClCompile Include="Begin.cpp" />
+    <ClCompile Include="BinaryTree.cpp" />
     <ClCompile Include="Bitmap.cpp" />
     <ClCompile Include="CodeMeaning.cpp" />
     <ClCompile Include="constant.cpp" />
