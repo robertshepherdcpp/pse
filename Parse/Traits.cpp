@@ -12,6 +12,15 @@ namespace pse
 		};
 
 		template<typename T>
+		struct Is_Same<T, T>
+		{
+			static constexpr auto value = true;
+		};
+
+		template<typename A, typename B>
+		static constexpr bool Is_Same_v = Is_Same<A, B>::value;
+
+		template<typename T>
 		struct Add_Const
 		{
 			using value = const T;
@@ -24,6 +33,9 @@ namespace pse
 		};
 
 		template<typename T>
+		using Add_Const_v = Add_Const<T>::value;
+
+		template<typename T>
 		struct Remove_Const
 		{
 			using value = T;
@@ -34,6 +46,9 @@ namespace pse
 		{
 			using value = T;
 		};
+
+	    template<typename T>
+		using Remove_Const_v = Remove_Const<T>::value;
 
 		template<typename T>
 		struct Add_Ref
@@ -48,6 +63,9 @@ namespace pse
 		};
 
 		template<typename T>
+		using Add_Ref_v = Add_Ref<T>::value;
+
+		template<typename T>
 		struct Remove_Ref
 		{
 			using value = T;
@@ -58,6 +76,9 @@ namespace pse
 		{
 			using value = T;
 		};
+
+		template<typename T>
+		using Remove_Ref_v = Remove_Ref<T>::value;
 
 		template<typename T>
 		struct Add_Pointer
@@ -72,6 +93,9 @@ namespace pse
 		};
 
 		template<typename T>
+		using Add_Pointer_v = Add_Pointer<T>::value;
+
+		template<typename T>
 		struct Remove_Pointer
 		{
 			using value = T;
@@ -84,15 +108,18 @@ namespace pse
 		};
 
 		template<typename T>
-		struct Add_Pointer_Pointer
-		{
-			using value = T**;
-		};
-
-		template<typename T>
 		struct Remove_Pointer<T**>
 		{
 			using value = T;
+		};
+
+		template<typename T>
+		using Remove_Pointer_v = Remove_Pointer<T>::value;
+
+		template<typename T>
+		struct Add_Pointer_Pointer
+		{
+			using value = T**;
 		};
 
 		template<typename T>
@@ -126,12 +153,6 @@ namespace pse
 		};
 
 		template<typename T>
-		struct Is_Same<T, T>
-		{
-			static constexpr auto value = true;
-		};
-
-		template<typename T>
 		struct Is_Pointer
 		{
 			static constexpr bool value = false;
@@ -142,6 +163,9 @@ namespace pse
 		{
 			static constexpr bool value = true;
 		};
+
+		template<typename T>
+		static constexpr bool Is_Pointer_v = Is_Pointer<T>::value;
 
 		template<typename A, typename B>
 		concept same_as = requires(A a, B b)
