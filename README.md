@@ -292,6 +292,44 @@ auto apply(TypeOfRange& r, auto& first_operand, auto& second_operand)
 }
 ```
 
+There is also `pse::abs`, this function gives the absolute value of a number. This is the distance between 0 and the number, with no regard to direction. So if i has a number -5 and i used `pse::abs` the output would be 5 because the distance between -5 and 0 is 5. So if i passed in 5 to `pse::abs` it would give me the same answer 5. It is basically just a way of getting rid of zero. Here is an example implementation:
+
+```C++
+			inline double abs(double i)
+			{
+				if (i < 0)
+				{
+					return (i + (0 - i) + i); // this bit here is the magic.
+				}
+				else
+				{
+					return i;
+				}
+			}
+```
+
+There is also `pse::floor` this just rounds down to the nearest whole number, an example implemenation looks like this:
+```C++
+auto abs(double b)
+{
+  // Implementation.
+}
+```
+There is also `pse::ciel` which is just basically the opposite of `pse::floor` in that is rounds up to the nearest whole number. An example implemenatation looks like this:
+```C++
+auto ciel(double b)
+{
+  // Implemenatation.
+}
+```
+There is also `pse::round` which rounds to the nearest whole number. So if `x < 0.5` round down otherwise, `x => 0.5` round up. An example implemenation looks like this:
+```C++
+auto round(double b)
+{
+  // Implemenatation.
+}
+```
+
 `pse::CodeMeaning` contained in the `CodeMeaning.cpp` header file has lots of different `if`'s and `else if`'s in order to find the write error code, here is a collection of the error codes and their values.
 
 ```C++
