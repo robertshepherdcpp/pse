@@ -18,12 +18,12 @@ namespace pse
 		static constexpr char value = static_cast<char>(T);
 	};
 
-	auto ToString(int i)
+	inline auto ToString(int i)
 	{
 		// FIXME: Implememt.
 	}
 
-	auto ToInt(const char*)
+	inline auto ToInt(const char*)
 	{
 		// FIXME: Implement.
 	}
@@ -83,7 +83,7 @@ namespace pse
 	static constexpr auto explanationmark= '!';
 	static constexpr auto dollar= '$';
 	static constexpr auto up = '^';
-	// static constexpr auto and = '&';
+	// static constexpr auto and = '&'; // for some reason gives an error.
 	static constexpr auto star = '*';
 	static constexpr auto openingbracket= '(';
 	static constexpr auto closingbracket= ')';

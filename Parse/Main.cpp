@@ -22,6 +22,7 @@
 #include"Type.cpp" // pse::Type
 #include"Vec.cpp" // pse::Vec
 #include"Tector.cpp" // pse::Init
+#include"ascii.cpp" // pse::ascii::
 // #include"assert.cpp" // pse::assert
 
 // #include<iostream> // std::cout
@@ -442,7 +443,12 @@ int main()
 	// pse::Init<int, int, int, int> i{ 1, 2, 3, 4 };
 	// auto i_x = i[2];
 
-	return *iterator;
+	auto ascii_a = pse::ascii::is_character<'a'>::value;
+	auto ascii_b = pse::ascii::is<pse::ascii::b, 'a'>::value;
+	auto ascii_c = pse::ascii::is_alphabetical<'z'>::value;
 
+	//return *iterator;
+
+	return ascii_c;
 	// return "\nEnd\nOf\nProgram\n";
 }
