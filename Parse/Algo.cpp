@@ -148,6 +148,18 @@ namespace pse
 				return 1 + ImplicitR(i);
 			}
 
+			inline double abs(double i)
+			{
+				if (i < 0)
+				{
+					return (i + (0 - i) + i);
+				}
+				else
+				{
+					return i;
+				}
+			}
+
 			// uses a reference for the value.
 			template<typename T>
 			auto Sort(Iterator<T>& t) noexcept -> void
