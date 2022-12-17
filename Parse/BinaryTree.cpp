@@ -30,6 +30,7 @@ namespace pse
 	{
 		// have a deepest node value
 		NodeType* deepest = curr;
+		// FIXME: finish implementation.
 	}
 
 	template<typename T>
