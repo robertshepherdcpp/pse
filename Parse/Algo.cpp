@@ -121,6 +121,33 @@ namespace pse
 				}
 			}
 
+			inline auto ImplicitR(int i)
+			{
+				return i;
+			}
+
+			inline auto round(double i)
+			{
+				if (i > (double(ImplicitR(i)) + 0.5))
+				{
+					return 1 + ImplicitR(i);
+				}
+				else
+				{
+					return ImplicitR(i);
+				}
+			}
+
+			inline auto floor(double i)
+			{
+				return ImplicitR(i);
+			}
+
+			inline auto ciel(double i)
+			{
+				return 1 + ImplicitR(i);
+			}
+
 			// uses a reference for the value.
 			template<typename T>
 			auto Sort(Iterator<T>& t) noexcept -> void
