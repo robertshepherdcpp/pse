@@ -303,5 +303,20 @@ namespace pse
 			static constexpr bool value = T;
 		};
 
+		template<bool B, typename T>
+		struct enable_if
+		{
+			// No implementation as B evalutated to false.
+		};
+
+		template<typename T>
+		struct enable_if<true, T>
+		{
+			using value = T;
+		};
+
+		template<bool B, typename T>
+		using enable_if_v = enable_if<B, T>::value;
+
 	} // namespace Traits
 } // namespace pse
