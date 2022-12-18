@@ -23,6 +23,8 @@
 #include"Vec.cpp" // pse::Vec
 #include"Tector.cpp" // pse::Init
 #include"ascii.cpp" // pse::ascii::
+#include"BinaryTree.cpp" // pse::BinaryTree<T>
+#include"Node.cpp" // pse::Node<T>
 // #include"assert.cpp" // pse::assert
 
 // #include<iostream> // std::cout
@@ -448,6 +450,14 @@ int main()
 	auto ascii_c = pse::ascii::is_alphabetical<'z'>::value;
 
 	//return *iterator;
+
+	pse::BinaryTree<int> tree{ new pse::Node<int>{5, nullptr,
+		                       new pse::Node<int>{3, nullptr,
+		                       new pse::Node<int>{2}, 
+		                       new pse::Node<int>{4}}, 
+		                       new pse::Node<int>{7, nullptr, 
+		                       new pse::Node<int>{6}, 
+		                       new pse::Node<int>{8}}} };
 
 	return ascii_c;
 	// return "\nEnd\nOf\nProgram\n";
