@@ -329,6 +329,41 @@ auto round(double b)
   // Implemenatation.
 }
 ```
+There is also the famous `gcd` algorithm that find the Greatest Common Divisor. An example implemenatation looks like this:
+```C++
+int gcd(int a, int b) {
+  // base case
+  if (a == 0) {
+    return b;
+  }
+  if (b == 0) {
+    return a;
+  }
+
+  // recursive case
+  if (a > b) {
+    return gcd(a % b, b);
+  } else {
+    return gcd(a, b % a);
+  }
+}
+```
+There is also the LCM algorithm, the Lowest Common Multiple algorithm finds the lowest common multiple of two numbers, an example implementation looks like this:
+```C++
+int lcm(int a, int b)
+{
+    // Find the greatest common divisor of a and b
+    int gcd = 1;
+    for (int i = 2; i <= a && i <= b; i++)
+    {
+        if (a % i == 0 && b % i == 0)
+            gcd = i;
+    }
+
+    // Return the LCM of a and b
+    return (a * b) / gcd;
+}
+```
 There is also `pse::Node` this is just like any other node that you would find, it has a parent: `parent` and two child nodes: `left_child` and `right_child`. An example implemenation of `pse::Node` looks like this:
 ```C++
 template<typename T>
@@ -368,6 +403,25 @@ struct BinaryTree {
 };
 ```
 But it is only partially implemented, so it is not production code ready yet. But it has quite a lot of the functionality, but the constructors are not the best.
+
+There is also `pse::enable_if`, that is just like `std::enable_if`. It rely's on SFINAE (Substitution Failiure Is Not An Error). `pse::enable_if` can be replaced with other things like c++20 concepts, but in case you don't have a modern c++20 compiler, enable_if is implemented. It's implementation looks like this:
+```C++
+// the base template
+template<bool B, typename T>
+struct enable_if
+{
+};
+
+// the specialisation
+template<typename T>
+struct enable_if<true, T>
+{
+  using value = T;
+}
+
+template<bool b, typename T>
+using enable_if_v = enable_if<b, T>::value;
+```
 
 `pse::CodeMeaning` contained in the `CodeMeaning.cpp` header file has lots of different `if`'s and `else if`'s in order to find the write error code, here is a collection of the error codes and their values.
 
