@@ -459,6 +459,12 @@ int main()
 		                       new pse::Node<int>{6}, 
 		                       new pse::Node<int>{8}}} };
 
-	return ascii_c;
+	auto bool_a = pse::Traits::conjunction<true, true, true, false>::value;
+
+	//return ascii_c;
+	// 
+	
+	return bool_a;
+
 	// return "\nEnd\nOf\nProgram\n";
 }
