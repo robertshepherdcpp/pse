@@ -6,10 +6,15 @@
 
 namespace pse
 {
+    // https://www.godbolt.org/z/rPzja18nW
+
 	template<typename T> // template for type of Node.
 	struct BinaryTree
 	{
 		Node<T>* curr;
+		Node<T>* root;
+
+		BinaryTree(Node<T>* root_node) : root(root_node), curr(root_node) {}
 
 		auto left() { if (curr->first_child != nullptr) curr = curr->first_child; }
 		auto right() { if (curr->right_child != nullptr) curr = curr->second_child; }
