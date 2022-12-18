@@ -160,6 +160,30 @@ namespace pse
 				}
 			}
 
+			inline int gcd(int a, int b) {
+				if (b == 0)
+					return a;
+				return gcd(b, a % b);
+			}
+
+			inline int lcm(int a, int b)
+			{
+				int lcm;
+				if (a > b)
+					lcm = a;
+				else
+					lcm = b;
+				while (1) {
+					if (lcm % a == 0 && lcm % b == 0) {
+						return lcm;
+						break;
+					}
+					lcm++;
+				}
+				return 0;
+			}
+
+
 			// uses a reference for the value.
 			template<typename T>
 			auto Sort(Iterator<T>& t) noexcept -> void
