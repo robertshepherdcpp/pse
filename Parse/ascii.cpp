@@ -60,10 +60,40 @@ namespace pse
 		static constexpr bool value = (T == '!' || T == '"' || T == '\n' || T == '.' || T == ',' || T == '?' || T == '/' || T == '~');
 	};
 
-	template<char T>
+	template<auto T>
 	struct is_alphabetical
 	{
+		static constexpr auto value = false;
+	};
+
+	template<char T>
+	struct is_alphabetical<T>
+	{
 		static constexpr auto value = ((static_cast<int>(T) > 96) && (static_cast<int>(T) < 123));
+	};
+
+	template<auto T>
+	struct is_integral
+	{
+		static constexpr auto value = false;
+	};
+
+	template<int T>
+	struct is_integral<T>
+	{
+		static constexpr auto value = true;
+	};
+
+	template<auto T>
+	struct is_boolean
+	{
+		static constexpr auto value = false;
+	};
+
+	template<bool T>
+	struct is_boolean<T>
+	{
+		static constexpr auto value = true;
 	};
 
 	template<char T>
