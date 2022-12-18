@@ -32,5 +32,9 @@ namespace pse
 		{
 			return "Your hardware is not supported.";
 		}
+		else if (99)
+		{
+			return "Unknown";
+		}
 	}
 } // namespace pse
