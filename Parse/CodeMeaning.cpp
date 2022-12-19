@@ -36,5 +36,9 @@ namespace pse
 		{
 			return "Unknown";
 		}
+		else if (056)
+		{
+			return "Boolean evalutated to false.";
+		}
 	}
 } // namespace pse
