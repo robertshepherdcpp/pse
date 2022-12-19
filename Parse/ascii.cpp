@@ -130,7 +130,7 @@ namespace pse
 	static constexpr auto explanationmark= '!';
 	static constexpr auto dollar= '$';
 	static constexpr auto up = '^';
-	// static constexpr auto and = '&'; // for some reason gives an error.
+	static constexpr auto And = '&';
 	static constexpr auto star = '*';
 	static constexpr auto openingbracket= '(';
 	static constexpr auto closingbracket= ')';
