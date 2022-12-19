@@ -468,6 +468,8 @@ int main()
 		arr_char[i] = pse::ascii::make_arr<'a', 'b', 'c'>::arr_char[i];
 	}
 
+	pse::String_ s{};
+
 	//return ascii_c;
 	// 
 	
