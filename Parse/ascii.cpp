@@ -112,6 +112,13 @@ namespace pse
 		static constexpr char arr_char[Size] = { A, Bs... };
 	};
 
+	template<char A>
+	struct make_arr<A>
+	{
+		static constexpr auto Size = 1;
+		static constexpr char arr_char[Size] = { A };
+	};
+
 	static constexpr auto space = ' '; // punc
 	static constexpr auto dot = '.'; // punc
 	static constexpr auto comma = ',';
