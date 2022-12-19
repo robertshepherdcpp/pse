@@ -1,7 +1,7 @@
 # Parse
 !¬)
 
-Total Number of Lines: 4107
+Total Number of Lines: 4403
 Last Checked: 12/17/2022 16:43 PM London.
 
 Parse is a helpful open-source library for C++. Consisting of many features that are part of the C++ Standard Library
@@ -494,8 +494,13 @@ template<typename Class, detail::constructor& p_p, auto&&... Args>
 96: Your Software is not supported.
 056: Boolean evaluated to false.
 ```
+<details><summary>Some Useful Links</summary>
+<p>
 
 The pse Library blog!
 https://rshepherdcpp.wixsite.com/none/post/the-pse-library-new-idiom
 
 SonarLink: https://sonarcloud.io/project/configuration?id=robertshepherdcpp_pse&analysisMode=GitHubActions
+
+</p>
+</details>
