@@ -432,6 +432,7 @@ using enable_if_v = enable_if<b, T>::value;
 076: Not A Number (NaN).
 84: This Function Is No Longer In Use.
 96: Your Software is not supported.
+056: Boolean evaluated to false.
 ```
 
 The pse Library blog!
