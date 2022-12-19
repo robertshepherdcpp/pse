@@ -88,6 +88,6 @@ namespace pse
 		String_() {}
 
 		int size = 0;
-		char m_str[1]; // array of chars of size T
+		char m_str[1]{}; // array of chars of size T
 	};
 } // namespace pse
