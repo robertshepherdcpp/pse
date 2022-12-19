@@ -1,0 +1,9 @@
+#pragma once
+
+namespace pse
+{
+  auto char_to_int(char c)
+  {
+    return (static_cast<int>(c) - 48);
+  }
+} // namespace pse
