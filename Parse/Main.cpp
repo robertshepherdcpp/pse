@@ -461,10 +461,19 @@ int main()
 
 	auto bool_a = pse::Traits::conjunction<true, true, true, false>::value;
 
+	pse::Traits::Remove_Const<decltype(pse::ascii::make_arr<'a', 'b', 'c'>::arr_char)>::value arr_char{};
+
+	for (int i = 0; i < pse::ascii::make_arr<'a', 'b', 'c'>::Size; i++)
+	{
+		arr_char[i] = pse::ascii::make_arr<'a', 'b', 'c'>::arr_char[i];
+	}
+
 	//return ascii_c;
 	// 
 	
-	return bool_a;
+	// return bool_a;
+
+	return static_cast<int>(arr_char[0]); // returns static_cast<int>('a') which is 97.
 
 	// return "\nEnd\nOf\nProgram\n";
 }

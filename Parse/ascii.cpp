@@ -1,5 +1,7 @@
 // inspiration taken from foonathon/lexy
 
+#include"pack_size.cpp" // pse::pack_size<T, Ts...>
+
 #pragma once
 
 namespace pse
@@ -102,6 +104,14 @@ namespace pse
 		static constexpr bool value = true;
 	};
 
+	template<char A, char... Bs>
+	struct make_arr
+	{
+		//static constexpr size = pack_size_<A, Bs...>::value;
+		static constexpr auto Size = pack_size<decltype(A), decltype(Bs)...>::value;
+		static constexpr char arr_char[Size] = { A, Bs... };
+	};
+
 	static constexpr auto space = ' '; // punc
 	static constexpr auto dot = '.'; // punc
 	static constexpr auto comma = ',';
@@ -159,6 +169,12 @@ namespace pse
 	struct is_symbol
 	{
 		static constexpr bool value = (T == percent || T == at); // more needs implementing here.
+	};
+
+	template<auto T>
+	struct IsSpace
+	{
+		static constexpr bool value = (T == space);
 	};
 	} // namespace binary
 
