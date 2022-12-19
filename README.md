@@ -424,7 +424,63 @@ using enable_if_v = enable_if<b, T>::value;
 ```
 
 There are also several useful factory functions in the pse library, although they have obsure names they are very useful! There is `factory_parameter_pack_non_typename` there is `factory_parameter_pack_typename`, there is `factory_construct_typename`, there is `factory_construct_non_typename`.
+
 Here are example inmplementations of them all:
+
+`factory_constructor_non_typename`:
+```C++
+template<typename Class, detail::constructor& p_p, auto&&... Args>
+
+	struct factory_constructor_non_typename
+	{
+		auto operator()()
+		{
+			return Value;
+		}
+
+		Class Value{ Args... };
+	};
+	
+```
+`factory_parameter_pack_non_typename`:
+```C++
+
+	
+	template<typename Class, detail::parameter_pack& c, auto&&... Args>
+	struct factory_parameter_pack_non_typename
+	{
+		auto operator()()
+		{
+			return Value;
+		}
+
+		Class Value = Class{ Args... };
+	};
+```
+`factory_construct_typename`:	
+```C++
+	template<typename Class, detail::constructor& c, typename... Args>
+	struct factory_construct_typename
+	{
+		auto operator()(Args... args)
+		{
+			return Class{ args... };
+		}
+	};
+```
+`factory_parameter_pack_typename`:
+```C++
+
+	template<typename Class, detail::parameter_pack& p_p, typename... Args>
+	struct factory_parameter_pack_typename
+	{
+		constexpr auto operator()(Args... args)
+		{
+			return Class{args...};
+		}
+	};
+	
+```
 
 
 `pse::CodeMeaning` contained in the `CodeMeaning.cpp` header file has lots of different `if`'s and `else if`'s in order to find the write error code, here is a collection of the error codes and their values.
