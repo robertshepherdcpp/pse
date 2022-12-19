@@ -423,6 +423,10 @@ template<bool b, typename T>
 using enable_if_v = enable_if<b, T>::value;
 ```
 
+There are also several useful factory functions in the pse library, although they have obsure names they are very useful! There is `factory_parameter_pack_non_typename` there is `factory_parameter_pack_typename`, there is `factory_construct_typename`, there is `factory_construct_non_typename`.
+Here are example inmplementations of them all:
+
+
 `pse::CodeMeaning` contained in the `CodeMeaning.cpp` header file has lots of different `if`'s and `else if`'s in order to find the write error code, here is a collection of the error codes and their values.
 
 ```C++
