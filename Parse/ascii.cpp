@@ -65,7 +65,7 @@ namespace pse
 	template<auto T>
 	struct is_alphabetical
 	{
-		static constexpr auto value = false;
+		static constexpr auto value = ((static_cast<int>(T) > 96) && (static_cast<int>(T) < 123));
 	};
 
 	template<char T>
@@ -126,7 +126,7 @@ namespace pse
 	static constexpr auto forwardslash = '/';
 	static constexpr auto at = '@';
 	static constexpr auto percent = '%';
-	static constexpr auto pound = '£';
+	static constexpr auto pound = 'Â£';
 	static constexpr auto explanationmark= '!';
 	static constexpr auto dollar= '$';
 	static constexpr auto up = '^';
