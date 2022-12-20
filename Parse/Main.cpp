@@ -25,6 +25,7 @@
 #include"ascii.cpp" // pse::ascii::
 #include"BinaryTree.cpp" // pse::BinaryTree<T>
 #include"Node.cpp" // pse::Node<T>
+#include"fixed_string.cpp" // pse::fixed_string<T> where T is the size
 // #include"assert.cpp" // pse::assert
 
 // #include<iostream> // std::cout
@@ -468,7 +469,7 @@ int main()
 		arr_char[i] = pse::ascii::make_arr<'a', 'b', 'c'>::arr_char[i];
 	}
 
-	pse::String_ s{};
+	pse::fixed_string s{"Hello"};
 
 	//return ascii_c;
 	// 

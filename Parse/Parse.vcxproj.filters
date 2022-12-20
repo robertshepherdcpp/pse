@@ -162,5 +162,8 @@
     <ClCompile Include="fixed_string.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="copy_n.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
