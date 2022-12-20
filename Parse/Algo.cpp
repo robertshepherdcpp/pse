@@ -233,7 +233,7 @@ namespace pse
 			auto reverse(auto& a) noexcept
 			{
 				int x = 0;
-				for (int i = a.size(); i > 0; i++, x++)
+				for (int i = a.size(); i > 0; i--, x++)
 				{
 					auto temp = a[i];
 					a[i] = a[x];
