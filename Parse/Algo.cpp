@@ -89,6 +89,18 @@ namespace pse
 				return t();
 			}
 
+			template<typename Callable, typename... Args>
+			auto Invoke(Callable c, Args... args)
+			{
+				return c(args...);
+			}
+
+			template<typename Callable, typename Arg>
+			auto Invoke(Callable c, Arg arg)
+			{
+				return c(arg);
+			}
+
 			// another Reverse has already been imlemented.
 			template<typename T>
 			auto Reverse(Iterator<T>& j) noexcept
