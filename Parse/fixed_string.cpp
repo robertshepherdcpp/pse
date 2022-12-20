@@ -1,20 +1,14 @@
 #pragma once
 
+#include"copy_n.cpp" // pse::copy_n
+
 namespace pse
 {
-	template<auto T>
+	template<auto N>
 	struct fixed_string
 	{
-		char m_arr[T + 1] = {};
-		fixed_string(char(&arr)[T])
-		{
-			//copy_n();
-
-			for (int i = 0; i < T; i++)
-			{
-				m_arr[i] = arr[i];
-			}
-		}
+		char m_arr[N + 1] = {};
+		constexpr fixed_string(const char(&arr)[N + 1]) { copy_n(arr, N + 1, m_arr); }
 
 		// need <compare> for the spaceship operator.
 		//auto operator<=>(const fixed_string&) const = default;
