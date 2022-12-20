@@ -159,5 +159,8 @@
     <ClCompile Include="factory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="fixed_string.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

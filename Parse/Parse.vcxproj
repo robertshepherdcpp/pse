@@ -146,6 +146,7 @@
     <ClCompile Include="DecreasingTuple.cpp" />
     <ClCompile Include="ErrorCode.cpp" />
     <ClCompile Include="factory.cpp" />
+    <ClCompile Include="fixed_string.cpp" />
     <ClCompile Include="Function.cpp" />
     <ClCompile Include="Generator.cpp" />
     <ClCompile Include="GeneratorSame.cpp" />
