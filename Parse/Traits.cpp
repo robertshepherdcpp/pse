@@ -5,6 +5,37 @@ namespace pse
 	namespace Traits
 	{
 
+		// A really simple but really useful type trait.
+		template<typename... Things>
+		using void_t = void;
+
+		template<bool B>
+		struct bool_constant
+		{
+			static constexpr bool value = B;
+		};
+
+		struct true_type : bool_constant<true> {};
+		struct false_type : bool_constant<false> {};
+
+		template<typename A, typename B>
+		struct IsLargerThan
+			: bool_constant<(sizeof(A) > sizeof(B))>
+		{
+		};
+
+		template<typename A, typename B>
+		struct IsSameThan
+			: bool_constant < sizeof(A) == sizeof(B) >
+		{
+		};
+
+		template<typename A, typename B>
+		struct IsLessThan
+			: bool_constant < sizeof(A) < sizeof(B) >
+		{
+		};
+
 		template<typename A, typename B>
 		struct Is_Same
 		{
