@@ -469,6 +469,8 @@ int main()
 		arr_char[i] = pse::ascii::make_arr<'a', 'b', 'c'>::arr_char[i];
 	}
 
+	// auto HelloSize = pse::ascii::make_arr<"Hello">::Size;
+
 	// Ideally don't want to have to specify the size, just use CTAD.
 	pse::fixed_string<5> s{"Hello"};
 

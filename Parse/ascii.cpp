@@ -119,6 +119,12 @@ namespace pse
 		static constexpr char arr_char[Size] = { A };
 	};
 
+	template<auto N>
+	constexpr auto string_length(char(&arr)[N]) -> decltype(N)
+	{
+		return N;
+	}
+
 	static constexpr auto space = ' '; // punc
 	static constexpr auto dot = '.'; // punc
 	static constexpr auto comma = ',';
