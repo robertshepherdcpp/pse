@@ -477,6 +477,12 @@ int main()
 	//return ascii_c;
 	// 
 	
+	auto round_a = pse::algorithms::round(42.3);
+	auto ciel_a = pse::algorithms::ciel(42.2);
+	auto floor_a = pse::algorithms::floor(42.8);
+
+	return ciel_a;
+
 	// return bool_a;
 
 	return static_cast<int>(arr_char[0]); // returns static_cast<int>('a') which is 97.
