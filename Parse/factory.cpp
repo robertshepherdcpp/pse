@@ -8,6 +8,23 @@ namespace pse
 		struct constructor {};
 	}
 
+	template<typename Class, typename... Args>
+	struct factory
+	{
+		auto operator()(Args... args)
+		{
+			return Class{args...};
+		}
+		Class Value{};
+	};
+
+	template<typename Class, typename... Args>
+    auto factory_f(Args... args)
+	{
+		factory<Class, Args...> f{};
+		return f(args...);
+	};
+
 	template<typename Class, detail::constructor& p_p, auto&&... Args>
 	struct factory_constructor_non_typename
 	{
