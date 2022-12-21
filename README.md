@@ -482,6 +482,20 @@ template<typename Class, detail::constructor& p_p, auto&&... Args>
 	
 ```
 
+There is also `char_int` so that you can convert between chars and ints, it only works with single digit digits though because, for instance you cannot do this `432 -> '432'` because that does not fit inside a character! There is `int_to_char` and `char_to_int`. Here is an example implementation of `int_to_char`:
+```C++
+  auto int_to_char(int i)
+  {
+    return (static_cast<char>(i + 48));
+  }
+```
+And an example implementation of `char_to_int` is as follows:
+```C++
+  auto int_to_char(int i)
+  {
+    return (static_cast<char>(i + 48));
+  }
+```
 
 `pse::CodeMeaning` contained in the `CodeMeaning.cpp` header file has lots of different `if`'s and `else if`'s in order to find the write error code, here is a collection of the error codes and their values.
 
