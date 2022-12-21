@@ -6,4 +6,9 @@ namespace pse
   {
     return (static_cast<int>(c) - 48);
   }
+
+  auto int_to_char(int i)
+  {
+    return (static_cast<char>(i + 48));
+  }
 } // namespace pse
