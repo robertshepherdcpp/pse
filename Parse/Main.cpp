@@ -460,6 +460,19 @@ int main()
 		                       new pse::Node<int>{6}, 
 		                       new pse::Node<int>{8}}} };
 
+	/*
+	pse::BinaryTree<int> tree_two { 
+		                   new pse::Node<char>{'c', nullptr,
+						   new pse::Node<char>{'b', nullptr,
+						   new pse::Node<char>{'y'},
+						   new pse::Node<char>{'x'}},
+						   new pse::Node<char>{'z', nullptr,
+						   new pse::Node<char>{'m'},
+						   new pse::Node<char>{'t'}}} };
+	*/
+
+	auto tree_two_left = tree.get_left()->first_child->get();
+
 	auto bool_a = pse::Traits::conjunction<true, true, true, false>::value;
 
 	pse::Traits::Remove_Const<decltype(pse::ascii::make_arr<'a', 'b', 'c'>::arr_char)>::value arr_char{};
@@ -483,9 +496,11 @@ int main()
 
 	return ciel_a;
 
+	//return tree_two_left;
+
 	// return bool_a;
 
-	return static_cast<int>(arr_char[0]); // returns static_cast<int>('a') which is 97.
+	//return static_cast<int>(arr_char[0]); // returns static_cast<int>('a') which is 97.
 
 	// return "\nEnd\nOf\nProgram\n";
 }

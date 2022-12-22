@@ -20,13 +20,17 @@ namespace pse
 		auto right() { if (curr->right_child != nullptr) curr = curr->second_child; }
 		auto up() { if (curr->parent != nullptr) curr = curr->parent; }
 
+		auto get_left() { if (curr->first_child != nullptr) return curr->first_child; }
+		auto get_right() { if (curr->right_child != nullptr) return curr->second_child; }
+		auto get_up() { if (curr->parent != nullptr) curr = curr->parent; }
+
 		auto get() { return curr.m_data; }
 
 		template<typename NodeType, typename... NodeTypes>
 		BinaryTree(NodeType* n, NodeTypes*... ns);
 
-		template<typename NodeType>
-		BinaryTree(NodeType* n);
+		// template<typename NodeType>
+		// BinaryTree(NodeType* n);
 	};
 
 	template<typename T>
@@ -38,12 +42,12 @@ namespace pse
 		// FIXME: finish implementation.
 	}
 
-	template<typename T>
-	template<typename NodeType>
-	BinaryTree<T>::BinaryTree(NodeType* n)
-	{
-		// not sure if these will assign deeply, though.
-		NodeType* deepest = curr;
-		deepest = n;
-	}
+	//template<typename T>
+	//template<typename NodeType>
+	//BinaryTree<T>::BinaryTree(NodeType* n)
+	//{
+	//	// not sure if these will assign deeply, though.
+	//	NodeType* deepest = curr;
+	//	deepest = n;
+	//}
 } // namespace pse

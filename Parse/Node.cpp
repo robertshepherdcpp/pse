@@ -10,6 +10,8 @@ namespace pse
 		Node<T>* parent;
 		Node<T>* first_child;
 		Node<T>* second_child;
+
+		auto get() { return m_data; }
 	};
 
 	/*
