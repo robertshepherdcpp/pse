@@ -367,6 +367,9 @@ namespace pse
 			using value = Remove_Const_v<Remove_Volatile_v<Remove_Ref_v<T>>>;
 		};
 
+		template<typename T>
+		using remove_const_volatile_ref_v = remove_const_volatile_ref<T>::value;
+
 		template<bool B, typename T>
 		using enable_if_v = enable_if<B, T>::value;
 
