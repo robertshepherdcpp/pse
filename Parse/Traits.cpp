@@ -346,6 +346,27 @@ namespace pse
 			using value = T;
 		};
 
+		template<typename T>
+		struct Remove_Volatile
+		{
+			using value = T;
+		};
+
+		template<typename T>
+		struct Remove_Volatile<T volatile>
+		{
+			using value = T;
+		};
+
+		template<typename T>
+		using Remove_Volatile_v = Remove_Volatile<T>::value;
+
+		template<typename T>
+		struct remove_const_volatile_ref
+		{
+			using value = Remove_Const_v<Remove_Volatile_v<Remove_Ref_v<T>>>;
+		};
+
 		template<bool B, typename T>
 		using enable_if_v = enable_if<B, T>::value;
 
