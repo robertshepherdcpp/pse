@@ -242,6 +242,25 @@ struct Is_Pointer
 {
 };
 ```
+There is also `pse::Remove_Volatile` and with it comes `pse::Remove_Volatile_v`. Given a type it removes the volatile from it (if there is any). An example implementation looks like this:
+```C++
+template<typename T>
+struct Remove_Volatile
+{
+  // Implementation.
+};
+
+template<typename T>
+struct Remove_Volatile_v = Remove_Volatile<T>::value;
+```
+There is also `remove_const_volatile_ref` which removes all type specifiers. For example if it is given `const volatile& char` it's value would be char. It's implementation looks like this:
+```C++
+template<typename T>
+struct remove_const_volatile
+{
+    using value = Remove_Const_v<Remove_Volatile_v<Remove_Ref_v<T>>>;
+};
+```
 
 Also there is `pse::GeneratorSame` which is just a specialised `pse::Generator` for a gererator of the same type. It still has the same interface as `pse::Generator` but just small changes in the internal mechanisms. An example implementation looks like this:
 ```C++
