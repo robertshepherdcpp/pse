@@ -125,6 +125,15 @@ namespace pse
 		return N;
 	}
 
+	template<typename T>
+	struct get_default_constructed
+	{
+		T value = T{};
+	};
+
+	template<typename T>
+	constexpr T get_default_constructed_v = get_default_constructed<T>::value;
+
 	static constexpr auto space = ' '; // punc
 	static constexpr auto dot = '.'; // punc
 	static constexpr auto comma = ',';
