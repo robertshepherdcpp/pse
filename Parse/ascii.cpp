@@ -140,11 +140,16 @@ namespace pse
 	static constexpr auto backslash = '\\';
 	static constexpr auto forwardslash = '/';
 	static constexpr auto at = '@';
+	static constexpr auto percentage = '%';
 	static constexpr auto percent = '%';
-	static constexpr auto pound = '£';
+	static constexpr auto negation_symbol = '¬';
+	static constexpr auto backtick_symbol = '`';
+	static constexpr auto pound_sign = '£';
 	static constexpr auto explanationmark= '!';
 	static constexpr auto dollar= '$';
 	static constexpr auto up = '^';
+	static constexpr auto about = '~';
+	static constexpr auto tilde = '~';
 	static constexpr auto And = '&';
 	static constexpr auto star = '*';
 	static constexpr auto openingbracket= '(';
@@ -156,7 +161,6 @@ namespace pse
 	static constexpr auto opencurlybrace= '{';
 	static constexpr auto closecurlybrace= '}';
 	static constexpr auto hash= '#';
-	static constexpr auto hyphen= '~';
 	static constexpr auto greater = '>';
 	static constexpr auto less= '<';
 	static constexpr auto questionmark = '?';
