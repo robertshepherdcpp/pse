@@ -50,7 +50,7 @@ namespace pse
 		return false;
 	}
 
-	template<char A, char B>
+	template<auto A, auto B>
 	struct is
 	{
 		static constexpr bool value = (A == B);
