@@ -1,8 +1,8 @@
 # Parse
 !¬)
 
-Total Number of Lines: 4434
-Last Checked: 12/20/2022 11:25 PM London.
+Total Number of Lines: 4609
+Last Checked: 12/23/2022 17:18 PM London.
 
 Parse is a helpful open-source library for C++. Consisting of many features that are part of the C++ Standard Library
 Here are some examples:
@@ -260,6 +260,11 @@ struct remove_const_volatile
 {
     using value = Remove_Const_v<Remove_Volatile_v<Remove_Ref_v<T>>>;
 };
+```
+There is also `remove_const_volatile_ref_v` which is just like `Remove_Const_v` and `Remove_Volatile_v` in that it gets the value out of the class `remove_const_volatile_ref` with the type `T`. An example implementation looks like this:
+```C++
+template<typename T>
+using remove_const_volatile_ref_v = remove_const_volatile_ref<T>::value;
 ```
 
 Also there is `pse::GeneratorSame` which is just a specialised `pse::Generator` for a gererator of the same type. It still has the same interface as `pse::Generator` but just small changes in the internal mechanisms. An example implementation looks like this:
