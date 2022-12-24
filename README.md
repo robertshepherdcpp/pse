@@ -527,10 +527,10 @@ And an example implementation of `char_to_int` is as follows:
 026: Out Of Bounds Access.
 034: Your hardware is not supported.
 054: Unvalid Type.
+056: Boolean evaluated to false.
 076: Not A Number (NaN).
 84: This Function Is No Longer In Use.
 96: Your Software is not supported.
-056: Boolean evaluated to false.
 ```
 <details><summary>Some Useful Links</summary>
 <p>
