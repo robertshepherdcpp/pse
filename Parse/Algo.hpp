@@ -1,7 +1,7 @@
 #pragma once
 
-#include"Iterator.cpp" // pse::Iterator<T>
-#include"Traits.cpp" // pse::IsSame<>
+#include"Iterator.hpp" // pse::Iterator<T>
+#include"Traits.hpp" // pse::IsSame<>
 
 namespace pse
 {

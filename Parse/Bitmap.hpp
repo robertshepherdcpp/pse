@@ -1,7 +1,7 @@
 #pragma once
 
-#include"Vector.cpp" // pse::Vector
-#include"pack_size.cpp" // pse::pack_size
+#include"Vector.hpp" // pse::Vector
+#include"pack_size.hpp" // pse::pack_size
 
 namespace pse
 {

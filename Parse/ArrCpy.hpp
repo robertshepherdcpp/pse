@@ -1,7 +1,7 @@
 #pragma once
 
-#include"Most.cpp"
-#include"ZeroArr.cpp"
+#include"Most.hpp"
+#include"ZeroArr.hpp"
 
 namespace pse
 {
