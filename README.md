@@ -1,5 +1,4 @@
 # pse library
-!¬)
 
 ### FAQ
 
