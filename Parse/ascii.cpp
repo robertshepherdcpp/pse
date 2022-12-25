@@ -9,7 +9,7 @@ namespace pse
 	namespace ascii
 	{
 	template<char T>
-	struct ToBinary
+	struct ToInt
 	{
 		static constexpr int value = static_cast<int>(T);
 	};
