@@ -1,6 +1,6 @@
 #pragma once
 
-#include"ArrCpy.cpp"
+#include"ArrCpy.hpp"
 
 namespace pse
 {

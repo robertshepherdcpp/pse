@@ -1,5 +1,21 @@
-# Parse
-!¬)
+# pse library
+
+### FAQ
+
+What is the pse library?
+- Well, it is a library that does not depend on the standard library! It is still a work in progress with lots of features that still need to be implemented. But it resembles lots of features that the standard library has.
+
+How can I contribute?
+- There are many ways that you can contribute. First, by trying to fix issues that have been put in the issues section of this repository. Secondly, by implementing a feature that you think would be a good feature in the pse library and then opening a pull request!
+
+### Contributors
+A list of all the people have helped in the process of making this repository!
+
+- [@robertshepherdcpp](https://github.com/robertshepherdcpp/)
+- [@ryuusama09](https://github.com/ryuusama09)
+- [@tarunsamanta2k20](https://github.com/tarunsamanta2k20)
+
+### The Documentation:
 
 Total Number of Lines: 4609
 Last Checked: 12/23/2022 17:18 PM London.

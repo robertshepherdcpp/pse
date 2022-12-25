@@ -1,8 +1,8 @@
 #pragma once
 
-#include"pack_size.cpp"
-#include"pack_at.cpp"
-#include"ErrorCode.cpp" // so that we can throw an exception when out of bounds.
+#include"pack_size.hpp"
+#include"pack_at.hpp"
+#include"ErrorCode.hpp" // so that we can throw an exception when out of bounds.
 
 // a better pse::Vector
 

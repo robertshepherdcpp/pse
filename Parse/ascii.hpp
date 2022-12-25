@@ -1,6 +1,6 @@
 // inspiration taken from foonathon/lexy
 
-#include"pack_size.cpp" // pse::pack_size<T, Ts...>
+#include"pack_size.hpp" // pse::pack_size<T, Ts...>
 
 #pragma once
 

@@ -1,8 +1,8 @@
 #pragma once
 
 //#include"ParameterPackSize.cpp" // Implement
-#include"Traits.cpp"
-#include"ErrorCode.cpp"
+#include"Traits.hpp"
+#include"ErrorCode.hpp"
 
 namespace pse
 {
