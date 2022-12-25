@@ -1,31 +1,31 @@
 #pragma once
 
-#include"String.cpp" // String
-#include"Begin.cpp" // Begin
-#include"UselessObj.cpp"
-#include"Tuple.cpp"
+#include"String.hpp" // String
+#include"Begin.hpp" // Begin
+#include"UselessObj.hpp"
+#include"Tuple.hpp"
 // #include<string> was here but taken away because i dont think is needed.
-#include"Vector.cpp" // FIXME: Make a better implementation of Vector
-#include"Traits.cpp"
-#include"Get.cpp" // pse::get
-#include"Array.cpp"
-#include"ImplicitEquals.cpp"
-#include"Variant.cpp"
-#include"TypeID.cpp"
-#include"Visit.cpp" // pse::Visit
-#include"overload.cpp" // pse::overload
-#include"TupleLike.cpp" // pse::TupleLike
-#include"Iterator.cpp" // pse::Iterator
-#include"Range.cpp" // pse::Range
-#include"Bitmap.cpp" // pse::Bitmap
-#include"Generator.cpp" // pse::Generator
-#include"Type.cpp" // pse::Type
-#include"Vec.cpp" // pse::Vec
-#include"Tector.cpp" // pse::Init
-#include"ascii.cpp" // pse::ascii::
-#include"BinaryTree.cpp" // pse::BinaryTree<T>
-#include"Node.cpp" // pse::Node<T>
-#include"fixed_string.cpp" // pse::fixed_string<T> where T is the size
+#include"Vector.hpp" // FIXME: Make a better implementation of Vector
+#include"Traits.hpp"
+#include"Get.hpp" // pse::get
+#include"Array.hpp"
+#include"ImplicitEquals.hpp"
+#include"Variant.hpp"
+#include"TypeID.hpp"
+#include"Visit.hpp" // pse::Visit
+#include"overload.hpp" // pse::overload
+#include"TupleLike.hpp" // pse::TupleLike
+#include"Iterator.hpp" // pse::Iterator
+#include"Range.hpp" // pse::Range
+#include"Bitmap.hpp" // pse::Bitmap
+#include"Generator.hpp" // pse::Generator
+#include"Type.hpp" // pse::Type
+#include"Vec.hpp" // pse::Vec
+#include"Tector.hpp" // pse::Init
+#include"ascii.hpp" // pse::ascii::
+#include"BinaryTree.hpp" // pse::BinaryTree<T>
+#include"Node.hpp" // pse::Node<T>
+#include"fixed_string.hpp" // pse::fixed_string<T> where T is the size
 // #include"assert.cpp" // pse::assert
 
 // #include<iostream> // std::cout

@@ -1,9 +1,9 @@
 #pragma once
 
-#include"Initializer_List.cpp" // pse::Initializer_List
-#include"Algo.cpp" // pse::algorithms
-#include"constant.cpp" // pse::constant
-#include"Traits.cpp" // pse::Traits::Add_Const<T>::value
+#include"Initializer_List.hpp" // pse::Initializer_List
+#include"Algo.hpp" // pse::algorithms
+#include"constant.hpp" // pse::constant
+#include"Traits.hpp" // pse::Traits::Add_Const<T>::value
 
 namespace pse
 {

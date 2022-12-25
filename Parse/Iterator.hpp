@@ -1,6 +1,6 @@
 #pragma once
 
-#include"Traits.cpp" // AddPointer
+#include"Traits.hpp" // AddPointer
 
 namespace pse
 {

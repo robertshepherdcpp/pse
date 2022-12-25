@@ -1,6 +1,6 @@
 #pragma once
 
-#include"ErrorCode.cpp"
+#include"ErrorCode.hpp"
 
 namespace pse
 {

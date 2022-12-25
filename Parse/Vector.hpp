@@ -1,13 +1,13 @@
 #pragma once
 
-#include"ZeroArr.cpp"
-#include"Copy.cpp"
-#include"Initializer_List.cpp"
+#include"ZeroArr.hpp"
+#include"Copy.hpp"
+#include"Initializer_List.hpp"
 
 /*implement:
     - Copy.cpp
-	¬ CopyInitializerToArr()
-	¬ CopyArr()
+	ï¿½ CopyInitializerToArr()
+	ï¿½ CopyArr()
 
 	- Initializer_List.cpp
 	*/

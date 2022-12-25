@@ -1,6 +1,6 @@
 #pragma once
 
-#include"Traits.cpp" // pse:: and then the type traits
+#include"Traits.hpp" // pse:: and then the type traits
 
 // just like TypeTraits.cpp but instead of passing in a type you pass in a value.
 // It basically has the same mechanisms as TypeTraits.cpp, it does in fact because

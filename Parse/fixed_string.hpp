@@ -1,6 +1,6 @@
 #pragma once
 
-#include"copy_n.cpp" // pse::copy_n
+#include"copy_n.hpp" // pse::copy_n
 
 namespace pse
 {
