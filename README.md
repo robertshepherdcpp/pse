@@ -539,6 +539,21 @@ And an example implementation of `char_to_int` is as follows:
 
 `pse::CodeMeaning` contained in the `CodeMeaning.cpp` header file has lots of different `if`'s and `else if`'s in order to find the write error code, here is a collection of the error codes and their values.
 
+There is also `pse::index_sequence`. This generates a sequence of indixes for the passed parameter pack `T` and `Ts...`. It will have a `const`ant array `indeces` containing all of the indexes for the types that you have passed.  An examle of calling it would look like this:
+```C++
+index_sequence<0, int, float, char, bool> i_s{};
+```
+so then the array `indeces` will have the following values: `0, 1, 2, 3`. An example implementation of `pse::index_sequence` is as follows:
+```C++
+template<auto StartSize = 0, typename T, typename... Ts>
+struct index_sequence
+{
+    decltype(StartSize) indeces[sizeof...(Ts) + 1){/*indeces*/};
+    
+    // rest of implementation.
+};
+```
+
 ```C++
 026: Out Of Bounds Access.
 034: Your hardware is not supported.
