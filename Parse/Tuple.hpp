@@ -58,6 +58,19 @@ namespace pse
 		// else do nothing.
 	}
 
+	template<typename T, typename... Ts>
+	struct TupleT
+	{
+		T first{};
+		TupleT<Ts...> second{};
+	};
+
+	template<typename T>
+	struct TupleT<T>
+	{
+		T first{};
+	};
+
 	// prefer Tuple over TupleCTAD because with Tuple you can just do:
 	// Tuple<5, 8, "Hello", '.'> v;
 } // namespace pse

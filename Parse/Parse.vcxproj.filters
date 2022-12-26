@@ -15,155 +15,160 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ArrCpy.cpp">
+    <ClCompile Include="ArrCpy.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="String.cpp">
+    <ClCompile Include="String.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Most.cpp">
+    <ClCompile Include="Most.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ZeroArr.cpp">
+    <ClCompile Include="ZeroArr.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Begin.cpp">
+    <ClCompile Include="Begin.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UselessObj.cpp">
+    <ClCompile Include="UselessObj.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Vector.cpp">
+    <ClCompile Include="Vector.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Copy.cpp">
+    <ClCompile Include="Copy.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Initializer_List.cpp">
+    <ClCompile Include="Initializer_List.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Globals.cpp">
+    <ClCompile Include="Globals.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Traits.cpp">
+    <ClCompile Include="Traits.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tuple.cpp">
+    <ClCompile Include="Tuple.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Get.cpp">
+    <ClCompile Include="Get.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Array.cpp">
+    <ClCompile Include="Array.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ImplicitEquals.cpp">
+    <ClCompile Include="ImplicitEquals.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Optional.cpp">
+    <ClCompile Include="Optional.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Variant.cpp">
+    <ClCompile Include="Variant.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TypeID.cpp">
+    <ClCompile Include="TypeID.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="overload.cpp">
+    <ClCompile Include="overload.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Visit.cpp">
+    <ClCompile Include="Visit.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Function.cpp">
+    <ClCompile Include="Function.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MetaStruct.cpp">
+    <ClCompile Include="MetaStruct.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Any.cpp">
+    <ClCompile Include="Any.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Generator.cpp">
+    <ClCompile Include="Generator.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TupleLike.cpp">
+    <ClCompile Include="TupleLike.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Range.cpp">
+    <ClCompile Include="Range.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Algo.cpp">
+    <ClCompile Include="Algo.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Iterator.cpp">
+    <ClCompile Include="Iterator.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="constant.cpp">
+    <ClCompile Include="constant.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DecreasingTuple.cpp">
+    <ClCompile Include="DecreasingTuple.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TupleCTAD.cpp">
+    <ClCompile Include="TupleCTAD.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Bitmap.cpp">
+    <ClCompile Include="Bitmap.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="pack_size.cpp">
+    <ClCompile Include="pack_size.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratorSame.cpp">
+    <ClCompile Include="GeneratorSame.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ValueTraits.cpp">
+    <ClCompile Include="ValueTraits.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Type.cpp">
+    <ClCompile Include="Type.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Time.cpp">
+    <ClCompile Include="Time.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ErrorCode.cpp">
+    <ClCompile Include="ErrorCode.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Vec.cpp">
+    <ClCompile Include="Vec.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="pack_at.cpp">
+    <ClCompile Include="pack_at.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CodeMeaning.cpp">
+    <ClCompile Include="CodeMeaning.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="assert.cpp">
+    <ClCompile Include="assert.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Tector.cpp">
+    <ClCompile Include="Tector.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ascii.cpp">
+    <ClCompile Include="ascii.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Node.cpp">
+    <ClCompile Include="Node.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BinaryTree.cpp">
+    <ClCompile Include="BinaryTree.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="factory.cpp">
+    <ClCompile Include="factory.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fixed_string.cpp">
+    <ClCompile Include="fixed_string.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="copy_n.cpp">
+    <ClCompile Include="copy_n.hpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="metalib.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

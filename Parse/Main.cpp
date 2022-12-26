@@ -26,6 +26,7 @@
 #include"BinaryTree.hpp" // pse::BinaryTree<T>
 #include"Node.hpp" // pse::Node<T>
 #include"fixed_string.hpp" // pse::fixed_string<T> where T is the size
+#include"metalib.hpp"
 // #include"assert.cpp" // pse::assert
 
 // #include<iostream> // std::cout
@@ -33,6 +34,17 @@
 // only using the standard library for std::cout
 // trying to compile the code.
 // Link: https://learn.microsoft.com/en-us/cpp/error-messages/tool-errors/linker-tools-error-lnk1104?f1url=%3FappId%3DDev16IDEF1%26l%3DEN-US%26k%3Dk(LNK1104)%26rd%3Dtrue&view=msvc-170
+
+template<typename T>
+concept Integral = requires(T t)
+{
+	t + t;
+	t += t;
+	t *= t;
+	t - t;
+	t -= t;
+	t / t;
+};
 
 template<typename T_>
 auto make_T(auto T, auto... Ts)
@@ -494,7 +506,11 @@ int main()
 	auto ciel_a = pse::algorithms::ciel(42.2);
 	auto floor_a = pse::algorithms::floor(42.8);
 
-	return ciel_a;
+	pse::TupleT<int, float, int, double> tuple_t{42, 4.1234, 36, 3.14};
+
+	//pse::for_each<decltype([](auto& x) {return x += x; }), int, float, int, double>([](auto& x) {return x += x; }, tuple_t);
+
+	//return ciel_a;
 
 	//return tree_two_left;
 
