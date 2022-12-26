@@ -70,4 +70,10 @@ namespace pse
 		indexes.apply(f);
 		// this applies it to all of the elements, we don't even need IndexSequence.
 	}
+
+	template<typename... Ts, typename... Hs>
+	auto concat(TupleT<Ts...>& t1, TupleT<Hs...>& t2)
+	{
+		return concat<Ts..., Hs...>(t1, t2);
+	}
 }

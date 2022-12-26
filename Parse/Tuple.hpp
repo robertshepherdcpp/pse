@@ -71,6 +71,10 @@ namespace pse
 		T first{};
 	};
 
-	// prefer Tuple over TupleCTAD because with Tuple you can just do:
-	// Tuple<5, 8, "Hello", '.'> v;
+	// warning this function does not assign elements.
+	template<typename... As, typename... Bs>
+	auto tuple_cat(TupleT<As...>& tuple_a, TupleT<Bs...>& tuple_b)
+	{
+		return TupleT<As..., Bs...>{};
+	}
 } // namespace pse
