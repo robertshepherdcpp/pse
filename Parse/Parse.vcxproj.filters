@@ -170,5 +170,8 @@
     <ClInclude Include="metalib.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="index_sequence.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

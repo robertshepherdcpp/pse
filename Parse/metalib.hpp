@@ -44,7 +44,7 @@ namespace pse
 		auto apply(Function& func)
 		{
 			func(t);
-			func(ts);
+			ts.apply(func);
 			// so then this call delegates to the rest of the elements.
 		}
 
@@ -60,18 +60,6 @@ namespace pse
 	{
 		return TupleIndex<T, Ts...>(t, ts...);
 	}
-
-	template<auto StartNum, typename T, typename... Ts>
-	struct integer_sequence
-	{
-		static constexpr auto index = StartNum;
-		T first;
-		integer_sequence<StartNum + 1, Ts...> second;
-
-		
-	    // so we do operator[] and return the index/type depending on the aruement.
-
-	};
 
 	// for_each on tuples.
 	template<typename Function, typename T, typename... Ts>
