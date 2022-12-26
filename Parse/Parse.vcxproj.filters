@@ -173,5 +173,8 @@
     <ClInclude Include="index_sequence.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="type_pack.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

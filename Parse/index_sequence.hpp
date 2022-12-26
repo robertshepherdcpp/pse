@@ -9,6 +9,7 @@ namespace pse
 		T first;
 		integer_sequence<StartNum + 1, Ts...> second;
 
+		// not sure if this syntax is allowed initializing an arry with value then array.
 		const decltype(StartNum) indices[sizeof...(Ts) + 1]{ index, second.indices };
 
 
