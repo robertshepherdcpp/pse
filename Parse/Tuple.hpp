@@ -63,12 +63,16 @@ namespace pse
 	{
 		T first{};
 		TupleT<Ts...> second{};
+
+		T& last = second.last;
 	};
 
 	template<typename T>
 	struct TupleT<T>
 	{
 		T first{};
+
+		T& last = (first);
 	};
 
 	// warning this function does not assign elements.

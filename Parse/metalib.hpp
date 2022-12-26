@@ -1,8 +1,10 @@
-// So this file is for metaprogramming algorithms!
+// So this file is for metaprogramming algorithms! 
+// Basically just fun things to do with metaprogramming.
 
 #pragma once
 
 #include"Tuple.hpp"
+#include"pack_at.hpp"
 
 namespace pse
 {
@@ -75,5 +77,49 @@ namespace pse
 	auto concat(TupleT<Ts...>& t1, TupleT<Hs...>& t2)
 	{
 		return concat<Ts..., Hs...>(t1, t2);
+	}
+
+	template<typename T,typename... Ts>
+	struct dummy_type
+	{
+		// just a holder for types.
+	};
+
+	template<typename T, typename... Ts>
+	constexpr auto shorten_helper(dummy_type<Ts...>& d, T t)
+	{
+		// FIXME: Implement.
+	}
+
+	template<auto Current, auto Start, auto End, typename T, typename... Ts>
+	requires(Current < Start && sizeof...(Ts) >= End)
+	struct shorten
+	{
+		using shorten_ = shorten<Current + 1, Start, End, Ts...>::shorten_;
+	};
+
+	template<auto Current, auto Start, auto End, typename T, typename... Ts>
+	requires(Current == Start && End <= sizeof...(Ts))
+	struct shorten
+	{
+		using shorten_ = shorten_helper(dummy_type<Ts...>, T{});
+	};
+
+	template<auto T, typename Type, typename... Ts>
+	auto shorten_pack(Type t, Ts... ts)
+	{
+
+	}
+
+	template<typename T, typename... Ts>
+	constexpr auto reverse(TupleT<T, Ts...>& t)
+	{
+		constexpr auto size = sizeof...(Ts) + 1;
+		constexpr auto last{t.get_ref<size - 1>()};
+		constexpr auto first{ t.get<0>()};
+		t.first = t.get<size - 1>();
+		t.last = first;
+
+		reverse();
 	}
 }
