@@ -544,7 +544,7 @@ There is also `pse::index_sequence`. This generates a sequence of indixes for th
 index_sequence<0, int, float, char, bool> i_s{};
 ```
 so then the array `indeces` will have the following values: `0, 1, 2, 3`. An example implementation of `pse::index_sequence` is as follows:
-```
+```C++
 template<auto StartSize = 0, typename T, typename... Ts>
 struct index_sequence
 {
