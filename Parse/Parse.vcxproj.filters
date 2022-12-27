@@ -179,5 +179,8 @@
     <ClInclude Include="Pair.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="ratio.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
