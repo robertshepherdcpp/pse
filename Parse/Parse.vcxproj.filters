@@ -176,5 +176,8 @@
     <ClInclude Include="type_pack.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="Pair.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

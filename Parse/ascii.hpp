@@ -98,6 +98,12 @@ namespace pse
 		static constexpr auto value = true;
 	};
 
+	// this trait will give false positive values, so be careful!
+	template<typename T>
+	concept is_trait = requires(T t) {
+		T::value == true || T::value == false;
+	};
+
 	template<char T>
 	struct is_character // has to be, we were passed in a char.
 	{
@@ -108,7 +114,7 @@ namespace pse
 	struct make_arr
 	{
 		//static constexpr size = pack_size_<A, Bs...>::value;
-		static constexpr auto Size = pack_size<decltype(A), decltype(Bs)...>::value;
+		static constexpr auto Size = sizeof...(Bs) + 1;
 		static constexpr char arr_char[Size] = { A, Bs... };
 	};
 
