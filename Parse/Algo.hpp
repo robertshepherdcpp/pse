@@ -17,6 +17,26 @@ namespace pse
 				return a + b;
 			}
 
+			inline auto binary_search(auto& a)
+			{
+				auto middle = double((a / 2) + a % 2);
+				if (a == a[middle])
+				{
+					return middle;
+				}
+				else
+				{
+					if (a > a[middle])
+					{
+						return binary_search(a.remove(middle, a.size()));
+					}
+					else
+					{
+						return binary_search(a.remove(0, middle));
+					}
+				}
+			}
+
 			// notice a - b and not b - a
 			inline auto minus(int a, int b) noexcept -> int
 			{
