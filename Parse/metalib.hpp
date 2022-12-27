@@ -63,7 +63,7 @@ namespace pse
 		return TupleIndex<T, Ts...>(t, ts...);
 	}
 
-	// for_each on tuples.
+	// for_each on tuples
 	template<typename Function, typename T, typename... Ts>
 	consteval auto for_each(Function& f, TupleT<T, Ts...>& tuple) noexcept
 	{
@@ -76,7 +76,7 @@ namespace pse
 	template<typename... Ts, typename... Hs>
 	auto concat(TupleT<Ts...>& t1, TupleT<Hs...>& t2)
 	{
-		return concat<Ts..., Hs...>(t1, t2);
+		return tuple_cat<Ts..., Hs...>(t1, t2);
 	}
 
 	template<typename T,typename... Ts>
