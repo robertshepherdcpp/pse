@@ -183,6 +183,7 @@
     <ClCompile Include="ZeroArr.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="bit.hpp" />
     <ClInclude Include="index_sequence.hpp" />
     <ClInclude Include="metalib.hpp" />
     <ClInclude Include="Pair.hpp" />
