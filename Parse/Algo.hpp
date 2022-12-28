@@ -37,6 +37,33 @@ namespace pse
 				}
 			}
 
+			inline auto find_if(auto& container, auto& callable) noexcept(noexcept(container::iterator++))
+			{
+				int j = 0;
+				for (auto i = container.begin(); i != container.end(); i++)
+				{
+					if (callable(*i))
+					{
+						return j;
+					}
+					j++;
+				}
+				return -1;
+			}
+
+			inline auto find_if_not(auto& container, auto& callable) noexcept(noexcept(container::iterator++))
+			{
+				int j = 0;
+				for (auto i = container.begin(); i != container.end(); i++)
+				{
+					if (!callable(*i))
+					{
+						return j;
+					}
+					j++;
+				}
+			}
+
 			// notice a - b and not b - a
 			inline auto minus(int a, int b) noexcept -> int
 			{
@@ -231,18 +258,6 @@ namespace pse
 				for (int i = 0; i < a.size(); i++)
 				{
 					if (a[i] == ToFind)
-					{
-						return i;
-					}
-				}
-				return 0;
-			}
-
-			auto find_if(auto& a, auto& Callable) noexcept -> int
-			{
-				for (int i = 0; i < a; i++)
-				{
-					if (Callable(a[i])) // requires Callable to return a bool
 					{
 						return i;
 					}

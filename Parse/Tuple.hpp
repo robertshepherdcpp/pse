@@ -64,7 +64,7 @@ namespace pse
 		T first{};
 		TupleT<Ts...> second{};
 
-		T& last = second.last;
+		T last = second.last;
 	};
 
 	template<typename T>
