@@ -187,6 +187,7 @@
     <ClInclude Include="index_sequence.hpp" />
     <ClInclude Include="metalib.hpp" />
     <ClInclude Include="Pair.hpp" />
+    <ClInclude Include="r-tuple.hpp" />
     <ClInclude Include="ratio.hpp" />
     <ClInclude Include="type_pack.hpp" />
   </ItemGroup>

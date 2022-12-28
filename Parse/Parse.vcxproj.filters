@@ -185,5 +185,8 @@
     <ClInclude Include="bit.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="r-tuple.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
