@@ -14,4 +14,16 @@ namespace pse
           native = __BYTE_ORDER__
       #endif
     };
+
+    template<bool bit>
+    struct bit_type
+    {
+        static constexpr int bint = bit;
+    };
+
+    template<auto Bit>
+    struct bit
+    {
+        bit_type b{ Bit };
+    };
 } // namespace pse
