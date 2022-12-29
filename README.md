@@ -8,6 +8,9 @@ What is the pse library?
 How can I contribute?
 - There are many ways that you can contribute. First, by trying to fix issues that have been put in the issues section of this repository. Secondly, by implementing a feature that you think would be a good feature in the pse library and then opening a pull request!
 
+How old is the pse library?
+- Really new! It started in late November 2022!
+
 ### Contributors
 A list of all the people have helped in the process of making this repository!
 
