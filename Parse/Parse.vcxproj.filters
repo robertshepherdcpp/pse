@@ -188,5 +188,8 @@
     <ClInclude Include="r-tuple.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Error_Or.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
