@@ -27,6 +27,7 @@
 #include"Node.hpp" // pse::Node<T>
 #include"fixed_string.hpp" // pse::fixed_string<T> where T is the size
 #include"metalib.hpp"
+#include"Unit.hpp"
 // #include"assert.cpp" // pse::assert
 
 // #include<iostream> // std::cout
@@ -508,6 +509,11 @@ int main()
 
 	pse::TupleT<int, float, int, double> tuple_t{42, 4.1234, 36, 3.14};
 
+	pse::Meters distance(110);
+	pse::Seconds time(10);
+	auto speed = distance / time;
+
+	return speed.get_value();
 	//pse::for_each<decltype([](auto& x) {return x += x; }), int, float, int, double>([](auto& x) {return x += x; }, tuple_t);
 
 	//return ciel_a;

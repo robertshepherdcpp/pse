@@ -191,6 +191,7 @@
     <ClInclude Include="r-tuple.hpp" />
     <ClInclude Include="ratio.hpp" />
     <ClInclude Include="type_pack.hpp" />
+    <ClInclude Include="Unit.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -191,5 +191,8 @@
     <ClInclude Include="Error_Or.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Unit.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
