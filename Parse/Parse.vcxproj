@@ -185,6 +185,7 @@
   <ItemGroup>
     <ClInclude Include="bit.hpp" />
     <ClInclude Include="Error_Or.hpp" />
+    <ClInclude Include="index_seq.hpp" />
     <ClInclude Include="index_sequence.hpp" />
     <ClInclude Include="metalib.hpp" />
     <ClInclude Include="Pair.hpp" />

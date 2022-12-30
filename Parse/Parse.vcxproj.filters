@@ -194,5 +194,8 @@
     <ClInclude Include="Unit.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="index_seq.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
