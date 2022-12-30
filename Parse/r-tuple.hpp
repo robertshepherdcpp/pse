@@ -47,7 +47,7 @@ namespace pse
 	// recursive case
 	template< int I, class Head, class... Tail >
 	struct tuple_element<I, r_tuple<Head, Tail...>>
-		: std::tuple_element<I - 1, std::tuple<Tail...>> { };
+		: tuple_element<I - 1, pse::tuple<Tail...>> { };
 
 	// base case
 	template< class Head, class... Tail >
