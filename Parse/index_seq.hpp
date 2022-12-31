@@ -13,7 +13,7 @@ namespace pse
 	{
 	};
 
-	template <int ... Next>
+	template <int... Next>
 	struct index_sequence_helper<0, Next ... >
 	{
 		using type = index_sequence<Next ... >;
