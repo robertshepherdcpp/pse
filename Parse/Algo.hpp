@@ -37,6 +37,22 @@ namespace pse
 				}
 			}
 
+			inline auto trim_white_space(auto s)
+			{
+				decltype(s) final{};
+				for (int i = 0; i < s.size(); i++)
+				{
+					if (s[i] == ' ')
+					{
+					}
+					else
+					{
+						final += s[i];
+					}
+				}
+				return final;
+			}
+
 			inline auto find_if(auto& container, auto& callable) noexcept(noexcept(container::iterator++))
 			{
 				int j = 0;
